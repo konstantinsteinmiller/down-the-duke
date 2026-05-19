@@ -5,6 +5,8 @@ GDevelop Big Game Jam #9 entry, working title **Down the Duke** — 2D side-scro
 For architecture, hard rules, and Claude session context see [`CLAUDE.md`](./CLAUDE.md).
 For outstanding design questions and the active task list see [`game-todo.md`](./game-todo.md).
 
+WIP: [playable demo](https://konstantinsteinmiller.github.io/down-the-duke/)
+
 ## Stack
 
 - **Authoring:** TypeScript + esbuild — game logic in `game-src/`, bundled to an IIFE and injected as the Main scene's

@@ -7,16 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c28b41bc-3860-40d9-a7a1-eef5cd43b6ec" name="Changes" comment="- playgama platform integration">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/static.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game-design.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_6.png" afterDir="false" />
+    <list default="true" id="c28b41bc-3860-40d9-a7a1-eef5cd43b6ec" name="Changes" comment="- basic project bootstrap">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/static.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/static.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,63 +69,63 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Jest.useBattleRules - Plus Rule.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Vitest.Battle Rules Engine.executor": "Run",
-    "Vitest.CrazyGamesStrategy (isCrazyWeb guard).executor": "Run",
-    "Vitest.Forest arena wall-bounce heal value.executor": "Run",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/konst/Documents/__p/hex-game",
-    "list.type.of.created.stylesheet": "SCSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs.jest.jest_package": "C:/Users/konst/fairy-quest/node_modules/jest",
-    "nodejs_package_manager_path": "pnpm",
-    "npm.build-github-develop.executor": "Run",
-    "npm.build-github-main.executor": "Run",
-    "npm.build-only.executor": "Run",
-    "npm.build.executor": "Run",
-    "npm.build:crazy-web.executor": "Run",
-    "npm.build:game-distribution.executor": "Run",
-    "npm.build:glitch.executor": "Run",
-    "npm.build:itch.executor": "Run",
-    "npm.build:playgama.executor": "Run",
-    "npm.build:wavedash.executor": "Run",
-    "npm.deploy-demo.executor": "Run",
-    "npm.dev (1).executor": "Run",
-    "npm.dev.executor": "Run",
-    "npm.mcp:run.executor": "Run",
-    "npm.native-build.executor": "Run",
-    "npm.native-dev-demo.executor": "Run",
-    "npm.native-dev.executor": "Run",
-    "npm.native-package.executor": "Run",
-    "npm.native-package:demo.executor": "Run",
-    "npm.native-preview.executor": "Run",
-    "npm.promote.executor": "Run",
-    "npm.start.executor": "Run",
-    "npm.tauri:build-android-aab.executor": "Run",
-    "npm.tauri:build-android-apk.executor": "Run",
-    "npm.tauri:dev-android.executor": "Run",
-    "npm.tauri:dev.executor": "Run",
-    "npm.test.executor": "Run",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\konst\\fairy-quest\\node_modules\\prettier",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "advanced.settings",
-    "ts.external.directory.path": "C:\\Users\\konst\\chaos-arena\\node_modules\\typescript\\lib",
-    "vcs.patch.path": "C:/Users/konst/chaos-arenea",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Jest.useBattleRules - Plus Rule.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Vitest.Battle Rules Engine.executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.CrazyGamesStrategy (isCrazyWeb guard).executor&quot;: &quot;Run&quot;,
+    &quot;Vitest.Forest arena wall-bounce heal value.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/konst/Documents/__p/hex-game&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;C:/Users/konst/fairy-quest/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;npm.build-github-develop.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build-github-main.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build-only.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build:crazy-web.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build:game-distribution.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build:glitch.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build:itch.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build:playgama.executor&quot;: &quot;Run&quot;,
+    &quot;npm.build:wavedash.executor&quot;: &quot;Run&quot;,
+    &quot;npm.deploy-demo.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.mcp:run.executor&quot;: &quot;Run&quot;,
+    &quot;npm.native-build.executor&quot;: &quot;Run&quot;,
+    &quot;npm.native-dev-demo.executor&quot;: &quot;Run&quot;,
+    &quot;npm.native-dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.native-package.executor&quot;: &quot;Run&quot;,
+    &quot;npm.native-package:demo.executor&quot;: &quot;Run&quot;,
+    &quot;npm.native-preview.executor&quot;: &quot;Run&quot;,
+    &quot;npm.promote.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;npm.tauri:build-android-aab.executor&quot;: &quot;Run&quot;,
+    &quot;npm.tauri:build-android-apk.executor&quot;: &quot;Run&quot;,
+    &quot;npm.tauri:dev-android.executor&quot;: &quot;Run&quot;,
+    &quot;npm.tauri:dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.test.executor&quot;: &quot;Run&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Users\\konst\\fairy-quest\\node_modules\\prettier&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;advanced.settings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\konst\\chaos-arena\\node_modules\\typescript\\lib&quot;,
+    &quot;vcs.patch.path&quot;: &quot;C:/Users/konst/chaos-arenea&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\konst\Documents\__p\hex-game" />
@@ -203,10 +196,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.promote" />
-        <item itemvalue="npm.build" />
         <item itemvalue="npm.mcp:run" />
         <item itemvalue="npm.build:playgama" />
         <item itemvalue="npm.build:crazy-web" />
+        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -285,22 +278,6 @@
       <workItem from="1778933712096" duration="3214000" />
       <workItem from="1779131709819" duration="5139000" />
       <workItem from="1779195901455" duration="9773000" />
-    </task>
-    <task id="LOCAL-00384" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
-      <option name="closed" value="true" />
-      <created>1777163297617</created>
-      <option name="number" value="00384" />
-      <option name="presentableId" value="LOCAL-00384" />
-      <option name="project" value="LOCAL" />
-      <updated>1777163297617</updated>
-    </task>
-    <task id="LOCAL-00385" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
-      <option name="closed" value="true" />
-      <created>1777196459086</created>
-      <option name="number" value="00385" />
-      <option name="presentableId" value="LOCAL-00385" />
-      <option name="project" value="LOCAL" />
-      <updated>1777196459086</updated>
     </task>
     <task id="LOCAL-00386" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
       <option name="closed" value="true" />
@@ -678,7 +655,23 @@
       <option name="project" value="LOCAL" />
       <updated>1778862620429</updated>
     </task>
-    <option name="localTasksCounter" value="433" />
+    <task id="LOCAL-00433" summary="- basic project bootstrap">
+      <option name="closed" value="true" />
+      <created>1779210573108</created>
+      <option name="number" value="00433" />
+      <option name="presentableId" value="LOCAL-00433" />
+      <option name="project" value="LOCAL" />
+      <updated>1779210573108</updated>
+    </task>
+    <task id="LOCAL-00434" summary="- basic project bootstrap">
+      <option name="closed" value="true" />
+      <created>1779210763077</created>
+      <option name="number" value="00434" />
+      <option name="presentableId" value="LOCAL-00434" />
+      <option name="project" value="LOCAL" />
+      <updated>1779210763078</updated>
+    </task>
+    <option name="localTasksCounter" value="435" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -754,7 +747,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="- glitch heartbeat integration" />
     <MESSAGE value="- glitch saves api integration&#10;- saveManager to handle save strategies by plattform&#10;- performance optimization&#10;- fps monitor" />
     <MESSAGE value="- fix android bundle building" />
     <MESSAGE value="- ads rewards reorganization with AdProvider and useAds.ts" />
@@ -779,7 +771,8 @@
     <MESSAGE value="- rubber banding boss levels&#10;- allow sound mute on mobile" />
     <MESSAGE value="- player tactical tips" />
     <MESSAGE value="- playgama platform integration" />
-    <option name="LAST_COMMIT_MESSAGE" value="- playgama platform integration" />
+    <MESSAGE value="- basic project bootstrap" />
+    <option name="LAST_COMMIT_MESSAGE" value="- basic project bootstrap" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
