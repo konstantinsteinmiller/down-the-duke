@@ -16,6 +16,14 @@ declare global {
     getVariables(): GdjsVariablesContainer;
 
     getLayer(name: string): GdjsLayer;
+
+    /**
+     * Request a scene change. `change` is the GDJS SceneChangeRequest
+     * enum: 0=Continue, 1=Stop, 2=ReplaceScene, 3=PushScene,
+     * 4=PopScene, 5=ClearScenes. We use 2 with sceneName="Main" to
+     * restart the level on the lose screen's RESTART button.
+     */
+    requestChange(change: number, sceneName?: string): void;
   }
 
   interface GdjsRuntimeGame {
@@ -68,6 +76,23 @@ declare global {
     setScaleX(scale: number): void;
 
     setScaleY(scale: number): void;
+
+    setWidth(width: number): void;
+
+    setHeight(height: number): void;
+
+    setColor(rgb: string): void;
+
+    getColor(): string;
+
+    setOpacity(opacity: number): void;
+
+    getOpacity(): number;
+
+    hide(hidden: boolean): void;
+
+    /** Only valid on TextObject sprites — sets the displayed string. */
+    setString(s: string): void;
 
     deleteFromScene(scene: GdjsRuntimeScene): void;
 

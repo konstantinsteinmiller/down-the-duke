@@ -13,6 +13,22 @@ export const ObjectName = {
   DeadZone: "DeadZone",
   Island: "Island",
   Railing: "Railing",
+  Crosshair: "Crosshair",
+  HealthBar: "HealthBar",
+  HealthBarBg: "HealthBarBg",
+  CannonballUI: "CannonballUI",
+  AmmoDot: "AmmoDot",
+  ReloadPip: "ReloadPip",
+  AmmoText: "AmmoText",
+  LoseOverlay: "LoseOverlay",
+  RestartButtonBg: "RestartButtonBg",
+  GameOverText: "GameOverText",
+  RestartButtonText: "RestartButtonText",
+  PlayerHpFrame: "PlayerHpFrame",
+  PlayerHpSection: "PlayerHpSection",
+  ChargedBullet: "ChargedBullet",
+  VictoryText: "VictoryText",
+  ContinueButtonText: "ContinueButtonText",
 } as const;
 export type ObjectName = typeof ObjectName[keyof typeof ObjectName];
 

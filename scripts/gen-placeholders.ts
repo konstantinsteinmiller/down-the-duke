@@ -188,6 +188,55 @@ const PLACEHOLDERS: Placeholder[] = [
   {name: "castle", w: 80, h: 140, pixel: castleSilhouette},
   {name: "sea", w: 380, h: 600, pixel: SEA_BLUE},
   {name: "deadzone", w: 4, h: 800, pixel: deadZoneLine},
+  {name: "healthbar-bg", w: 60, h: 8, pixel: [25, 25, 25, 220]}, // dark plate
+  {name: "healthbar", w: 60, h: 8, pixel: [220, 35, 35, 255]}, // bright red fill
+  {
+    name: "reload-pip", w: 10, h: 10, pixel: (x, y) => {
+      const cx = 5, cy = 5;
+      const d2 = (x - cx) * (x - cx) + (y - cy) * (y - cy);
+      if (d2 >= 25) return [0, 0, 0, 0];
+      return [255, 215, 80, 255]; // amber pip
+    }
+  },
+  // Lose-screen overlay: solid black; we set opacity 180 at spawn time
+  // so the gameplay still reads dimly underneath.
+  {name: "overlay", w: 64, h: 64, pixel: [0, 0, 0, 255]},
+  // Restart button background: dark slate with a lighter rim.
+  {
+    name: "button-bg", w: 240, h: 64, pixel: (x, y, w, h) => {
+      const RIM = 4;
+      const inFrame = x >= RIM && x < w - RIM && y >= RIM && y < h - RIM;
+      if (!inFrame) return [210, 195, 130, 240]; // tan rim
+      return [55, 45, 30, 235]; // dark inner panel
+    }
+  },
+  // Player health bar — frame + per-HP section. Drawn with a thin
+  // light bevel on the top edge, a thicker dark shadow on the bottom,
+  // and a darker red fill in the middle so it reads as a chunky 3D
+  // brick rather than a flat rectangle.
+  {
+    name: "hb-frame", w: 280, h: 44, pixel: (x, y, w, h) => {
+      const RIM = 4;
+      if (x < RIM || x >= w - RIM || y < RIM || y >= h - RIM) return [205, 175, 120, 240];
+      return [30, 22, 16, 235];
+    }
+  },
+  {
+    name: "hb-section", w: 48, h: 28, pixel: (x, y, w, h) => {
+      // top highlight
+      if (y < 4) return [255, 140, 100, 240];
+      // bottom shadow
+      if (y >= h - 4) return [110, 18, 18, 240];
+      // left + right rim
+      if (x < 2 || x >= w - 2) return [80, 14, 14, 240];
+      // main fill — vertical gradient red → darker
+      const t = (y - 4) / (h - 8);
+      const r = Math.round(220 - 40 * t);
+      const g = Math.round(40 - 18 * t);
+      const b = Math.round(40 - 18 * t);
+      return [r, g, b, 240];
+    }
+  },
 ];
 
 // ---------- PNG encoder (RGBA, 8-bit, no filtering, single IDAT) ----------

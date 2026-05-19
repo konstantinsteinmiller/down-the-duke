@@ -170,6 +170,87 @@
         "name": "cannonball-ui",
         "userAdded": true,
         "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/art/crosshair.webp",
+        "kind": "image",
+        "metadata": "",
+        "name": "crosshair",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/healthbar.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "healthbar",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/healthbar-bg.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "healthbar-bg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/reload-pip.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "reload-pip",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/overlay.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "overlay",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/button-bg.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "button-bg",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/hb-frame.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "hb-frame",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/hb-section.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "hb-section",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/art/cannonball-red.webp",
+        "kind": "image",
+        "metadata": "",
+        "name": "cannonball-red",
+        "userAdded": true,
+        "smoothed": true
       }
     ]
   },
@@ -672,6 +753,658 @@
               ]
             }
           ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Crosshair",
+          "persistentUuid": "c2055ae1-9999-4ca1-9a1c-ccc999999999",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "crosshair",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "HealthBar",
+          "persistentUuid": "4ea17b00-aaaa-4ca1-9a1c-aaa000000000",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "healthbar",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "HealthBarBg",
+          "persistentUuid": "4ea17b00-bbbb-4ca1-9a1c-bbb000000000",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "healthbar-bg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "CannonballUI",
+          "persistentUuid": "a330d00e-cccc-4ca1-9a1c-ccc000000000",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "cannonball-ui",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "AmmoDot",
+          "persistentUuid": "a330d00e-dddd-4ca1-9a1c-ddd000000000",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "cannonball-black",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "ReloadPip",
+          "persistentUuid": "e0a17777-eeee-4ca1-9a1c-eee000000000",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "reload-pip",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "AmmoText",
+          "persistentUuid": "11111111-aaaa-4111-aaaa-111111111111",
+          "type": "TextObject::Text",
+          "string": "4",
+          "font": "",
+          "characterSize": 28,
+          "color": {
+            "r": 255,
+            "g": 255,
+            "b": 255
+          },
+          "bold": true,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "isShadowEnabled": true,
+          "shadowColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "shadowOpacity": 230,
+          "shadowDistance": 2,
+          "shadowAngle": 90,
+          "shadowBlurRadius": 1,
+          "isOutlineEnabled": true,
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "outlineThickness": 2
+        },
+        {
+          "assetStoreId": "",
+          "name": "LoseOverlay",
+          "persistentUuid": "1059e077-0000-4ca1-9a1c-000000000001",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "overlay",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "RestartButtonBg",
+          "persistentUuid": "b0770e88-1111-4ca1-9a1c-111111111111",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "button-bg",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "GameOverText",
+          "persistentUuid": "60a0ee70-2222-4222-bbbb-222222222222",
+          "type": "TextObject::Text",
+          "string": "YOU SUNK!",
+          "font": "",
+          "characterSize": 56,
+          "color": {
+            "r": 240,
+            "g": 60,
+            "b": 60
+          },
+          "bold": true,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "isShadowEnabled": true,
+          "shadowColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "shadowOpacity": 230,
+          "shadowDistance": 2,
+          "shadowAngle": 90,
+          "shadowBlurRadius": 1,
+          "isOutlineEnabled": true,
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "outlineThickness": 3,
+          "variables": [],
+          "effects": [],
+          "behaviors": []
+        },
+        {
+          "assetStoreId": "",
+          "name": "RestartButtonText",
+          "persistentUuid": "9e57a917-3333-4333-cccc-333333333333",
+          "type": "TextObject::Text",
+          "string": "RESTART",
+          "font": "",
+          "characterSize": 32,
+          "color": {
+            "r": 250,
+            "g": 230,
+            "b": 180
+          },
+          "bold": true,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "isShadowEnabled": true,
+          "shadowColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "shadowOpacity": 230,
+          "shadowDistance": 2,
+          "shadowAngle": 90,
+          "shadowBlurRadius": 1,
+          "isOutlineEnabled": true,
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "outlineThickness": 2,
+          "variables": [],
+          "effects": [],
+          "behaviors": []
+        },
+        {
+          "assetStoreId": "",
+          "name": "PlayerHpFrame",
+          "persistentUuid": "b0770e88-2222-4ca1-9a1c-aaa222222222",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "hb-frame",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "PlayerHpSection",
+          "persistentUuid": "b0770e88-3333-4ca1-9a1c-bbb333333333",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "hb-section",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "ChargedBullet",
+          "persistentUuid": "ba110e22-4444-4ca1-9a1c-aab444444444",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "cannonball-red",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "VictoryText",
+          "persistentUuid": "01ce0079-4444-4444-dddd-444444444444",
+          "type": "TextObject::Text",
+          "string": "VICTORY!",
+          "font": "",
+          "characterSize": 56,
+          "color": {
+            "r": 240,
+            "g": 210,
+            "b": 80
+          },
+          "bold": true,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "isShadowEnabled": true,
+          "shadowColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "shadowOpacity": 230,
+          "shadowDistance": 2,
+          "shadowAngle": 90,
+          "shadowBlurRadius": 1,
+          "isOutlineEnabled": true,
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "outlineThickness": 3,
+          "variables": [],
+          "effects": [],
+          "behaviors": []
+        },
+        {
+          "assetStoreId": "",
+          "name": "ContinueButtonText",
+          "persistentUuid": "c071711e-5555-4555-eeee-555555555555",
+          "type": "TextObject::Text",
+          "string": "CONTINUE",
+          "font": "",
+          "characterSize": 32,
+          "color": {
+            "r": 250,
+            "g": 230,
+            "b": 180
+          },
+          "bold": true,
+          "italic": false,
+          "smoothed": true,
+          "underlined": false,
+          "isShadowEnabled": true,
+          "shadowColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "shadowOpacity": 230,
+          "shadowDistance": 2,
+          "shadowAngle": 90,
+          "shadowBlurRadius": 1,
+          "isOutlineEnabled": true,
+          "outlineColor": {
+            "r": 0,
+            "g": 0,
+            "b": 0
+          },
+          "outlineThickness": 2,
+          "variables": [],
+          "effects": [],
+          "behaviors": []
         }
       ],
       "objectsFolderStructure": {
@@ -709,13 +1442,61 @@
           },
           {
             "objectName": "Railing"
+          },
+          {
+            "objectName": "Crosshair"
+          },
+          {
+            "objectName": "HealthBar"
+          },
+          {
+            "objectName": "HealthBarBg"
+          },
+          {
+            "objectName": "CannonballUI"
+          },
+          {
+            "objectName": "AmmoDot"
+          },
+          {
+            "objectName": "ReloadPip"
+          },
+          {
+            "objectName": "AmmoText"
+          },
+          {
+            "objectName": "LoseOverlay"
+          },
+          {
+            "objectName": "RestartButtonBg"
+          },
+          {
+            "objectName": "GameOverText"
+          },
+          {
+            "objectName": "RestartButtonText"
+          },
+          {
+            "objectName": "PlayerHpFrame"
+          },
+          {
+            "objectName": "PlayerHpSection"
+          },
+          {
+            "objectName": "ChargedBullet"
+          },
+          {
+            "objectName": "VictoryText"
+          },
+          {
+            "objectName": "ContinueButtonText"
           }
         ]
       },
       "events": [
         {
           "type": "BuiltinCommonInstructions::JsCode",
-          "inlineCode": "\"use strict\";\n(() => {\n  // game-src/input.ts\n  var KEY = {\n    LEFT: 37,\n    UP: 38,\n    RIGHT: 39,\n    DOWN: 40,\n    W: 87,\n    A: 65,\n    S: 83,\n    D: 68,\n    SPACE: 32\n  };\n  var PREV_BITS_VAR = \"__inputPrevBits\";\n  function readInput(scene2) {\n    const im = scene2.getGame().getInputManager();\n    let x = 0;\n    let y = 0;\n    if (im.isKeyPressed(KEY.LEFT) || im.isKeyPressed(KEY.A)) x -= 1;\n    if (im.isKeyPressed(KEY.RIGHT) || im.isKeyPressed(KEY.D)) x += 1;\n    if (im.isKeyPressed(KEY.UP) || im.isKeyPressed(KEY.W)) y -= 1;\n    if (im.isKeyPressed(KEY.DOWN) || im.isKeyPressed(KEY.S)) y += 1;\n    const space = im.isKeyPressed(KEY.SPACE);\n    const mouse = im.isMouseButtonPressed(0);\n    const fire3 = space || mouse;\n    const prevVar = scene2.getVariables().get(PREV_BITS_VAR);\n    const prev = prevVar.getAsNumber();\n    const wasFire = (prev & (1 /* Fire */ | 2 /* Mouse */)) !== 0;\n    const firePressed = fire3 && !wasFire;\n    let next = 0;\n    if (space) next |= 1 /* Fire */;\n    if (mouse) next |= 2 /* Mouse */;\n    prevVar.setNumber(next);\n    return {\n      axes: { x, y },\n      fire: fire3,\n      firePressed,\n      cursor: { x: im.getCursorX(), y: im.getCursorY() }\n    };\n  }\n\n  // game-src/entities.ts\n  var ObjectName = {\n    Player: \"Player\",\n    Enemy: \"Enemy\",\n    Bullet: \"Bullet\",\n    Cannon: \"Cannon\",\n    EnemyBall: \"EnemyBall\",\n    Castle: \"Castle\",\n    Sea: \"Sea\",\n    Target: \"Target\",\n    DeadZone: \"DeadZone\",\n    Island: \"Island\",\n    Railing: \"Railing\"\n  };\n  function spawn(scene2, name, x, y) {\n    const obj = scene2.createObject(name, x, y);\n    if (!obj) {\n      console.warn(`[entities] createObject('${name}') returned null \\u2014 is it defined in the scene?`);\n    }\n    return obj;\n  }\n  function all(scene2, name) {\n    return scene2.getObjects(name);\n  }\n  function firstOrNull(scene2, name) {\n    const arr = scene2.getObjects(name);\n    return arr.length > 0 ? arr[0] : null;\n  }\n\n  // game-src/projectiles.ts\n  var OFFSCREEN_PAD = 48;\n  var BALL_DISPLAY_SIZE_PX = 28;\n  function fire(scene2, kind, x, y, dx, dy, speed) {\n    const len = Math.hypot(dx, dy) || 1;\n    const vx = dx / len * speed;\n    const vy = dy / len * speed;\n    const p = spawn(scene2, kind, x, y);\n    if (!p) return null;\n    if (kind === ObjectName.Bullet || kind === ObjectName.EnemyBall) {\n      const native = p.getWidth();\n      if (native > 0) p.setScale(BALL_DISPLAY_SIZE_PX / native);\n    }\n    const v = p.getVariables();\n    v.get(\"vx\").setNumber(vx);\n    v.get(\"vy\").setNumber(vy);\n    return p;\n  }\n  function update(scene2, kind, dt2) {\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    for (const p of all(scene2, kind)) {\n      const v = p.getVariables();\n      const nx = p.getX() + v.get(\"vx\").getAsNumber() * dt2;\n      const ny = p.getY() + v.get(\"vy\").getAsNumber() * dt2;\n      if (nx < -OFFSCREEN_PAD || nx > w + OFFSCREEN_PAD || ny < -OFFSCREEN_PAD || ny > h + OFFSCREEN_PAD) {\n        p.deleteFromScene(scene2);\n        continue;\n      }\n      p.setX(nx);\n      p.setY(ny);\n    }\n  }\n\n  // game-src/cannon.ts\n  var BULLET_SPEED = 720;\n  var AIM_CENTER_DEG = -90;\n  var AIM_SPREAD_DEG = 15;\n  var AIM_SENSITIVITY_PX = 140;\n  var BOTTOM_MARGIN = 14;\n  var RAILING_BOTTOM_MARGIN = 0;\n  var CANNON_Z = 10;\n  var RAILING_Z = 5;\n  function ensureCannon(scene2) {\n    let c = firstOrNull(scene2, ObjectName.Cannon);\n    if (c) return c;\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    c = spawn(scene2, ObjectName.Cannon, 0, 0);\n    if (c) {\n      const cw = c.getWidth();\n      const ch = c.getHeight();\n      const cx = w / 2 - cw / 2;\n      const cy = h - ch - BOTTOM_MARGIN;\n      c.setX(cx);\n      c.setY(cy);\n      c.setZOrder(CANNON_Z);\n      console.log(`[cannon] spawned ${cw}\\xD7${ch} at ${cx},${cy}`);\n    }\n    const r = spawn(scene2, ObjectName.Railing, 0, 0);\n    if (r) {\n      const rw = r.getWidth();\n      const rh = r.getHeight();\n      const rx = w / 2 - rw / 2;\n      const ry = h - rh - RAILING_BOTTOM_MARGIN;\n      r.setX(rx);\n      r.setY(ry);\n      r.setZOrder(RAILING_Z);\n      console.log(`[railing] spawned ${rw}\\xD7${rh} at ${rx},${ry}`);\n    }\n    return c;\n  }\n  function computeAimDeg(cannonX, cursorX) {\n    const t = Math.max(-1, Math.min(1, (cursorX - cannonX) / AIM_SENSITIVITY_PX));\n    return AIM_CENTER_DEG + t * AIM_SPREAD_DEG;\n  }\n  function aim(cannon2, cursorX) {\n    const aimDeg = computeAimDeg(cannon2.getCenterX(), cursorX);\n    cannon2.setAngle(aimDeg + 90);\n    return aimDeg;\n  }\n  function fire2(scene2, cannon2, aimDeg) {\n    const rad = aimDeg * Math.PI / 180;\n    const dx = Math.cos(rad);\n    const dy = Math.sin(rad);\n    const muzzleOffset = cannon2.getHeight() * 0.45;\n    const muzzleX = cannon2.getCenterX() + dx * muzzleOffset;\n    const muzzleY = cannon2.getCenterY() + dy * muzzleOffset;\n    fire(scene2, ObjectName.Bullet, muzzleX, muzzleY, dx, dy, BULLET_SPEED);\n  }\n\n  // game-src/background.ts\n  var SEA_Z = -20;\n  var ISLAND_Z = -15;\n  var DEADZONE_Z = -5;\n  var SKY_HEIGHT_PX = 130;\n  var ISLAND_Y = 110;\n  var DEADZONE_INSET_PX = 56;\n  var INIT_VAR = \"__bgInit\";\n  function deadZoneInset() {\n    return DEADZONE_INSET_PX;\n  }\n  function ensureBackground(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(INIT_VAR).getAsNumber() !== 0) return;\n    vars.get(INIT_VAR).setNumber(1);\n    const w = scene2.getGame().getGameResolutionWidth();\n    const sea = spawn(scene2, ObjectName.Sea, 0, SKY_HEIGHT_PX);\n    if (sea) sea.setZOrder(SEA_Z);\n    const island = spawn(scene2, ObjectName.Island, 0, 0);\n    if (island) {\n      const iw = island.getWidth();\n      island.setX(w / 2 - iw / 2);\n      island.setY(ISLAND_Y);\n      island.setZOrder(ISLAND_Z);\n    }\n    const dzLeft = spawn(scene2, ObjectName.DeadZone, DEADZONE_INSET_PX, 0);\n    if (dzLeft) dzLeft.setZOrder(DEADZONE_Z);\n    const dzRight = spawn(scene2, ObjectName.DeadZone, w - DEADZONE_INSET_PX, 0);\n    if (dzRight) dzRight.setZOrder(DEADZONE_Z);\n    console.log(`[background] sky/sea/island/deadzones spawned`);\n  }\n\n  // game-src/enemy.ts\n  var FIRE_INTERVAL_SEC = 2.2;\n  var SPAWN_GAP_SEC = 1;\n  var ENTRY_SPEED_PX_PER_SEC = 220;\n  var ENEMY_BALL_SPEED = 300;\n  var INITIAL_HP = 3;\n  var TOTAL_SHIPS_TO_SINK = 3;\n  var STOP_INSIDE_PLAYFIELD_PX = 6;\n  var TARGET_OFFSET_FRAC_X = 0.55;\n  var TARGET_OFFSET_FRAC_Y = 0.3;\n  var SUNK_COUNT_VAR = \"__shipsSunk\";\n  var NEXT_SIDE_VAR = \"__nextSide\";\n  var SPAWN_TIMER_VAR = \"__spawnTimer\";\n  var INIT_FLAG_VAR = \"__enemyInit\";\n  var SHIP_ID_COUNTER = \"__shipIdCounter\";\n  function nextShipId(scene2) {\n    const counter = scene2.getVariables().get(SHIP_ID_COUNTER);\n    const id = counter.getAsNumber() + 1;\n    counter.setNumber(id);\n    return id;\n  }\n  function findTargetForShip(scene2, shipId) {\n    for (const t of all(scene2, ObjectName.Target)) {\n      if (t.getVariables().get(\"shipId\").getAsNumber() === shipId) return t;\n    }\n    return null;\n  }\n  function findShipForTarget(scene2, target) {\n    const id = target.getVariables().get(\"shipId\").getAsNumber();\n    for (const e of all(scene2, ObjectName.Enemy)) {\n      if (e.getVariables().get(\"shipId\").getAsNumber() === id) return e;\n    }\n    return null;\n  }\n  var ENEMY_Y = 140;\n  function spawnShip(scene2, side) {\n    const w = scene2.getGame().getGameResolutionWidth();\n    const dz = deadZoneInset();\n    const y = ENEMY_Y;\n    const e = spawn(scene2, ObjectName.Enemy, side === \"left\" ? -400 : w + 400, y);\n    if (!e) return null;\n    const ew = e.getWidth();\n    const startX = side === \"left\" ? -ew - 8 : w + 8;\n    const playfieldLeft = dz + STOP_INSIDE_PLAYFIELD_PX;\n    const playfieldRight = w - dz - STOP_INSIDE_PLAYFIELD_PX - ew;\n    const centeredX = (playfieldLeft + playfieldRight) / 2;\n    const targetX = side === \"left\" ? centeredX - 8 : centeredX + 8;\n    e.setX(startX);\n    e.setY(y);\n    const id = nextShipId(scene2);\n    const v = e.getVariables();\n    v.get(\"shipId\").setNumber(id);\n    v.get(\"hp\").setNumber(INITIAL_HP);\n    v.get(\"state\").setNumber(0);\n    v.get(\"targetX\").setNumber(targetX);\n    v.get(\"fireTimer\").setNumber(0);\n    const t = spawn(\n      scene2,\n      ObjectName.Target,\n      startX + ew * TARGET_OFFSET_FRAC_X,\n      y + e.getHeight() * TARGET_OFFSET_FRAC_Y\n    );\n    if (t) t.getVariables().get(\"shipId\").setNumber(id);\n    console.log(`[enemy] spawn ${side} id=${id} ${ew}\\xD7${e.getHeight()} \\u2192 target x=${targetX}`);\n    return e;\n  }\n  function damage(scene2, enemy, amount) {\n    const hpVar = enemy.getVariables().get(\"hp\");\n    const next = hpVar.getAsNumber() - amount;\n    hpVar.setNumber(next);\n    if (next <= 0) {\n      const id = enemy.getVariables().get(\"shipId\").getAsNumber();\n      const t = findTargetForShip(scene2, id);\n      if (t) t.deleteFromScene(scene2);\n      enemy.deleteFromScene(scene2);\n      const sunk = scene2.getVariables().get(SUNK_COUNT_VAR);\n      sunk.setNumber(sunk.getAsNumber() + 1);\n      scene2.getVariables().get(SPAWN_TIMER_VAR).setNumber(0);\n      console.log(`[enemy] sunk id=${id} (${sunk.getAsNumber()}/${TOTAL_SHIPS_TO_SINK})`);\n      return true;\n    }\n    console.log(`[enemy] hit hp=${next}`);\n    return false;\n  }\n  function shipsSunk(scene2) {\n    return scene2.getVariables().get(SUNK_COUNT_VAR).getAsNumber();\n  }\n  function isLevelComplete(scene2) {\n    return shipsSunk(scene2) >= TOTAL_SHIPS_TO_SINK;\n  }\n  function tick(scene2, dt2, cannonX, cannonY) {\n    const vars = scene2.getVariables();\n    if (vars.get(INIT_FLAG_VAR).getAsNumber() === 0) {\n      vars.get(INIT_FLAG_VAR).setNumber(1);\n      spawnShip(scene2, \"left\");\n      vars.get(NEXT_SIDE_VAR).setNumber(1);\n      return;\n    }\n    const enemies = all(scene2, ObjectName.Enemy);\n    if (enemies.length === 0) {\n      if (isLevelComplete(scene2)) return;\n      const t = vars.get(SPAWN_TIMER_VAR).getAsNumber() + dt2;\n      if (t >= SPAWN_GAP_SEC) {\n        vars.get(SPAWN_TIMER_VAR).setNumber(0);\n        const sideBit = vars.get(NEXT_SIDE_VAR).getAsNumber();\n        spawnShip(scene2, sideBit === 0 ? \"left\" : \"right\");\n        vars.get(NEXT_SIDE_VAR).setNumber(1 - sideBit);\n      } else {\n        vars.get(SPAWN_TIMER_VAR).setNumber(t);\n      }\n      return;\n    }\n    for (const e of enemies) {\n      const v = e.getVariables();\n      const stateVal = v.get(\"state\").getAsNumber();\n      if (stateVal === 0) {\n        const target = v.get(\"targetX\").getAsNumber();\n        const x = e.getX();\n        const dir = target > x ? 1 : -1;\n        const nx = x + dir * ENTRY_SPEED_PX_PER_SEC * dt2;\n        if (dir === 1 && nx >= target || dir === -1 && nx <= target) {\n          e.setX(target);\n          v.get(\"state\").setNumber(1);\n          v.get(\"fireTimer\").setNumber(0);\n          console.log(`[enemy] arrived at ${target} (now firing)`);\n        } else {\n          e.setX(nx);\n        }\n      } else {\n        const ft = v.get(\"fireTimer\").getAsNumber() + dt2;\n        if (ft >= FIRE_INTERVAL_SEC) {\n          v.get(\"fireTimer\").setNumber(0);\n          const ex = e.getCenterX();\n          const ey = e.getCenterY();\n          fire(scene2, ObjectName.EnemyBall, ex, ey, cannonX - ex, cannonY - ey, ENEMY_BALL_SPEED);\n        } else {\n          v.get(\"fireTimer\").setNumber(ft);\n        }\n      }\n      const id = v.get(\"shipId\").getAsNumber();\n      const t = findTargetForShip(scene2, id);\n      if (t) {\n        t.setX(e.getX() + e.getWidth() * TARGET_OFFSET_FRAC_X);\n        t.setY(e.getY() + e.getHeight() * TARGET_OFFSET_FRAC_Y);\n      }\n    }\n  }\n\n  // game-src/state.ts\n  var INITIAL_PLAYER_HP = 5;\n  var HP_VAR = \"playerHp\";\n  var STATE_VAR = \"gameState\";\n  var HP_INIT_FLAG = \"__hpInit\";\n  function ensureInit(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(HP_INIT_FLAG).getAsNumber() === 0) {\n      vars.get(HP_INIT_FLAG).setNumber(1);\n      vars.get(HP_VAR).setNumber(INITIAL_PLAYER_HP);\n      vars.get(STATE_VAR).setNumber(0);\n      console.log(`[state] init hp=${INITIAL_PLAYER_HP}`);\n    }\n  }\n  function getState(scene2) {\n    const s = scene2.getVariables().get(STATE_VAR).getAsNumber();\n    return s === 1 ? \"won\" : s === 2 ? \"lost\" : \"playing\";\n  }\n  function damagePlayer(scene2, amount) {\n    if (getState(scene2) !== \"playing\") return;\n    const hpVar = scene2.getVariables().get(HP_VAR);\n    const next = Math.max(0, hpVar.getAsNumber() - amount);\n    hpVar.setNumber(next);\n    console.log(`[state] player hp=${next}`);\n    if (next <= 0) {\n      scene2.getVariables().get(STATE_VAR).setNumber(2);\n      console.log(`[state] LOST`);\n    }\n  }\n  function markWon(scene2) {\n    if (getState(scene2) !== \"playing\") return;\n    scene2.getVariables().get(STATE_VAR).setNumber(1);\n    console.log(`[state] WON`);\n  }\n\n  // game-src/collisions.ts\n  var BULLET_DAMAGE = 1;\n  var ENEMY_BALL_DAMAGE = 1;\n  function hit(a, b) {\n    return gdjs.RuntimeObject.collisionTest(a, b, false);\n  }\n  function resolveBulletHits(scene2) {\n    const bullets = all(scene2, ObjectName.Bullet);\n    if (bullets.length === 0) return { kills: 0, parries: 0 };\n    const targets = all(scene2, ObjectName.Target);\n    const enemyBalls = all(scene2, ObjectName.EnemyBall);\n    let kills = 0;\n    let parries = 0;\n    for (const b of bullets) {\n      let consumed = false;\n      for (const eb of enemyBalls) {\n        if (hit(b, eb)) {\n          eb.deleteFromScene(scene2);\n          b.deleteFromScene(scene2);\n          parries += 1;\n          consumed = true;\n          break;\n        }\n      }\n      if (consumed) continue;\n      for (const t of targets) {\n        if (hit(b, t)) {\n          b.deleteFromScene(scene2);\n          const ship = findShipForTarget(scene2, t);\n          const state = ship ? ship.getVariables().get(\"state\").getAsNumber() : 0;\n          if (ship && state === 1 && damage(scene2, ship, BULLET_DAMAGE)) {\n            kills += 1;\n          }\n          break;\n        }\n      }\n    }\n    return { kills, parries };\n  }\n  function resolveEnemyBallHits(scene2, cannon2) {\n    if (!cannon2) return 0;\n    const balls = all(scene2, ObjectName.EnemyBall);\n    if (balls.length === 0) return 0;\n    let dmg = 0;\n    for (const b of balls) {\n      if (hit(b, cannon2)) {\n        b.deleteFromScene(scene2);\n        damagePlayer(scene2, ENEMY_BALL_DAMAGE);\n        dmg += ENEMY_BALL_DAMAGE;\n      }\n    }\n    return dmg;\n  }\n\n  // game-src/main.ts\n  var scene = runtimeScene;\n  ensureInit(scene);\n  ensureBackground(scene);\n  var cannon = ensureCannon(scene);\n  var playing = getState(scene) === \"playing\";\n  var dt = scene.getElapsedTime() / 1e3;\n  var input = readInput(scene);\n  if (cannon && playing) {\n    const aimDeg = aim(cannon, input.cursor.x);\n    if (input.firePressed) fire2(scene, cannon, aimDeg);\n    tick(scene, dt, cannon.getCenterX(), cannon.getCenterY());\n  }\n  update(scene, ObjectName.Bullet, dt);\n  update(scene, ObjectName.EnemyBall, dt);\n  if (playing) {\n    resolveBulletHits(scene);\n    resolveEnemyBallHits(scene, cannon);\n    if (isLevelComplete(scene)) markWon(scene);\n  }\n})();\n",
+          "inlineCode": "\"use strict\";\n(() => {\n  // game-src/input.ts\n  var KEY = {\n    LEFT: 37,\n    UP: 38,\n    RIGHT: 39,\n    DOWN: 40,\n    W: 87,\n    A: 65,\n    S: 83,\n    D: 68,\n    SPACE: 32\n  };\n  var PREV_BITS_VAR = \"__inputPrevBits\";\n  function readInput(scene2) {\n    const im = scene2.getGame().getInputManager();\n    let x = 0;\n    let y = 0;\n    if (im.isKeyPressed(KEY.LEFT) || im.isKeyPressed(KEY.A)) x -= 1;\n    if (im.isKeyPressed(KEY.RIGHT) || im.isKeyPressed(KEY.D)) x += 1;\n    if (im.isKeyPressed(KEY.UP) || im.isKeyPressed(KEY.W)) y -= 1;\n    if (im.isKeyPressed(KEY.DOWN) || im.isKeyPressed(KEY.S)) y += 1;\n    const space = im.isKeyPressed(KEY.SPACE);\n    const mouse = im.isMouseButtonPressed(0);\n    const fire3 = space || mouse;\n    const prevVar = scene2.getVariables().get(PREV_BITS_VAR);\n    const prev = prevVar.getAsNumber();\n    const wasFire = (prev & (1 /* Fire */ | 2 /* Mouse */)) !== 0;\n    const firePressed = fire3 && !wasFire;\n    let next = 0;\n    if (space) next |= 1 /* Fire */;\n    if (mouse) next |= 2 /* Mouse */;\n    prevVar.setNumber(next);\n    return {\n      axes: { x, y },\n      fire: fire3,\n      firePressed,\n      cursor: { x: im.getCursorX(), y: im.getCursorY() }\n    };\n  }\n\n  // game-src/gestures.ts\n  var TAP_DURATION_MAX_SEC = 0.2;\n  var TAP_MOVEMENT_MAX_PX = 12;\n  var DOUBLE_TAP_WINDOW_SEC = 0.3;\n  var V_PREV_PRESSED = \"__gPrevPressed\";\n  var V_PRESS_TIME = \"__gPressTime\";\n  var V_PRESS_X = \"__gPressX\";\n  var V_PRESS_Y = \"__gPressY\";\n  var V_DRAGGING = \"__gDragging\";\n  var V_PENDING_TAP_T = \"__gPendingTapTime\";\n  var V_SCENE_TIME = \"__gSceneTime\";\n  function detectGesture(scene2, dt2, cursorX, cursorY, pressed) {\n    const vars = scene2.getVariables();\n    const now = vars.get(V_SCENE_TIME).getAsNumber() + dt2;\n    vars.get(V_SCENE_TIME).setNumber(now);\n    const wasPressed = vars.get(V_PREV_PRESSED).getAsNumber() === 1;\n    vars.get(V_PREV_PRESSED).setNumber(pressed ? 1 : 0);\n    let tap = false;\n    let doubleTap = false;\n    let dragging = vars.get(V_DRAGGING).getAsNumber() === 1;\n    let dragStarted = false;\n    if (pressed && !wasPressed) {\n      vars.get(V_PRESS_TIME).setNumber(now);\n      vars.get(V_PRESS_X).setNumber(cursorX);\n      vars.get(V_PRESS_Y).setNumber(cursorY);\n      vars.get(V_DRAGGING).setNumber(0);\n      dragging = false;\n    }\n    if (pressed && wasPressed && !dragging) {\n      const held = now - vars.get(V_PRESS_TIME).getAsNumber();\n      const dx = cursorX - vars.get(V_PRESS_X).getAsNumber();\n      const dy = cursorY - vars.get(V_PRESS_Y).getAsNumber();\n      const moved = Math.hypot(dx, dy);\n      if (held >= TAP_DURATION_MAX_SEC || moved >= TAP_MOVEMENT_MAX_PX) {\n        dragging = true;\n        dragStarted = true;\n        vars.get(V_DRAGGING).setNumber(1);\n      }\n    }\n    if (!pressed && wasPressed) {\n      if (!dragging) {\n        const pending2 = vars.get(V_PENDING_TAP_T).getAsNumber();\n        if (pending2 > 0 && now - pending2 <= DOUBLE_TAP_WINDOW_SEC) {\n          doubleTap = true;\n          vars.get(V_PENDING_TAP_T).setNumber(0);\n        } else {\n          vars.get(V_PENDING_TAP_T).setNumber(now);\n        }\n      }\n      vars.get(V_DRAGGING).setNumber(0);\n      dragging = false;\n    }\n    const pending = vars.get(V_PENDING_TAP_T).getAsNumber();\n    if (pending > 0 && now - pending > DOUBLE_TAP_WINDOW_SEC) {\n      tap = true;\n      vars.get(V_PENDING_TAP_T).setNumber(0);\n    }\n    return { tap, doubleTap, dragging, dragStarted };\n  }\n\n  // game-src/entities.ts\n  var ObjectName = {\n    Player: \"Player\",\n    Enemy: \"Enemy\",\n    Bullet: \"Bullet\",\n    Cannon: \"Cannon\",\n    EnemyBall: \"EnemyBall\",\n    Castle: \"Castle\",\n    Sea: \"Sea\",\n    Target: \"Target\",\n    DeadZone: \"DeadZone\",\n    Island: \"Island\",\n    Railing: \"Railing\",\n    Crosshair: \"Crosshair\",\n    HealthBar: \"HealthBar\",\n    HealthBarBg: \"HealthBarBg\",\n    CannonballUI: \"CannonballUI\",\n    AmmoDot: \"AmmoDot\",\n    ReloadPip: \"ReloadPip\",\n    AmmoText: \"AmmoText\",\n    LoseOverlay: \"LoseOverlay\",\n    RestartButtonBg: \"RestartButtonBg\",\n    GameOverText: \"GameOverText\",\n    RestartButtonText: \"RestartButtonText\",\n    PlayerHpFrame: \"PlayerHpFrame\",\n    PlayerHpSection: \"PlayerHpSection\",\n    ChargedBullet: \"ChargedBullet\",\n    VictoryText: \"VictoryText\",\n    ContinueButtonText: \"ContinueButtonText\"\n  };\n  function spawn(scene2, name, x, y) {\n    const obj = scene2.createObject(name, x, y);\n    if (!obj) {\n      console.warn(`[entities] createObject('${name}') returned null \\u2014 is it defined in the scene?`);\n    }\n    return obj;\n  }\n  function all(scene2, name) {\n    return scene2.getObjects(name);\n  }\n  function firstOrNull(scene2, name) {\n    const arr = scene2.getObjects(name);\n    return arr.length > 0 ? arr[0] : null;\n  }\n\n  // game-src/projectiles.ts\n  var FLIGHT_TIME_SEC = 2.25;\n  var BALL_DISPLAY_SIZE_PX = 28;\n  var CHARGED_BALL_DISPLAY_SIZE_PX = 44;\n  var VIEWPORT_PEAK_MARGIN_PX = 24;\n  var MIN_ARC_HEIGHT_PX = 80;\n  function maxAllowedArcH(sy, ty, margin) {\n    const u = ty - sy;\n    const M = sy - margin;\n    if (M <= 0) return Number.POSITIVE_INFINITY;\n    const disc = 256 * M * (M + u);\n    if (disc <= 0) return Number.POSITIVE_INFINITY;\n    return (8 * u + 16 * M + Math.sqrt(disc)) / 32;\n  }\n  function centerOn(p, x, y) {\n    p.setX(x - p.getWidth() / 2);\n    p.setY(y - p.getHeight() / 2);\n  }\n  function fire(scene2, kind, startX, startY, targetX, targetY, opts = {}) {\n    const p = spawn(scene2, kind, startX, startY);\n    if (!p) return null;\n    const charged = opts.charged === true;\n    let nativeW = 0;\n    if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {\n      nativeW = p.getWidth();\n      const displaySize = charged ? CHARGED_BALL_DISPLAY_SIZE_PX : BALL_DISPLAY_SIZE_PX;\n      if (nativeW > 0) p.setScale(displaySize / nativeW);\n    }\n    centerOn(p, startX, startY);\n    if (charged) p.getVariables().get(\"charged\").setNumber(1);\n    const horizDist = Math.abs(targetX - startX);\n    const vertSpan = Math.abs(targetY - startY);\n    const desired = Math.max(MIN_ARC_HEIGHT_PX, vertSpan * 0.55 + horizDist * 0.45);\n    const maxAllowed = maxAllowedArcH(startY, targetY, VIEWPORT_PEAK_MARGIN_PX);\n    const arcH = Math.min(desired, maxAllowed);\n    const v = p.getVariables();\n    v.get(\"startX\").setNumber(startX);\n    v.get(\"startY\").setNumber(startY);\n    v.get(\"targetX\").setNumber(targetX);\n    v.get(\"targetY\").setNumber(targetY);\n    v.get(\"arcH\").setNumber(arcH);\n    v.get(\"xArcAmp\").setNumber(opts.xArcAmp ?? 0);\n    v.get(\"elapsed\").setNumber(0);\n    if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {\n      const baseSize = charged ? CHARGED_BALL_DISPLAY_SIZE_PX : BALL_DISPLAY_SIZE_PX;\n      v.get(\"baseSize\").setNumber(baseSize);\n      v.get(\"nativeW\").setNumber(nativeW);\n    }\n    return p;\n  }\n  function depthScale(t, kind) {\n    if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet) return 1 - 0.55 * t;\n    if (kind === ObjectName.EnemyBall) return 0.45 + 0.55 * t;\n    return 1;\n  }\n  function update(scene2, kind, dt2) {\n    for (const p of all(scene2, kind)) {\n      const v = p.getVariables();\n      const elapsed = v.get(\"elapsed\").getAsNumber() + dt2;\n      if (elapsed >= FLIGHT_TIME_SEC) {\n        p.deleteFromScene(scene2);\n        continue;\n      }\n      v.get(\"elapsed\").setNumber(elapsed);\n      const t = elapsed / FLIGHT_TIME_SEC;\n      const sx = v.get(\"startX\").getAsNumber();\n      const sy = v.get(\"startY\").getAsNumber();\n      const tx = v.get(\"targetX\").getAsNumber();\n      const ty = v.get(\"targetY\").getAsNumber();\n      const arcH = v.get(\"arcH\").getAsNumber();\n      const xArcAmp = v.get(\"xArcAmp\").getAsNumber();\n      const x = sx + (tx - sx) * t + xArcAmp * 4 * t * (1 - t);\n      const y = sy + (ty - sy) * t - arcH * 4 * t * (1 - t);\n      if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {\n        const baseSize = v.get(\"baseSize\").getAsNumber();\n        const nativeW = v.get(\"nativeW\").getAsNumber();\n        if (baseSize > 0 && nativeW > 0) {\n          const size = baseSize * depthScale(t, kind);\n          p.setScale(size / nativeW);\n        }\n      }\n      centerOn(p, x, y);\n    }\n  }\n\n  // game-src/hud.ts\n  var MAX_AMMO = 4;\n  var RELOAD_SEC = 4;\n  var SHOT_COOLDOWN_SEC = 0.75;\n  var UI_RIGHT_MARGIN = 12;\n  var UI_TOP_MARGIN = 12;\n  var TEXT_OFFSET_X = 86;\n  var TEXT_OFFSET_Y = 20;\n  var RELOAD_PIP_COUNT = 12;\n  var RELOAD_PIP_RADIUS = 110;\n  var HUD_INIT_VAR = \"__hudInit\";\n  var HUD_AMMO_VAR = \"__hudAmmo\";\n  var HUD_RELOAD_VAR = \"__hudReload\";\n  var HUD_COOLDOWN_VAR = \"__hudShotCooldown\";\n  var PIPS_SPAWNED_VAR = \"__hudPipsSpawned\";\n  var UI_Z = 30;\n  var TEXT_Z = 32;\n  var PIP_Z = 40;\n  function ensureHud(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(HUD_INIT_VAR).getAsNumber() !== 0) return;\n    vars.get(HUD_INIT_VAR).setNumber(1);\n    vars.get(HUD_AMMO_VAR).setNumber(MAX_AMMO);\n    vars.get(HUD_RELOAD_VAR).setNumber(0);\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const ui = spawn(scene2, ObjectName.CannonballUI, 0, 0);\n    if (!ui) return;\n    const uw = ui.getWidth();\n    const ux = w - uw - UI_RIGHT_MARGIN;\n    const uy = UI_TOP_MARGIN;\n    ui.setX(ux);\n    ui.setY(uy);\n    ui.setZOrder(UI_Z);\n    const text = spawn(scene2, ObjectName.AmmoText, 0, 0);\n    if (text) {\n      text.setX(ux + TEXT_OFFSET_X);\n      text.setY(uy + TEXT_OFFSET_Y);\n      text.setZOrder(TEXT_Z);\n      text.setString(String(MAX_AMMO));\n    }\n    console.log(`[hud] ammo UI at (${ux}, ${uy})`);\n  }\n  function canFire(scene2, cost) {\n    const vars = scene2.getVariables();\n    if (vars.get(HUD_RELOAD_VAR).getAsNumber() > 0) return false;\n    if (vars.get(HUD_COOLDOWN_VAR).getAsNumber() > 0) return false;\n    return vars.get(HUD_AMMO_VAR).getAsNumber() >= cost;\n  }\n  function consumeAmmo(scene2, cost) {\n    const vars = scene2.getVariables();\n    const before = vars.get(HUD_AMMO_VAR).getAsNumber();\n    const after = Math.max(0, before - cost);\n    vars.get(HUD_AMMO_VAR).setNumber(after);\n    if (after <= 0) {\n      vars.get(HUD_RELOAD_VAR).setNumber(RELOAD_SEC);\n      console.log(`[hud] empty \\u2014 reloading for ${RELOAD_SEC}s`);\n    }\n    vars.get(HUD_COOLDOWN_VAR).setNumber(SHOT_COOLDOWN_SEC);\n    return after;\n  }\n  function spawnReloadPipsIfNeeded(scene2, cannon2) {\n    if (!cannon2) return;\n    const vars = scene2.getVariables();\n    if (vars.get(PIPS_SPAWNED_VAR).getAsNumber() === 1) return;\n    vars.get(PIPS_SPAWNED_VAR).setNumber(1);\n    const cx = cannon2.getX() + cannon2.getCenterX();\n    const cy = cannon2.getY() + cannon2.getCenterY();\n    for (let i = 0; i < RELOAD_PIP_COUNT; i++) {\n      const angle = i / RELOAD_PIP_COUNT * 2 * Math.PI - Math.PI / 2;\n      const x = cx + RELOAD_PIP_RADIUS * Math.cos(angle);\n      const y = cy + RELOAD_PIP_RADIUS * Math.sin(angle);\n      const pip = spawn(scene2, ObjectName.ReloadPip, 0, 0);\n      if (!pip) continue;\n      pip.setX(x - pip.getWidth() / 2);\n      pip.setY(y - pip.getHeight() / 2);\n      pip.setZOrder(PIP_Z);\n      pip.hide(true);\n      pip.getVariables().get(\"idx\").setNumber(i);\n    }\n  }\n  function tick(scene2, dt2, cannon2) {\n    const vars = scene2.getVariables();\n    const reloadLeft = vars.get(HUD_RELOAD_VAR).getAsNumber();\n    if (reloadLeft > 0) {\n      const next = reloadLeft - dt2;\n      if (next <= 0) {\n        vars.get(HUD_RELOAD_VAR).setNumber(0);\n        vars.get(HUD_AMMO_VAR).setNumber(MAX_AMMO);\n        console.log(`[hud] reload complete`);\n      } else {\n        vars.get(HUD_RELOAD_VAR).setNumber(next);\n      }\n    }\n    const cd = vars.get(HUD_COOLDOWN_VAR).getAsNumber();\n    if (cd > 0) vars.get(HUD_COOLDOWN_VAR).setNumber(Math.max(0, cd - dt2));\n    const ammo = vars.get(HUD_AMMO_VAR).getAsNumber();\n    const reloading = vars.get(HUD_RELOAD_VAR).getAsNumber() > 0;\n    const text = firstOrNull(scene2, ObjectName.AmmoText);\n    if (text) text.setString(reloading ? \":\" : String(ammo));\n    spawnReloadPipsIfNeeded(scene2, cannon2);\n    if (reloading) {\n      const duration = RELOAD_SEC;\n      const left = vars.get(HUD_RELOAD_VAR).getAsNumber();\n      const progress = Math.max(0, Math.min(1, 1 - left / duration));\n      const visibleCount = Math.ceil(progress * RELOAD_PIP_COUNT);\n      for (const pip of all(scene2, ObjectName.ReloadPip)) {\n        const idx = pip.getVariables().get(\"idx\").getAsNumber();\n        pip.hide(idx >= visibleCount);\n      }\n    } else {\n      for (const pip of all(scene2, ObjectName.ReloadPip)) pip.hide(true);\n    }\n  }\n\n  // game-src/cannon.ts\n  var AIM_CENTER_DEG = -90;\n  var AIM_SPREAD_DEG = 15;\n  var TARGET_BAND_Y = 270;\n  var AIM_DEG_PER_PX = 1 / 8;\n  var AIM_DEG_VAR = \"__aimDeg\";\n  var PREV_CURSOR_X_VAR = \"__prevCursorX\";\n  var AIM_INIT_VAR = \"__aimInit\";\n  var BOTTOM_MARGIN = 14;\n  var RAILING_BOTTOM_MARGIN = 0;\n  var CANNON_Z = 10;\n  var RAILING_Z = 5;\n  var CROSSHAIR_Z = 15;\n  function ensureCannon(scene2) {\n    let c = firstOrNull(scene2, ObjectName.Cannon);\n    if (c) return c;\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    c = spawn(scene2, ObjectName.Cannon, 0, 0);\n    if (c) {\n      const cw = c.getWidth();\n      const ch = c.getHeight();\n      c.setX(w / 2 - cw / 2);\n      c.setY(h - ch - BOTTOM_MARGIN);\n      c.setZOrder(CANNON_Z);\n      console.log(`[cannon] spawned ${cw}\\xD7${ch}`);\n    }\n    const r = spawn(scene2, ObjectName.Railing, 0, 0);\n    if (r) {\n      const rw = r.getWidth();\n      const rh = r.getHeight();\n      r.setX(w / 2 - rw / 2);\n      r.setY(h - rh - RAILING_BOTTOM_MARGIN);\n      r.setZOrder(RAILING_Z);\n    }\n    return c;\n  }\n  function cannonCenter(cannon2) {\n    return {\n      x: cannon2.getX() + cannon2.getCenterX(),\n      y: cannon2.getY() + cannon2.getCenterY()\n    };\n  }\n  function aimTarget(scene2, cannon2, aimDeg) {\n    const rad = aimDeg * Math.PI / 180;\n    const dx = Math.cos(rad);\n    const dy = Math.sin(rad);\n    const { x: cx, y: cy } = cannonCenter(cannon2);\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    let tx, ty;\n    if (dy < -0.05) {\n      const tDist = (TARGET_BAND_Y - cy) / dy;\n      tx = cx + dx * tDist;\n      ty = TARGET_BAND_Y;\n    } else {\n      tx = cx + dx * 400;\n      ty = cy + dy * 400;\n    }\n    tx = Math.max(20, Math.min(w - 20, tx));\n    ty = Math.max(20, Math.min(h - 20, ty));\n    return { x: tx, y: ty };\n  }\n  function aim(scene2, cannon2, cursorX, dragging) {\n    const vars = scene2.getVariables();\n    if (vars.get(AIM_INIT_VAR).getAsNumber() === 0) {\n      vars.get(AIM_INIT_VAR).setNumber(1);\n      vars.get(AIM_DEG_VAR).setNumber(AIM_CENTER_DEG);\n      vars.get(PREV_CURSOR_X_VAR).setNumber(cursorX);\n    }\n    const prev = vars.get(PREV_CURSOR_X_VAR).getAsNumber();\n    const dx = cursorX - prev;\n    vars.get(PREV_CURSOR_X_VAR).setNumber(cursorX);\n    let aimDeg = vars.get(AIM_DEG_VAR).getAsNumber();\n    if (dragging) {\n      aimDeg += dx * AIM_DEG_PER_PX;\n      aimDeg = Math.max(AIM_CENTER_DEG - AIM_SPREAD_DEG, Math.min(AIM_CENTER_DEG + AIM_SPREAD_DEG, aimDeg));\n      vars.get(AIM_DEG_VAR).setNumber(aimDeg);\n    }\n    cannon2.setAngle(aimDeg + 90);\n    return aimDeg;\n  }\n  function updateCrosshair(scene2, cannon2, aimDeg) {\n    let cross = firstOrNull(scene2, ObjectName.Crosshair);\n    if (!cross) {\n      cross = spawn(scene2, ObjectName.Crosshair, 0, 0);\n      if (cross) cross.setZOrder(CROSSHAIR_Z);\n    }\n    if (!cross) return;\n    const t = aimTarget(scene2, cannon2, aimDeg);\n    cross.setX(t.x - cross.getWidth() / 2);\n    cross.setY(t.y - cross.getHeight() / 2);\n  }\n  function fire2(scene2, cannon2, aimDeg, charged = false) {\n    const cost = charged ? 2 : 1;\n    if (!canFire(scene2, cost)) return false;\n    const rad = aimDeg * Math.PI / 180;\n    const dx = Math.cos(rad);\n    const dy = Math.sin(rad);\n    const { x: cx, y: cy } = cannonCenter(cannon2);\n    const muzzleOffset = 80;\n    const muzzleX = cx + dx * muzzleOffset;\n    const muzzleY = cy + dy * muzzleOffset;\n    const target = aimTarget(scene2, cannon2, aimDeg);\n    const horizDelta = target.x - muzzleX;\n    const dir = horizDelta === 0 ? 1 : Math.sign(horizDelta);\n    const xArcAmp = horizDelta * 0.5 + dir * 40;\n    const kind = charged ? ObjectName.ChargedBullet : ObjectName.Bullet;\n    fire(scene2, kind, muzzleX, muzzleY, target.x, target.y, { charged, xArcAmp });\n    consumeAmmo(scene2, cost);\n    console.log(`[cannon] fire${charged ? \" CHARGED\" : \"\"} aim=${aimDeg.toFixed(1)}\\xB0 muzzle=(${muzzleX.toFixed(0)},${muzzleY.toFixed(0)}) \\u2192 (${target.x.toFixed(0)},${target.y.toFixed(0)})`);\n    return true;\n  }\n\n  // game-src/background.ts\n  var SEA_Z = -20;\n  var ISLAND_Z = -15;\n  var SKY_HEIGHT_PX = 130;\n  var ISLAND_Y = 110;\n  var DEADZONE_INSET_PX = 56;\n  var INIT_VAR = \"__bgInit\";\n  function deadZoneInset() {\n    return DEADZONE_INSET_PX;\n  }\n  function ensureBackground(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(INIT_VAR).getAsNumber() !== 0) return;\n    vars.get(INIT_VAR).setNumber(1);\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    const sea = spawn(scene2, ObjectName.Sea, 0, SKY_HEIGHT_PX);\n    if (sea) {\n      sea.setWidth(w);\n      sea.setHeight(Math.max(h - SKY_HEIGHT_PX, 0) + 1200);\n      sea.setZOrder(SEA_Z);\n    }\n    const island = spawn(scene2, ObjectName.Island, 0, 0);\n    if (island) {\n      const iw = island.getWidth();\n      island.setX(w / 2 - iw / 2);\n      island.setY(ISLAND_Y);\n      island.setZOrder(ISLAND_Z);\n    }\n    console.log(`[background] viewport ${w}\\xD7${h}, sky 0..${SKY_HEIGHT_PX}, sea ${SKY_HEIGHT_PX}..${h}`);\n  }\n\n  // game-src/enemy.ts\n  var FIRE_INTERVAL_SEC = 3.9;\n  var ENEMY_MAGAZINE = 3;\n  var ENEMY_RELOAD_SEC = 3.25;\n  var SPAWN_GAP_SEC = 1;\n  var ENTRY_SPEED_PX_PER_SEC = 220;\n  var INITIAL_HP = 2;\n  var TOTAL_SHIPS_TO_SINK = 3;\n  var FLASH_DURATION_SEC = 0.15;\n  var FLASH_COLOR_DIRECT = \"255;255;255\";\n  var FLASH_COLOR_OFFTARGET = \"200;200;80\";\n  var FLASH_COLOR_NONE = \"255;255;255\";\n  var FLASH_OPACITY_DIRECT = 160;\n  var FLASH_OPACITY_DEFAULT = 255;\n  var HEALTHBAR_OFFSET_Y = -16;\n  var HEALTHBAR_NATIVE_W = 60;\n  var STOP_INSIDE_PLAYFIELD_PX = 6;\n  var TARGET_OFFSET_FRAC_X = 0.5;\n  var TARGET_OFFSET_FRAC_Y = 0.7;\n  var SUNK_COUNT_VAR = \"__shipsSunk\";\n  var NEXT_SIDE_VAR = \"__nextSide\";\n  var SPAWN_TIMER_VAR = \"__spawnTimer\";\n  var INIT_FLAG_VAR = \"__enemyInit\";\n  var SHIP_ID_COUNTER = \"__shipIdCounter\";\n  function nextShipId(scene2) {\n    const counter = scene2.getVariables().get(SHIP_ID_COUNTER);\n    const id = counter.getAsNumber() + 1;\n    counter.setNumber(id);\n    return id;\n  }\n  function findTargetForShip(scene2, shipId) {\n    for (const t of all(scene2, ObjectName.Target)) {\n      if (t.getVariables().get(\"shipId\").getAsNumber() === shipId) return t;\n    }\n    return null;\n  }\n  function findShipForTarget(scene2, target) {\n    const id = target.getVariables().get(\"shipId\").getAsNumber();\n    for (const e of all(scene2, ObjectName.Enemy)) {\n      if (e.getVariables().get(\"shipId\").getAsNumber() === id) return e;\n    }\n    return null;\n  }\n  var ENEMY_Y = 140;\n  function spawnShip(scene2, side) {\n    const w = scene2.getGame().getGameResolutionWidth();\n    const dz = deadZoneInset();\n    const y = ENEMY_Y;\n    const e = spawn(scene2, ObjectName.Enemy, side === \"left\" ? -400 : w + 400, y);\n    if (!e) return null;\n    const ew = e.getWidth();\n    const startX = side === \"left\" ? -ew - 8 : w + 8;\n    const playfieldLeft = dz + STOP_INSIDE_PLAYFIELD_PX;\n    const playfieldRight = w - dz - STOP_INSIDE_PLAYFIELD_PX - ew;\n    const centeredX = (playfieldLeft + playfieldRight) / 2;\n    const targetX = side === \"left\" ? centeredX - 8 : centeredX + 8;\n    e.setX(startX);\n    e.setY(y);\n    const id = nextShipId(scene2);\n    const v = e.getVariables();\n    v.get(\"shipId\").setNumber(id);\n    v.get(\"hp\").setNumber(INITIAL_HP);\n    v.get(\"maxHp\").setNumber(INITIAL_HP);\n    v.get(\"state\").setNumber(0);\n    v.get(\"targetX\").setNumber(targetX);\n    v.get(\"fireTimer\").setNumber(0);\n    v.get(\"flashTimer\").setNumber(0);\n    v.get(\"ammo\").setNumber(ENEMY_MAGAZINE);\n    v.get(\"reloadTimer\").setNumber(0);\n    const t = spawn(\n      scene2,\n      ObjectName.Target,\n      startX + ew * TARGET_OFFSET_FRAC_X,\n      y + e.getHeight() * TARGET_OFFSET_FRAC_Y\n    );\n    if (t) t.getVariables().get(\"shipId\").setNumber(id);\n    console.log(`[enemy] spawn ${side} id=${id} ${ew}\\xD7${e.getHeight()} \\u2192 target x=${targetX}`);\n    return e;\n  }\n  function findHealthBarsForShip(scene2, shipId) {\n    let bg = null;\n    let fg = null;\n    for (const b of all(scene2, ObjectName.HealthBarBg)) {\n      if (b.getVariables().get(\"shipId\").getAsNumber() === shipId) {\n        bg = b;\n        break;\n      }\n    }\n    for (const f of all(scene2, ObjectName.HealthBar)) {\n      if (f.getVariables().get(\"shipId\").getAsNumber() === shipId) {\n        fg = f;\n        break;\n      }\n    }\n    return { bg, fg };\n  }\n  function spawnHealthBar(scene2, shipId, x, y) {\n    const bg = spawn(scene2, ObjectName.HealthBarBg, x, y);\n    if (bg) {\n      bg.getVariables().get(\"shipId\").setNumber(shipId);\n      bg.setZOrder(4);\n    }\n    const fg = spawn(scene2, ObjectName.HealthBar, x, y);\n    if (fg) {\n      fg.getVariables().get(\"shipId\").setNumber(shipId);\n      fg.setZOrder(5);\n    }\n  }\n  function despawnHealthBar(scene2, shipId) {\n    const { bg, fg } = findHealthBarsForShip(scene2, shipId);\n    if (bg) bg.deleteFromScene(scene2);\n    if (fg) fg.deleteFromScene(scene2);\n  }\n  function syncHealthBar(scene2, enemy) {\n    const v = enemy.getVariables();\n    const shipId = v.get(\"shipId\").getAsNumber();\n    const { bg, fg } = findHealthBarsForShip(scene2, shipId);\n    if (!bg && !fg) return;\n    const hp = v.get(\"hp\").getAsNumber();\n    const maxHp = v.get(\"maxHp\").getAsNumber();\n    const frac = maxHp > 0 ? Math.max(0, Math.min(1, hp / maxHp)) : 0;\n    const w = enemy.getWidth();\n    const cx = enemy.getX() + w / 2;\n    const y = enemy.getY() + HEALTHBAR_OFFSET_Y;\n    if (bg) {\n      bg.setX(cx - HEALTHBAR_NATIVE_W / 2);\n      bg.setY(y);\n    }\n    if (fg) {\n      fg.setX(cx - HEALTHBAR_NATIVE_W / 2);\n      fg.setY(y);\n      fg.setWidth(HEALTHBAR_NATIVE_W * frac);\n    }\n  }\n  function flash(enemy, direct) {\n    const v = enemy.getVariables();\n    v.get(\"flashTimer\").setNumber(FLASH_DURATION_SEC);\n    enemy.setColor(direct ? FLASH_COLOR_DIRECT : FLASH_COLOR_OFFTARGET);\n    if (direct) enemy.setOpacity(FLASH_OPACITY_DIRECT);\n  }\n  function damage(scene2, enemy, amount) {\n    const hpVar = enemy.getVariables().get(\"hp\");\n    const next = hpVar.getAsNumber() - amount;\n    hpVar.setNumber(next);\n    if (next <= 0) {\n      const id = enemy.getVariables().get(\"shipId\").getAsNumber();\n      const t = findTargetForShip(scene2, id);\n      if (t) t.deleteFromScene(scene2);\n      despawnHealthBar(scene2, id);\n      enemy.deleteFromScene(scene2);\n      const sunk = scene2.getVariables().get(SUNK_COUNT_VAR);\n      sunk.setNumber(sunk.getAsNumber() + 1);\n      scene2.getVariables().get(SPAWN_TIMER_VAR).setNumber(0);\n      console.log(`[enemy] sunk id=${id} (${sunk.getAsNumber()}/${TOTAL_SHIPS_TO_SINK})`);\n      return true;\n    }\n    console.log(`[enemy] hit hp=${next}`);\n    return false;\n  }\n  function shipsSunk(scene2) {\n    return scene2.getVariables().get(SUNK_COUNT_VAR).getAsNumber();\n  }\n  function isLevelComplete(scene2) {\n    return shipsSunk(scene2) >= TOTAL_SHIPS_TO_SINK;\n  }\n  function tick2(scene2, dt2, cannonX, cannonY) {\n    const vars = scene2.getVariables();\n    if (vars.get(INIT_FLAG_VAR).getAsNumber() === 0) {\n      vars.get(INIT_FLAG_VAR).setNumber(1);\n      spawnShip(scene2, \"left\");\n      vars.get(NEXT_SIDE_VAR).setNumber(1);\n      return;\n    }\n    const enemies = all(scene2, ObjectName.Enemy);\n    if (enemies.length === 0) {\n      if (isLevelComplete(scene2)) return;\n      const t = vars.get(SPAWN_TIMER_VAR).getAsNumber() + dt2;\n      if (t >= SPAWN_GAP_SEC) {\n        vars.get(SPAWN_TIMER_VAR).setNumber(0);\n        const sideBit = vars.get(NEXT_SIDE_VAR).getAsNumber();\n        spawnShip(scene2, sideBit === 0 ? \"left\" : \"right\");\n        vars.get(NEXT_SIDE_VAR).setNumber(1 - sideBit);\n      } else {\n        vars.get(SPAWN_TIMER_VAR).setNumber(t);\n      }\n      return;\n    }\n    for (const e of enemies) {\n      const v = e.getVariables();\n      const stateVal = v.get(\"state\").getAsNumber();\n      if (stateVal === 0) {\n        const target = v.get(\"targetX\").getAsNumber();\n        const x = e.getX();\n        const dir = target > x ? 1 : -1;\n        const nx = x + dir * ENTRY_SPEED_PX_PER_SEC * dt2;\n        if (dir === 1 && nx >= target || dir === -1 && nx <= target) {\n          e.setX(target);\n          v.get(\"state\").setNumber(1);\n          v.get(\"fireTimer\").setNumber(0);\n          const shipId = v.get(\"shipId\").getAsNumber();\n          spawnHealthBar(scene2, shipId, e.getX(), e.getY() + HEALTHBAR_OFFSET_Y);\n          console.log(`[enemy] arrived at ${target} (now firing)`);\n        } else {\n          e.setX(nx);\n        }\n      } else {\n        const reload = v.get(\"reloadTimer\").getAsNumber();\n        if (reload > 0) {\n          const next = Math.max(0, reload - dt2);\n          v.get(\"reloadTimer\").setNumber(next);\n          if (next === 0) v.get(\"ammo\").setNumber(ENEMY_MAGAZINE);\n          v.get(\"fireTimer\").setNumber(0);\n        } else {\n          const ft = v.get(\"fireTimer\").getAsNumber() + dt2;\n          if (ft >= FIRE_INTERVAL_SEC) {\n            v.get(\"fireTimer\").setNumber(0);\n            const ew = e.getWidth();\n            const eh = e.getHeight();\n            const sideX = e.getX() + ew * 0.72;\n            const sideY = e.getY() + eh * 0.38;\n            fire(scene2, ObjectName.EnemyBall, sideX, sideY, cannonX, cannonY, { xArcAmp: 100 });\n            const ammoLeft = v.get(\"ammo\").getAsNumber() - 1;\n            v.get(\"ammo\").setNumber(ammoLeft);\n            if (ammoLeft <= 0) {\n              v.get(\"reloadTimer\").setNumber(ENEMY_RELOAD_SEC);\n            }\n          } else {\n            v.get(\"fireTimer\").setNumber(ft);\n          }\n        }\n      }\n      const id = v.get(\"shipId\").getAsNumber();\n      const t = findTargetForShip(scene2, id);\n      if (t) {\n        t.setX(e.getX() + e.getWidth() * TARGET_OFFSET_FRAC_X);\n        t.setY(e.getY() + e.getHeight() * TARGET_OFFSET_FRAC_Y);\n      }\n      const flashTimerVar = v.get(\"flashTimer\");\n      const flashLeft = flashTimerVar.getAsNumber();\n      if (flashLeft > 0) {\n        const next = Math.max(0, flashLeft - dt2);\n        flashTimerVar.setNumber(next);\n        if (next <= 0) {\n          e.setColor(FLASH_COLOR_NONE);\n          e.setOpacity(FLASH_OPACITY_DEFAULT);\n        }\n      }\n      if (stateVal === 1) syncHealthBar(scene2, e);\n    }\n  }\n\n  // game-src/state.ts\n  var INITIAL_PLAYER_HP = 5;\n  var HP_VAR = \"playerHp\";\n  var STATE_VAR = \"gameState\";\n  var HP_INIT_FLAG = \"__hpInit\";\n  function ensureInit(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(HP_INIT_FLAG).getAsNumber() === 0) {\n      vars.get(HP_INIT_FLAG).setNumber(1);\n      vars.get(HP_VAR).setNumber(INITIAL_PLAYER_HP);\n      vars.get(STATE_VAR).setNumber(0);\n      console.log(`[state] init hp=${INITIAL_PLAYER_HP}`);\n    }\n  }\n  function getHp(scene2) {\n    return scene2.getVariables().get(HP_VAR).getAsNumber();\n  }\n  function getState(scene2) {\n    const s = scene2.getVariables().get(STATE_VAR).getAsNumber();\n    return s === 1 ? \"won\" : s === 2 ? \"lost\" : \"playing\";\n  }\n  function damagePlayer(scene2, amount) {\n    if (getState(scene2) !== \"playing\") return;\n    const hpVar = scene2.getVariables().get(HP_VAR);\n    const next = Math.max(0, hpVar.getAsNumber() - amount);\n    hpVar.setNumber(next);\n    console.log(`[state] player hp=${next}`);\n    if (next <= 0) {\n      scene2.getVariables().get(STATE_VAR).setNumber(2);\n      console.log(`[state] LOST`);\n    }\n  }\n  function markWon(scene2) {\n    if (getState(scene2) !== \"playing\") return;\n    scene2.getVariables().get(STATE_VAR).setNumber(1);\n    console.log(`[state] WON`);\n  }\n\n  // game-src/shake.ts\n  var V_TIMER = \"__shakeTimer\";\n  var V_DURATION = \"__shakeDuration\";\n  var V_INTENSITY = \"__shakeIntensity\";\n  function trigger(scene2, intensityPx, durationSec) {\n    const vars = scene2.getVariables();\n    vars.get(V_TIMER).setNumber(durationSec);\n    vars.get(V_DURATION).setNumber(durationSec);\n    vars.get(V_INTENSITY).setNumber(intensityPx);\n  }\n  function tick3(scene2, dt2) {\n    const vars = scene2.getVariables();\n    const timer = vars.get(V_TIMER).getAsNumber();\n    const game = scene2.getGame();\n    const layer = scene2.getLayer(\"\");\n    const baseX = game.getGameResolutionWidth() / 2;\n    const baseY = game.getGameResolutionHeight() / 2;\n    if (timer <= 0) {\n      layer.setCameraX(baseX);\n      layer.setCameraY(baseY);\n      return;\n    }\n    const next = Math.max(0, timer - dt2);\n    vars.get(V_TIMER).setNumber(next);\n    const duration = vars.get(V_DURATION).getAsNumber();\n    const intensity = vars.get(V_INTENSITY).getAsNumber();\n    const decay = duration > 0 ? next / duration : 0;\n    const offX = (Math.random() - 0.5) * 2 * intensity * decay;\n    const offY = (Math.random() - 0.5) * 2 * intensity * decay;\n    layer.setCameraX(baseX + offX);\n    layer.setCameraY(baseY + offY);\n  }\n\n  // game-src/collisions.ts\n  var SHAKE_INTENSITY_PX = 14;\n  var SHAKE_DURATION_SEC = 0.35;\n  var BULLET_DAMAGE = 2;\n  var BULLET_BODY_DAMAGE = 0.5;\n  var CHARGED_MULTIPLIER = 2.5;\n  var CHARGED_INTERCEPTED_MULTIPLIER = 1.25;\n  var ENEMY_BALL_DAMAGE = 1;\n  function bulletDamage(charged, intercepted, body) {\n    const base = body ? BULLET_BODY_DAMAGE : BULLET_DAMAGE;\n    if (!charged) return base;\n    return base * (intercepted ? CHARGED_INTERCEPTED_MULTIPLIER : CHARGED_MULTIPLIER);\n  }\n  function hit(a, b) {\n    return gdjs.RuntimeObject.collisionTest(a, b, false);\n  }\n  function resolveBulletHits(scene2) {\n    const bullets = all(scene2, ObjectName.Bullet).concat(all(scene2, ObjectName.ChargedBullet));\n    if (bullets.length === 0) return { kills: 0, parries: 0 };\n    const targets = all(scene2, ObjectName.Target);\n    const enemyBalls = all(scene2, ObjectName.EnemyBall);\n    let kills = 0;\n    let parries = 0;\n    for (const b of bullets) {\n      let consumed = false;\n      const charged = b.getVariables().get(\"charged\").getAsNumber() === 1;\n      for (const eb of enemyBalls) {\n        if (hit(b, eb)) {\n          eb.deleteFromScene(scene2);\n          if (charged) {\n            b.getVariables().get(\"intercepted\").setNumber(1);\n            parries += 1;\n          } else {\n            b.deleteFromScene(scene2);\n            parries += 1;\n            consumed = true;\n          }\n          break;\n        }\n      }\n      if (consumed) continue;\n      const intercepted = b.getVariables().get(\"intercepted\").getAsNumber() === 1;\n      let handled = false;\n      for (const t of targets) {\n        if (hit(b, t)) {\n          const dmg = bulletDamage(\n            charged,\n            intercepted,\n            /*body*/\n            false\n          );\n          b.deleteFromScene(scene2);\n          const ship = findShipForTarget(scene2, t);\n          const state = ship ? ship.getVariables().get(\"state\").getAsNumber() : 0;\n          if (ship && state === 1) {\n            flash(\n              ship,\n              /*direct*/\n              true\n            );\n            if (damage(scene2, ship, dmg)) kills += 1;\n          }\n          handled = true;\n          break;\n        }\n      }\n      if (handled) continue;\n      for (const e of all(scene2, ObjectName.Enemy)) {\n        if (hit(b, e)) {\n          const state = e.getVariables().get(\"state\").getAsNumber();\n          if (state === 1) {\n            const dmg = bulletDamage(\n              charged,\n              intercepted,\n              /*body*/\n              true\n            );\n            flash(\n              e,\n              /*direct*/\n              false\n            );\n            if (damage(scene2, e, dmg)) kills += 1;\n          }\n          b.deleteFromScene(scene2);\n          break;\n        }\n      }\n    }\n    return { kills, parries };\n  }\n  function resolveEnemyBallHits(scene2, cannon2) {\n    if (!cannon2) return 0;\n    const balls = all(scene2, ObjectName.EnemyBall);\n    if (balls.length === 0) return 0;\n    let dmg = 0;\n    for (const b of balls) {\n      if (hit(b, cannon2)) {\n        b.deleteFromScene(scene2);\n        damagePlayer(scene2, ENEMY_BALL_DAMAGE);\n        trigger(scene2, SHAKE_INTENSITY_PX, SHAKE_DURATION_SEC);\n        dmg += ENEMY_BALL_DAMAGE;\n      }\n    }\n    return dmg;\n  }\n\n  // game-src/hud-health.ts\n  var SECTION_COUNT = 5;\n  var SECTION_W = 48;\n  var SECTION_H = 28;\n  var SECTION_GAP = 6;\n  var FRAME_PADDING = 8;\n  var FRAME_BOTTOM_MARGIN = 18;\n  var LOST_ANIM_SEC = 0.35;\n  var GAINED_ANIM_SEC = 0.3;\n  var Z_FRAME = 40;\n  var Z_SECTION = 41;\n  var V_INIT = \"__healthHudInit\";\n  var V_PREV_HP = \"__healthHudPrevHp\";\n  var ANIM_NONE = 0;\n  var ANIM_LOST = 1;\n  var ANIM_GAINED = 2;\n  function ensureSpawn(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(V_INIT).getAsNumber() !== 0) return;\n    vars.get(V_INIT).setNumber(1);\n    vars.get(V_PREV_HP).setNumber(getHp(scene2));\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    const totalW = SECTION_COUNT * SECTION_W + (SECTION_COUNT - 1) * SECTION_GAP;\n    const startX = w / 2 - totalW / 2;\n    const y = h - SECTION_H - FRAME_BOTTOM_MARGIN;\n    const frame = spawn(scene2, ObjectName.PlayerHpFrame, 0, 0);\n    if (frame) {\n      frame.setWidth(totalW + 2 * FRAME_PADDING);\n      frame.setHeight(SECTION_H + 2 * FRAME_PADDING);\n      frame.setX(startX - FRAME_PADDING);\n      frame.setY(y - FRAME_PADDING);\n      frame.setZOrder(Z_FRAME);\n    }\n    for (let i = 0; i < SECTION_COUNT; i++) {\n      const sec = spawn(scene2, ObjectName.PlayerHpSection, 0, 0);\n      if (!sec) continue;\n      sec.setX(startX + i * (SECTION_W + SECTION_GAP));\n      sec.setY(y);\n      sec.setZOrder(Z_SECTION);\n      const vv = sec.getVariables();\n      vv.get(\"slot\").setNumber(i);\n      vv.get(\"animTimer\").setNumber(0);\n      vv.get(\"animType\").setNumber(ANIM_NONE);\n    }\n    console.log(`[hud-health] spawned ${SECTION_COUNT} sections at y=${y}`);\n  }\n  function startAnim(sec, type, durationSec) {\n    const v = sec.getVariables();\n    v.get(\"animTimer\").setNumber(durationSec);\n    v.get(\"animDur\").setNumber(durationSec);\n    v.get(\"animType\").setNumber(type);\n    sec.hide(false);\n  }\n  function applyDefault(sec) {\n    sec.setColor(\"255;255;255\");\n    sec.setOpacity(255);\n    sec.setScaleX(1);\n    sec.setScaleY(1);\n  }\n  function tick4(scene2, dt2) {\n    ensureSpawn(scene2);\n    const vars = scene2.getVariables();\n    const hp = getHp(scene2);\n    const prev = vars.get(V_PREV_HP).getAsNumber();\n    if (hp !== prev) {\n      for (const sec of all(scene2, ObjectName.PlayerHpSection)) {\n        const slot = sec.getVariables().get(\"slot\").getAsNumber();\n        if (hp < prev && slot >= hp && slot < prev) {\n          startAnim(sec, ANIM_LOST, LOST_ANIM_SEC);\n        } else if (hp > prev && slot >= prev && slot < hp) {\n          startAnim(sec, ANIM_GAINED, GAINED_ANIM_SEC);\n        }\n      }\n      vars.get(V_PREV_HP).setNumber(hp);\n    }\n    for (const sec of all(scene2, ObjectName.PlayerHpSection)) {\n      const v = sec.getVariables();\n      const slot = v.get(\"slot\").getAsNumber();\n      const animTimer = v.get(\"animTimer\").getAsNumber();\n      const animType = v.get(\"animType\").getAsNumber();\n      if (animTimer > 0) {\n        const dur = v.get(\"animDur\").getAsNumber() || 1;\n        const next = Math.max(0, animTimer - dt2);\n        v.get(\"animTimer\").setNumber(next);\n        const tNorm = 1 - next / dur;\n        if (animType === ANIM_LOST) {\n          const flashT = Math.min(1, tNorm * 3);\n          const r = Math.round(255 - 35 * flashT);\n          const g = Math.round(80 + 60 * flashT);\n          const b = Math.round(80 + 60 * flashT);\n          sec.setColor(`${r};${g};${b}`);\n          const fade = 1 - tNorm;\n          sec.setOpacity(255 * fade);\n          sec.setScaleX(Math.max(0.1, 1 - tNorm * 0.5));\n          sec.setScaleY(Math.max(0.1, 1 - tNorm * 0.5));\n        } else if (animType === ANIM_GAINED) {\n          const fade = tNorm;\n          sec.setOpacity(255 * fade);\n          const scl = 0.3 + 0.7 * tNorm;\n          sec.setScaleX(scl);\n          sec.setScaleY(scl);\n          const r = 255;\n          const g = Math.round(255 - 200 * tNorm);\n          const b = Math.round(255 - 200 * tNorm);\n          sec.setColor(`${r};${g};${b}`);\n        }\n        if (next <= 0) {\n          v.get(\"animType\").setNumber(ANIM_NONE);\n          applyDefault(sec);\n          sec.hide(slot >= hp);\n        }\n      } else {\n        applyDefault(sec);\n        sec.hide(slot >= hp);\n      }\n    }\n  }\n\n  // game-src/lose.ts\n  var SPAWNED_VAR = \"__loseSpawned\";\n  var Z_OVERLAY = 100;\n  var Z_BUTTON_BG = 101;\n  var Z_TEXT = 102;\n  var OVERLAY_OPACITY = 180;\n  var TITLE_Y_FRACTION = 0.3;\n  var BUTTON_Y_FRACTION = 0.55;\n  var BUTTON_W = 240;\n  var BUTTON_H = 64;\n  var REPLACE_SCENE = 3;\n  var SCENE_NAME = \"Main\";\n  function ensureSpawned(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(SPAWNED_VAR).getAsNumber() !== 0) return;\n    vars.get(SPAWNED_VAR).setNumber(1);\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    const overlay = spawn(scene2, ObjectName.LoseOverlay, 0, 0);\n    if (overlay) {\n      overlay.setWidth(w);\n      overlay.setHeight(Math.max(h, 2e3));\n      overlay.setOpacity(OVERLAY_OPACITY);\n      overlay.setZOrder(Z_OVERLAY);\n    }\n    const title = spawn(scene2, ObjectName.GameOverText, 0, 0);\n    if (title) {\n      const tw = title.getWidth() || 280;\n      title.setX(w / 2 - tw / 2);\n      title.setY(h * TITLE_Y_FRACTION);\n      title.setZOrder(Z_TEXT);\n    }\n    const buttonBg = spawn(scene2, ObjectName.RestartButtonBg, 0, 0);\n    if (buttonBg) {\n      buttonBg.setWidth(BUTTON_W);\n      buttonBg.setHeight(BUTTON_H);\n      buttonBg.setX(w / 2 - BUTTON_W / 2);\n      buttonBg.setY(h * BUTTON_Y_FRACTION);\n      buttonBg.setZOrder(Z_BUTTON_BG);\n    }\n    const buttonText = spawn(scene2, ObjectName.RestartButtonText, 0, 0);\n    if (buttonText) {\n      const tw = buttonText.getWidth() || 140;\n      const th = buttonText.getHeight() || 36;\n      buttonText.setX(w / 2 - tw / 2);\n      buttonText.setY(h * BUTTON_Y_FRACTION + BUTTON_H / 2 - th / 2);\n      buttonText.setZOrder(Z_TEXT);\n    }\n    console.log(`[lose] spawned`);\n  }\n  function buttonBounds(scene2) {\n    const bg = firstOrNull(scene2, ObjectName.RestartButtonBg);\n    if (!bg) return null;\n    return { x: bg.getX(), y: bg.getY(), w: bg.getWidth(), h: bg.getHeight() };\n  }\n  function tick5(scene2, cursorX, cursorY, firePressed) {\n    ensureSpawned(scene2);\n    if (!firePressed) return;\n    const b = buttonBounds(scene2);\n    if (!b) return;\n    if (cursorX >= b.x && cursorX < b.x + b.w && cursorY >= b.y && cursorY < b.y + b.h) {\n      console.log(`[lose] restart requested`);\n      scene2.requestChange(REPLACE_SCENE, SCENE_NAME);\n    }\n  }\n\n  // game-src/win.ts\n  var SPAWNED_VAR2 = \"__winSpawned\";\n  var Z_OVERLAY2 = 100;\n  var Z_BUTTON_BG2 = 101;\n  var Z_TEXT2 = 102;\n  var OVERLAY_OPACITY2 = 180;\n  var TITLE_Y_FRACTION2 = 0.3;\n  var BUTTON_Y_FRACTION2 = 0.55;\n  var BUTTON_W2 = 240;\n  var BUTTON_H2 = 64;\n  var REPLACE_SCENE2 = 3;\n  var NEXT_SCENE_NAME = \"Main\";\n  function ensureSpawned2(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(SPAWNED_VAR2).getAsNumber() !== 0) return;\n    vars.get(SPAWNED_VAR2).setNumber(1);\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    const overlay = spawn(scene2, ObjectName.LoseOverlay, 0, 0);\n    if (overlay) {\n      overlay.setWidth(w);\n      overlay.setHeight(Math.max(h, 2e3));\n      overlay.setOpacity(OVERLAY_OPACITY2);\n      overlay.setZOrder(Z_OVERLAY2);\n    }\n    const title = spawn(scene2, ObjectName.VictoryText, 0, 0);\n    if (title) {\n      const tw = title.getWidth() || 260;\n      title.setX(w / 2 - tw / 2);\n      title.setY(h * TITLE_Y_FRACTION2);\n      title.setZOrder(Z_TEXT2);\n    }\n    const buttonBg = spawn(scene2, ObjectName.RestartButtonBg, 0, 0);\n    if (buttonBg) {\n      buttonBg.setWidth(BUTTON_W2);\n      buttonBg.setHeight(BUTTON_H2);\n      buttonBg.setX(w / 2 - BUTTON_W2 / 2);\n      buttonBg.setY(h * BUTTON_Y_FRACTION2);\n      buttonBg.setZOrder(Z_BUTTON_BG2);\n      buttonBg.getVariables().get(\"isContinueButton\").setNumber(1);\n    }\n    const buttonText = spawn(scene2, ObjectName.ContinueButtonText, 0, 0);\n    if (buttonText) {\n      const tw = buttonText.getWidth() || 160;\n      const th = buttonText.getHeight() || 36;\n      buttonText.setX(w / 2 - tw / 2);\n      buttonText.setY(h * BUTTON_Y_FRACTION2 + BUTTON_H2 / 2 - th / 2);\n      buttonText.setZOrder(Z_TEXT2);\n    }\n    console.log(`[win] spawned`);\n  }\n  function continueButton(scene2) {\n    for (const bg of scene2.getObjects(ObjectName.RestartButtonBg)) {\n      if (bg.getVariables().get(\"isContinueButton\").getAsNumber() === 1) return bg;\n    }\n    return firstOrNull(scene2, ObjectName.RestartButtonBg);\n  }\n  function tick6(scene2, cursorX, cursorY, firePressed) {\n    ensureSpawned2(scene2);\n    if (!firePressed) return;\n    const bg = continueButton(scene2);\n    if (!bg) return;\n    const x = bg.getX(), y = bg.getY(), w = bg.getWidth(), h = bg.getHeight();\n    if (cursorX >= x && cursorX < x + w && cursorY >= y && cursorY < y + h) {\n      console.log(`[win] continue \\u2192 ${NEXT_SCENE_NAME}`);\n      scene2.requestChange(REPLACE_SCENE2, NEXT_SCENE_NAME);\n    }\n  }\n\n  // game-src/main.ts\n  var scene = runtimeScene;\n  ensureInit(scene);\n  ensureBackground(scene);\n  var cannon = ensureCannon(scene);\n  ensureHud(scene);\n  var playing = getState(scene) === \"playing\";\n  var dt = scene.getElapsedTime() / 1e3;\n  var input = readInput(scene);\n  var gesture = detectGesture(scene, dt, input.cursor.x, input.cursor.y, input.fire);\n  if (cannon && playing) {\n    const aimDeg = aim(scene, cannon, input.cursor.x, gesture.dragging);\n    updateCrosshair(scene, cannon, aimDeg);\n    if (gesture.tap) fire2(\n      scene,\n      cannon,\n      aimDeg,\n      /*charged*/\n      false\n    );\n    if (gesture.doubleTap) fire2(\n      scene,\n      cannon,\n      aimDeg,\n      /*charged*/\n      true\n    );\n    tick2(\n      scene,\n      dt,\n      cannon.getX() + cannon.getCenterX(),\n      cannon.getY() + cannon.getCenterY()\n    );\n  }\n  update(scene, ObjectName.Bullet, dt);\n  update(scene, ObjectName.ChargedBullet, dt);\n  update(scene, ObjectName.EnemyBall, dt);\n  tick(scene, dt, cannon);\n  tick4(scene, dt);\n  tick3(scene, dt);\n  if (playing) {\n    resolveBulletHits(scene);\n    resolveEnemyBallHits(scene, cannon);\n    if (isLevelComplete(scene)) markWon(scene);\n  }\n  var endState = getState(scene);\n  if (endState === \"lost\") {\n    tick5(scene, input.cursor.x, input.cursor.y, input.firePressed);\n  } else if (endState === \"won\") {\n    tick6(scene, input.cursor.x, input.cursor.y, input.firePressed);\n  }\n})();\n",
           "parameterObjects": "",
           "useStrict": true,
           "eventsSheetExpanded": true

@@ -9,18 +9,38 @@
 // rule; deferring that until basic combat feels right.)
 
 import {all, ObjectName} from "./entities.js";
-import {damage as damageEnemy, findShipForTarget} from "./enemy.js";
+import {damage as damageEnemy, findShipForTarget, flash as flashShip} from "./enemy.js";
 import {damagePlayer} from "./state.js";
+import * as shake from "./shake.js";
 
-const BULLET_DAMAGE = 1;
+const SHAKE_INTENSITY_PX = 14;
+const SHAKE_DURATION_SEC = 0.35;
+
+// Per the updated GDD:
+//   Normal shot:  2 dmg on the weak point, 0.5 dmg on a body graze.
+//   Charged shot: 2.5× normal — 5 dmg weak, 1.25 dmg body.
+//   Charged shot intercepted by an enemy cannonball: passes through
+//     with damage cut to 1.25× normal — 2.5 dmg weak, 0.625 dmg body.
+const BULLET_DAMAGE = 2;
+const BULLET_BODY_DAMAGE = 0.5;
+const CHARGED_MULTIPLIER = 2.5;
+const CHARGED_INTERCEPTED_MULTIPLIER = 1.25;
 const ENEMY_BALL_DAMAGE = 1;
+
+function bulletDamage(charged: boolean, intercepted: boolean, body: boolean): number {
+  const base = body ? BULLET_BODY_DAMAGE : BULLET_DAMAGE;
+  if (!charged) return base;
+  return base * (intercepted ? CHARGED_INTERCEPTED_MULTIPLIER : CHARGED_MULTIPLIER);
+}
 
 function hit(a: GdjsRuntimeObject, b: GdjsRuntimeObject): boolean {
   return gdjs.RuntimeObject.collisionTest(a, b, false);
 }
 
 export function resolveBulletHits(scene: GdjsRuntimeScene): { kills: number; parries: number } {
-  const bullets = all(scene, ObjectName.Bullet);
+  // Charged red bullets are a separate sprite — merge them into one
+  // list so the rest of the hit-detection loop doesn't care.
+  const bullets = all(scene, ObjectName.Bullet).concat(all(scene, ObjectName.ChargedBullet));
   if (bullets.length === 0) return {kills: 0, parries: 0};
   const targets = all(scene, ObjectName.Target);
   const enemyBalls = all(scene, ObjectName.EnemyBall);
@@ -28,30 +48,56 @@ export function resolveBulletHits(scene: GdjsRuntimeScene): { kills: number; par
   let parries = 0;
   for (const b of bullets) {
     let consumed = false;
-    // Parry first — incoming enemy fire intercepted in mid-air.
+    const charged = b.getVariables().get("charged").getAsNumber() === 1;
+    // Parry / intercept on incoming enemy fire.
+    //   Normal bullet  → both destroyed (mutual annihilation).
+    //   Charged bullet → only the enemy ball pops; the charged shot
+    //                    continues with an `intercepted` flag that
+    //                    cuts its subsequent damage to 1.25× normal.
     for (const eb of enemyBalls) {
       if (hit(b, eb)) {
         eb.deleteFromScene(scene);
-        b.deleteFromScene(scene);
-        parries += 1;
-        consumed = true;
+        if (charged) {
+          b.getVariables().get("intercepted").setNumber(1);
+          parries += 1;
+        } else {
+          b.deleteFromScene(scene);
+          parries += 1;
+          consumed = true;
+        }
         break;
       }
     }
     if (consumed) continue;
-    // Direct hit on a ship's weak point. Skip the damage if the ship is
-    // still in its dead-zone entry phase (state=0) — bullets pass
-    // through harmlessly to honour the "no-fire favours the player"
-    // rule going both ways: the player gets the window to aim, but the
-    // ship is invulnerable until it crosses into the playfield.
+    const intercepted = b.getVariables().get("intercepted").getAsNumber() === 1;
+    // Direct hit on a ship's weak point → full damage + white flash.
+    // Skip if the ship is still in its dead-zone entry phase (state=0).
+    let handled = false;
     for (const t of targets) {
       if (hit(b, t)) {
+        const dmg = bulletDamage(charged, intercepted, /*body*/ false);
         b.deleteFromScene(scene);
         const ship = findShipForTarget(scene, t);
         const state = ship ? ship.getVariables().get("state").getAsNumber() : 0;
-        if (ship && state === 1 && damageEnemy(scene, ship, BULLET_DAMAGE)) {
-          kills += 1;
+        if (ship && state === 1) {
+          flashShip(ship, /*direct*/ true);
+          if (damageEnemy(scene, ship, dmg)) kills += 1;
         }
+        handled = true;
+        break;
+      }
+    }
+    if (handled) continue;
+    // Off-target body hit → grazing damage + yellow flash.
+    for (const e of all(scene, ObjectName.Enemy)) {
+      if (hit(b, e)) {
+        const state = e.getVariables().get("state").getAsNumber();
+        if (state === 1) {
+          const dmg = bulletDamage(charged, intercepted, /*body*/ true);
+          flashShip(e, /*direct*/ false);
+          if (damageEnemy(scene, e, dmg)) kills += 1;
+        }
+        b.deleteFromScene(scene);
         break;
       }
     }
@@ -68,6 +114,7 @@ export function resolveEnemyBallHits(scene: GdjsRuntimeScene, cannon: GdjsRuntim
     if (hit(b, cannon)) {
       b.deleteFromScene(scene);
       damagePlayer(scene, ENEMY_BALL_DAMAGE);
+      shake.trigger(scene, SHAKE_INTENSITY_PX, SHAKE_DURATION_SEC);
       dmg += ENEMY_BALL_DAMAGE;
     }
   }

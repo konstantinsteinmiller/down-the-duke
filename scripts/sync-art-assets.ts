@@ -88,6 +88,11 @@ upsertResource("enemyball", "assets/art/cannonball-black.webp");
 upsertResource("island", "assets/art/island.webp");
 upsertResource("railing", "assets/art/railing.webp");
 upsertResource("cannonball-ui", "assets/art/cannonball-ui.webp");
+upsertResource("crosshair", "assets/art/crosshair.webp");
+upsertResource("cannonball-red", "assets/art/cannonball-red.webp");
+upsertResource("healthbar", "assets/placeholders/healthbar.png");
+upsertResource("healthbar-bg", "assets/placeholders/healthbar-bg.png");
+upsertResource("reload-pip", "assets/placeholders/reload-pip.png");
 
 const scene = g.layouts[0];
 const sceneObjects: SpriteObject[] = scene.objects;
@@ -140,11 +145,94 @@ function upsertSprite(name: string, image: string, uuid: string): void {
 
 upsertSprite("Island", "island", "15140e11-7777-4ca1-9a1c-aaa777777777");
 upsertSprite("Railing", "railing", "9a1110e1-8888-4ca1-9a1c-bbb888888888");
+upsertSprite("Crosshair", "crosshair", "c2055ae1-9999-4ca1-9a1c-ccc999999999");
+upsertSprite("HealthBar", "healthbar", "4ea17b00-aaaa-4ca1-9a1c-aaa000000000");
+upsertSprite("HealthBarBg", "healthbar-bg", "4ea17b00-bbbb-4ca1-9a1c-bbb000000000");
+upsertSprite("CannonballUI", "cannonball-ui", "a330d00e-cccc-4ca1-9a1c-ccc000000000");
+upsertSprite("AmmoDot", "cannonball-black", "a330d00e-dddd-4ca1-9a1c-ddd000000000");
+upsertSprite("ReloadPip", "reload-pip", "e0a17777-eeee-4ca1-9a1c-eee000000000");
+
+// White-on-shadowed text helper. Shadows + outlines give contrast on
+// any background. Both properties get overwritten on re-sync so it's
+// safe to tweak the defaults here and re-run the script.
+interface TextProps {
+  characterSize?: number;
+  color?: { r: number; g: number; b: number };
+  outlineThickness?: number;
+}
+
+function upsertTextObject(name: string, uuid: string, initial: string, props: TextProps = {}): void {
+  const obj = {
+    assetStoreId: "",
+    name,
+    persistentUuid: uuid,
+    type: "TextObject::Text",
+    string: initial,
+    font: "",
+    characterSize: props.characterSize ?? 28,
+    color: props.color ?? {r: 255, g: 255, b: 255},
+    bold: true,
+    italic: false,
+    smoothed: true,
+    underlined: false,
+    isShadowEnabled: true,
+    shadowColor: {r: 0, g: 0, b: 0},
+    shadowOpacity: 230,
+    shadowDistance: 2,
+    shadowAngle: 90,
+    shadowBlurRadius: 1,
+    isOutlineEnabled: true,
+    outlineColor: {r: 0, g: 0, b: 0},
+    outlineThickness: props.outlineThickness ?? 2,
+    variables: [],
+    effects: [],
+    behaviors: [],
+  };
+  const existing = sceneObjects.find((o) => o.name === name);
+  if (existing) {
+    Object.assign(existing, obj);
+    console.log(`  text ${name}: UPDATED (initial="${initial}")`);
+    return;
+  }
+  sceneObjects.push(obj as unknown as SpriteObject);
+  console.log(`  text ${name}: ADDED (initial="${initial}")`);
+}
+
+upsertResource("overlay", "assets/placeholders/overlay.png");
+upsertResource("button-bg", "assets/placeholders/button-bg.png");
+upsertResource("hb-frame", "assets/placeholders/hb-frame.png");
+upsertResource("hb-section", "assets/placeholders/hb-section.png");
+
+upsertSprite("LoseOverlay", "overlay", "1059e077-0000-4ca1-9a1c-000000000001");
+upsertSprite("RestartButtonBg", "button-bg", "b0770e88-1111-4ca1-9a1c-111111111111");
+upsertSprite("PlayerHpFrame", "hb-frame", "b0770e88-2222-4ca1-9a1c-aaa222222222");
+upsertSprite("PlayerHpSection", "hb-section", "b0770e88-3333-4ca1-9a1c-bbb333333333");
+upsertSprite("ChargedBullet", "cannonball-red", "ba110e22-4444-4ca1-9a1c-aab444444444");
+
+upsertTextObject("AmmoText", "11111111-aaaa-4111-aaaa-111111111111", "4");
+upsertTextObject("GameOverText", "60a0ee70-2222-4222-bbbb-222222222222", "YOU SUNK!", {
+  characterSize: 56,
+  color: {r: 240, g: 60, b: 60},
+  outlineThickness: 3,
+});
+upsertTextObject("RestartButtonText", "9e57a917-3333-4333-cccc-333333333333", "RESTART", {
+  characterSize: 32,
+  color: {r: 250, g: 230, b: 180},
+});
+upsertTextObject("VictoryText", "01ce0079-4444-4444-dddd-444444444444", "VICTORY!", {
+  characterSize: 56,
+  color: {r: 240, g: 210, b: 80},
+  outlineThickness: 3,
+});
+upsertTextObject("ContinueButtonText", "c071711e-5555-4555-eeee-555555555555", "CONTINUE", {
+  characterSize: 32,
+  color: {r: 250, g: 230, b: 180},
+});
 
 // 3. Ensure objectsFolderStructure has children entries for new sprites.
 const folder = scene.objectsFolderStructure as { folderName: string; children?: Array<{ objectName: string }> };
 folder.children = folder.children ?? [];
-for (const name of ["Island", "Railing"]) {
+for (const name of ["Island", "Railing", "Crosshair", "HealthBar", "HealthBarBg", "CannonballUI", "AmmoDot", "ReloadPip", "AmmoText", "LoseOverlay", "RestartButtonBg", "GameOverText", "RestartButtonText", "PlayerHpFrame", "PlayerHpSection", "ChargedBullet", "VictoryText", "ContinueButtonText"]) {
   if (!folder.children.some((c) => c.objectName === name)) {
     folder.children.push({objectName: name});
     console.log(`  folder child: ADDED ${name}`);
