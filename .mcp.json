@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "gdevelop": {
+      "command": "pnpm",
+      "args": [
+        "exec",
+        "tsx",
+        "mcp/server.ts"
+      ],
+      "env": {}
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "down-the-duke",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Down the Duke — GDevelop Big Game Jam #9 entry. Code-first: game logic in game-src/ bundled to an IIFE and injected as the Main scene's JsCode event. Custom MCP server (mcp/server.ts) for AI-assisted read+write over game.json.",
+  "type": "module",
+  "scripts": {
+    "build:game": "tsx scripts/build-game.ts",
+    "build:web": "gdexport --project ./Project/game-current.json --out ./dist",
+    "build:web:verbose": "gdexport --project ./Project/game-current.json --out ./dist --verbose",
+    "build": "pnpm build:game && pnpm build:web",
+    "build-github-main": "VITE_APP_PVP_ENABLED=true vite build --base=/down-the-duke/ --outDir=dist",
+    "build-github-develop": "vite build --base=/down-the-duke/develop/ --outDir=dist/develop",
+    "deploy": "vite build && surge dist/ --domain down-the-duke.surge.sh",
+    "promote": "tsx scripts/promote.ts",
+    "preview": "serve ./dist -l 3000",
+    "clean": "rimraf dist Exported",
+    "mcp:run": "tsx mcp/server.ts",
+    "mcp:typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@types/node": "^25.8.0",
+    "esbuild": "^0.28.0",
+    "gdexporter": "^4.0.0-beta7",
+    "rimraf": "^6.0.1",
+    "serve": "^14.2.4",
+    "tsx": "^4.22.0",
+    "typescript": "^6.0.3",
+    "zod": "^4.4.3"
+  },
+  "packageManager": "pnpm@10.30.3"
+}

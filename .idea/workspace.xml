@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c28b41bc-3860-40d9-a7a1-eef5cd43b6ec" name="Changes" comment="- playgama platform integration">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/static.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game-design.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/img_6.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="JavaScript File" />
+        <option value="Vue Composition API Component" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;konstantinsteinmiller&quot;
+  }
+}</component>
+  <component name="GitRewordedCommitMessages">
+    <option name="commitMessagesMapping">
+      <RewordedCommitMessageMapping>
+        <option name="originalMessage" value="- ios and android build pipeline" />
+        <option name="rewordedMessage" value="- ios and android build pipeline" />
+      </RewordedCommitMessageMapping>
+    </option>
+    <option name="currentCommit" value="1" />
+    <option name="onto" value="aac426465d7c6870bb50c9f67f469790613dc3b9" />
+  </component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/konstantinsteinmiller/down-the-duke.git&quot;,
+    &quot;accountId&quot;: &quot;5a39b842-cbd1-44a3-833a-a2b769bec25c&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="3AZS8HJ8v0BwxlP0P74kYqwu25O" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Jest.useBattleRules - Plus Rule.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Vitest.Battle Rules Engine.executor": "Run",
+    "Vitest.CrazyGamesStrategy (isCrazyWeb guard).executor": "Run",
+    "Vitest.Forest arena wall-bounce heal value.executor": "Run",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/konst/Documents/__p/hex-game",
+    "list.type.of.created.stylesheet": "SCSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs.jest.jest_package": "C:/Users/konst/fairy-quest/node_modules/jest",
+    "nodejs_package_manager_path": "pnpm",
+    "npm.build-github-develop.executor": "Run",
+    "npm.build-github-main.executor": "Run",
+    "npm.build-only.executor": "Run",
+    "npm.build.executor": "Run",
+    "npm.build:crazy-web.executor": "Run",
+    "npm.build:game-distribution.executor": "Run",
+    "npm.build:glitch.executor": "Run",
+    "npm.build:itch.executor": "Run",
+    "npm.build:playgama.executor": "Run",
+    "npm.build:wavedash.executor": "Run",
+    "npm.deploy-demo.executor": "Run",
+    "npm.dev (1).executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.mcp:run.executor": "Run",
+    "npm.native-build.executor": "Run",
+    "npm.native-dev-demo.executor": "Run",
+    "npm.native-dev.executor": "Run",
+    "npm.native-package.executor": "Run",
+    "npm.native-package:demo.executor": "Run",
+    "npm.native-preview.executor": "Run",
+    "npm.promote.executor": "Run",
+    "npm.start.executor": "Run",
+    "npm.tauri:build-android-aab.executor": "Run",
+    "npm.tauri:build-android-apk.executor": "Run",
+    "npm.tauri:dev-android.executor": "Run",
+    "npm.tauri:dev.executor": "Run",
+    "npm.test.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Users\\konst\\fairy-quest\\node_modules\\prettier",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "advanced.settings",
+    "ts.external.directory.path": "C:\\Users\\konst\\chaos-arena\\node_modules\\typescript\\lib",
+    "vcs.patch.path": "C:/Users/konst/chaos-arenea",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "vue.recent.templates": [
+      "Vue Composition API Component"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\konst\Documents\__p\hex-game" />
+      <recent name="C:\Users\konst\chaos-arena\public\images\vfx" />
+      <recent name="C:\Users\konst\chaos-arena\public\images\icons" />
+      <recent name="C:\Users\konst\chaos-arena\public\images\bg" />
+      <recent name="C:\Users\konst\chaos-arena\public\images\logo" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\konst\chaos-arena\.claude\skills" />
+      <recent name="C:\Users\konst\chaos-arena\src\assets\music\chaos-quest" />
+      <recent name="C:\Users\konst\chaos-arena\public\images\logo" />
+      <recent name="C:\Users\konst\chaos-arena\public" />
+      <recent name="C:\Users\konst\small-rpg\public" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.promote">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build:crazy-web" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build:crazy-web" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="build:playgama" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build:playgama" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="mcp:run" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="mcp:run" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="promote" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="promote" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.promote" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.mcp:run" />
+        <item itemvalue="npm.build:playgama" />
+        <item itemvalue="npm.build:crazy-web" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c28b41bc-3860-40d9-a7a1-eef5cd43b6ec" name="Changes" comment="" />
+      <created>1772798439117</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1772798439117</updated>
+      <workItem from="1772798440186" duration="7771000" />
+      <workItem from="1772806410615" duration="14300000" />
+      <workItem from="1772823601621" duration="1759000" />
+      <workItem from="1772825508396" duration="46374000" />
+      <workItem from="1773064799522" duration="205000" />
+      <workItem from="1773065015819" duration="7000" />
+      <workItem from="1773065041210" duration="49391000" />
+      <workItem from="1773309284712" duration="24156000" />
+      <workItem from="1773338997492" duration="23692000" />
+      <workItem from="1773654365683" duration="44000" />
+      <workItem from="1773659434746" duration="28763000" />
+      <workItem from="1774105425510" duration="18613000" />
+      <workItem from="1774180260284" duration="56083000" />
+      <workItem from="1774290527557" duration="7602000" />
+      <workItem from="1774350898090" duration="17952000" />
+      <workItem from="1774369791581" duration="18000" />
+      <workItem from="1774372973070" duration="601000" />
+      <workItem from="1774375151364" duration="1996000" />
+      <workItem from="1774384026451" duration="4321000" />
+      <workItem from="1774442723351" duration="16450000" />
+      <workItem from="1774525497231" duration="59620000" />
+      <workItem from="1774733102828" duration="29808000" />
+      <workItem from="1774822866430" duration="70605000" />
+      <workItem from="1775132353975" duration="15515000" />
+      <workItem from="1775158648256" duration="4968000" />
+      <workItem from="1775308735642" duration="55000" />
+      <workItem from="1775389955637" duration="36901000" />
+      <workItem from="1775490324323" duration="13007000" />
+      <workItem from="1775511152618" duration="18355000" />
+      <workItem from="1775577632609" duration="1748000" />
+      <workItem from="1775580044983" duration="7996000" />
+      <workItem from="1775643086281" duration="14627000" />
+      <workItem from="1775659203740" duration="20161000" />
+      <workItem from="1775682649162" duration="18261000" />
+      <workItem from="1775730662758" duration="9138000" />
+      <workItem from="1775756570097" duration="553000" />
+      <workItem from="1775819883035" duration="85594000" />
+      <workItem from="1775999946068" duration="14002000" />
+      <workItem from="1776110095675" duration="186000" />
+      <workItem from="1776165098464" duration="5580000" />
+      <workItem from="1776181954987" duration="2487000" />
+      <workItem from="1776184998838" duration="669000" />
+      <workItem from="1776323150596" duration="35499000" />
+      <workItem from="1776448464135" duration="67899000" />
+      <workItem from="1776621757507" duration="11000" />
+      <workItem from="1776793530036" duration="4217000" />
+      <workItem from="1776803646376" duration="414000" />
+      <workItem from="1776805415493" duration="11637000" />
+      <workItem from="1776855950164" duration="27800000" />
+      <workItem from="1776955443870" duration="102834000" />
+      <workItem from="1777297798113" duration="67816000" />
+      <workItem from="1777551855184" duration="47556000" />
+      <workItem from="1777655649438" duration="23455000" />
+      <workItem from="1777892825459" duration="25219000" />
+      <workItem from="1778064331487" duration="2277000" />
+      <workItem from="1778082509531" duration="4424000" />
+      <workItem from="1778097173943" duration="8012000" />
+      <workItem from="1778244021839" duration="1818000" />
+      <workItem from="1778249478966" duration="1802000" />
+      <workItem from="1778267939279" duration="1548000" />
+      <workItem from="1778761300986" duration="4599000" />
+      <workItem from="1778781750955" duration="36000" />
+      <workItem from="1778853931860" duration="3428000" />
+      <workItem from="1778858031107" duration="9102000" />
+      <workItem from="1778933712096" duration="3214000" />
+      <workItem from="1779131709819" duration="5139000" />
+      <workItem from="1779195901455" duration="9773000" />
+    </task>
+    <task id="LOCAL-00384" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777163297617</created>
+      <option name="number" value="00384" />
+      <option name="presentableId" value="LOCAL-00384" />
+      <option name="project" value="LOCAL" />
+      <updated>1777163297617</updated>
+    </task>
+    <task id="LOCAL-00385" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777196459086</created>
+      <option name="number" value="00385" />
+      <option name="presentableId" value="LOCAL-00385" />
+      <option name="project" value="LOCAL" />
+      <updated>1777196459086</updated>
+    </task>
+    <task id="LOCAL-00386" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777201008191</created>
+      <option name="number" value="00386" />
+      <option name="presentableId" value="LOCAL-00386" />
+      <option name="project" value="LOCAL" />
+      <updated>1777201008191</updated>
+    </task>
+    <task id="LOCAL-00387" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777203830495</created>
+      <option name="number" value="00387" />
+      <option name="presentableId" value="LOCAL-00387" />
+      <option name="project" value="LOCAL" />
+      <updated>1777203830495</updated>
+    </task>
+    <task id="LOCAL-00388" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777205609393</created>
+      <option name="number" value="00388" />
+      <option name="presentableId" value="LOCAL-00388" />
+      <option name="project" value="LOCAL" />
+      <updated>1777205609393</updated>
+    </task>
+    <task id="LOCAL-00389" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777206625020</created>
+      <option name="number" value="00389" />
+      <option name="presentableId" value="LOCAL-00389" />
+      <option name="project" value="LOCAL" />
+      <updated>1777206625020</updated>
+    </task>
+    <task id="LOCAL-00390" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777208805489</created>
+      <option name="number" value="00390" />
+      <option name="presentableId" value="LOCAL-00390" />
+      <option name="project" value="LOCAL" />
+      <updated>1777208805489</updated>
+    </task>
+    <task id="LOCAL-00391" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777210308626</created>
+      <option name="number" value="00391" />
+      <option name="presentableId" value="LOCAL-00391" />
+      <option name="project" value="LOCAL" />
+      <updated>1777210308626</updated>
+    </task>
+    <task id="LOCAL-00392" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777211016504</created>
+      <option name="number" value="00392" />
+      <option name="presentableId" value="LOCAL-00392" />
+      <option name="project" value="LOCAL" />
+      <updated>1777211016504</updated>
+    </task>
+    <task id="LOCAL-00393" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777216490984</created>
+      <option name="number" value="00393" />
+      <option name="presentableId" value="LOCAL-00393" />
+      <option name="project" value="LOCAL" />
+      <updated>1777216490984</updated>
+    </task>
+    <task id="LOCAL-00394" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777216583241</created>
+      <option name="number" value="00394" />
+      <option name="presentableId" value="LOCAL-00394" />
+      <option name="project" value="LOCAL" />
+      <updated>1777216583242</updated>
+    </task>
+    <task id="LOCAL-00395" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777219702069</created>
+      <option name="number" value="00395" />
+      <option name="presentableId" value="LOCAL-00395" />
+      <option name="project" value="LOCAL" />
+      <updated>1777219702069</updated>
+    </task>
+    <task id="LOCAL-00396" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777220881481</created>
+      <option name="number" value="00396" />
+      <option name="presentableId" value="LOCAL-00396" />
+      <option name="project" value="LOCAL" />
+      <updated>1777220881481</updated>
+    </task>
+    <task id="LOCAL-00397" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777222267180</created>
+      <option name="number" value="00397" />
+      <option name="presentableId" value="LOCAL-00397" />
+      <option name="project" value="LOCAL" />
+      <updated>1777222267180</updated>
+    </task>
+    <task id="LOCAL-00398" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777224822250</created>
+      <option name="number" value="00398" />
+      <option name="presentableId" value="LOCAL-00398" />
+      <option name="project" value="LOCAL" />
+      <updated>1777224822250</updated>
+    </task>
+    <task id="LOCAL-00399" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777226301711</created>
+      <option name="number" value="00399" />
+      <option name="presentableId" value="LOCAL-00399" />
+      <option name="project" value="LOCAL" />
+      <updated>1777226301711</updated>
+    </task>
+    <task id="LOCAL-00400" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777231179873</created>
+      <option name="number" value="00400" />
+      <option name="presentableId" value="LOCAL-00400" />
+      <option name="project" value="LOCAL" />
+      <updated>1777231179873</updated>
+    </task>
+    <task id="LOCAL-00401" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777236278209</created>
+      <option name="number" value="00401" />
+      <option name="presentableId" value="LOCAL-00401" />
+      <option name="project" value="LOCAL" />
+      <updated>1777236278209</updated>
+    </task>
+    <task id="LOCAL-00402" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777238379643</created>
+      <option name="number" value="00402" />
+      <option name="presentableId" value="LOCAL-00402" />
+      <option name="project" value="LOCAL" />
+      <updated>1777238379643</updated>
+    </task>
+    <task id="LOCAL-00403" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777242605896</created>
+      <option name="number" value="00403" />
+      <option name="presentableId" value="LOCAL-00403" />
+      <option name="project" value="LOCAL" />
+      <updated>1777242605896</updated>
+    </task>
+    <task id="LOCAL-00404" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
+      <option name="closed" value="true" />
+      <created>1777285905622</created>
+      <option name="number" value="00404" />
+      <option name="presentableId" value="LOCAL-00404" />
+      <option name="project" value="LOCAL" />
+      <updated>1777285905622</updated>
+    </task>
+    <task id="LOCAL-00405" summary="- fix: SaveManager doesnt overwrite remote blindly after failed sync at start of game">
+      <option name="closed" value="true" />
+      <created>1777289119797</created>
+      <option name="number" value="00405" />
+      <option name="presentableId" value="LOCAL-00405" />
+      <option name="project" value="LOCAL" />
+      <updated>1777289119797</updated>
+    </task>
+    <task id="LOCAL-00406" summary="- feat: add game-distribution SDK and ads integration">
+      <option name="closed" value="true" />
+      <created>1777301504585</created>
+      <option name="number" value="00406" />
+      <option name="presentableId" value="LOCAL-00406" />
+      <option name="project" value="LOCAL" />
+      <updated>1777301504586</updated>
+    </task>
+    <task id="LOCAL-00407" summary="- feat: add game-distribution SDK and ads integration">
+      <option name="closed" value="true" />
+      <created>1777302732199</created>
+      <option name="number" value="00407" />
+      <option name="presentableId" value="LOCAL-00407" />
+      <option name="project" value="LOCAL" />
+      <updated>1777302732199</updated>
+    </task>
+    <task id="LOCAL-00408" summary="- feat: add game-distribution SDK and ads integration">
+      <option name="closed" value="true" />
+      <created>1777305069612</created>
+      <option name="number" value="00408" />
+      <option name="presentableId" value="LOCAL-00408" />
+      <option name="project" value="LOCAL" />
+      <updated>1777305069612</updated>
+    </task>
+    <task id="LOCAL-00409" summary="- feat: add game-distribution SDK and ads integration">
+      <option name="closed" value="true" />
+      <created>1777335548054</created>
+      <option name="number" value="00409" />
+      <option name="presentableId" value="LOCAL-00409" />
+      <option name="project" value="LOCAL" />
+      <updated>1777335548054</updated>
+    </task>
+    <task id="LOCAL-00410" summary="- refactor: web-platform integration refactor to use easy to add system&#10;- fix SaveSystem with an IDB checksum &#10;- add vConsole debug mode for mobile devices">
+      <option name="closed" value="true" />
+      <created>1777389220183</created>
+      <option name="number" value="00410" />
+      <option name="presentableId" value="LOCAL-00410" />
+      <option name="project" value="LOCAL" />
+      <updated>1777389220183</updated>
+    </task>
+    <task id="LOCAL-00411" summary="- refactor: web-platform integration refactor to use easy to add system&#10;- fix SaveSystem with an IDB checksum &#10;- add vConsole debug mode for mobile devices&#10;- cleanup orphaned code from card-quest">
+      <option name="closed" value="true" />
+      <created>1777396820763</created>
+      <option name="number" value="00411" />
+      <option name="presentableId" value="LOCAL-00411" />
+      <option name="project" value="LOCAL" />
+      <updated>1777396820763</updated>
+    </task>
+    <task id="LOCAL-00412" summary="- refactor: web-platform integration refactor to use easy to add system&#10;- fix SaveSystem with an IDB checksum &#10;- add vConsole debug mode for mobile devices&#10;- cleanup orphaned code from card-quest">
+      <option name="closed" value="true" />
+      <created>1777472781000</created>
+      <option name="number" value="00412" />
+      <option name="presentableId" value="LOCAL-00412" />
+      <option name="project" value="LOCAL" />
+      <updated>1777472781000</updated>
+    </task>
+    <task id="LOCAL-00413" summary="- refactor: web-platform integration refactor to use easy to add system&#10;- fix SaveSystem with an IDB checksum &#10;- add vConsole debug mode for mobile devices&#10;- cleanup orphaned code from card-quest&#10;- ad throttle in 7 min rolling window">
+      <option name="closed" value="true" />
+      <created>1777477052210</created>
+      <option name="number" value="00413" />
+      <option name="presentableId" value="LOCAL-00413" />
+      <option name="project" value="LOCAL" />
+      <updated>1777477052210</updated>
+    </task>
+    <task id="LOCAL-00414" summary="- adding layout adjustments mobile/tablet for SpinnerConfigModal&#10;- gameplayStart and gameplayStop logic update">
+      <option name="closed" value="true" />
+      <created>1777573462613</created>
+      <option name="number" value="00414" />
+      <option name="presentableId" value="LOCAL-00414" />
+      <option name="project" value="LOCAL" />
+      <updated>1777573462613</updated>
+    </task>
+    <task id="LOCAL-00415" summary="- TreasureChest redo&#10;- gameplayStop on all menus&#10;- feature flag the BackupManager&#10;- cooldown on AdRewardsButton">
+      <option name="closed" value="true" />
+      <created>1777632217045</created>
+      <option name="number" value="00415" />
+      <option name="presentableId" value="LOCAL-00415" />
+      <option name="project" value="LOCAL" />
+      <updated>1777632217045</updated>
+    </task>
+    <task id="LOCAL-00416" summary="- TreasureChest redo&#10;- gameplayStop on all menus&#10;- feature flag the BackupManager&#10;- cooldown on AdRewardsButton&#10;- fix local write on CG build">
+      <option name="closed" value="true" />
+      <created>1777639390980</created>
+      <option name="number" value="00416" />
+      <option name="presentableId" value="LOCAL-00416" />
+      <option name="project" value="LOCAL" />
+      <updated>1777639390981</updated>
+    </task>
+    <task id="LOCAL-00417" summary="- TreasureChest redo&#10;- gameplayStop on all menus&#10;- feature flag the BackupManager&#10;- cooldown on AdRewardsButton&#10;- fix local write on CG build">
+      <option name="closed" value="true" />
+      <created>1777639472687</created>
+      <option name="number" value="00417" />
+      <option name="presentableId" value="LOCAL-00417" />
+      <option name="project" value="LOCAL" />
+      <updated>1777639472688</updated>
+    </task>
+    <task id="LOCAL-00418" summary="- TreasureChest redo&#10;- gameplayStop on all menus&#10;- feature flag the BackupManager&#10;- cooldown on AdRewardsButton&#10;- fix local write on CG build">
+      <option name="closed" value="true" />
+      <created>1777645113980</created>
+      <option name="number" value="00418" />
+      <option name="presentableId" value="LOCAL-00418" />
+      <option name="project" value="LOCAL" />
+      <updated>1777645113980</updated>
+    </task>
+    <task id="LOCAL-00419" summary="- TreasureChest redo&#10;- gameplayStop on all menus&#10;- feature flag the BackupManager&#10;- cooldown on AdRewardsButton&#10;- fix local write on CG build">
+      <option name="closed" value="true" />
+      <created>1777652118100</created>
+      <option name="number" value="00419" />
+      <option name="presentableId" value="LOCAL-00419" />
+      <option name="project" value="LOCAL" />
+      <updated>1777652118100</updated>
+    </task>
+    <task id="LOCAL-00420" summary="- TreasureChest redo&#10;- gameplayStop on all menus&#10;- feature flag the BackupManager&#10;- cooldown on AdRewardsButton&#10;- fix local write on CG build">
+      <option name="closed" value="true" />
+      <created>1777661936318</created>
+      <option name="number" value="00420" />
+      <option name="presentableId" value="LOCAL-00420" />
+      <option name="project" value="LOCAL" />
+      <updated>1777661936318</updated>
+    </task>
+    <task id="LOCAL-00421" summary="- TreasureChest redo&#10;- gameplayStop on all menus&#10;- feature flag the BackupManager&#10;- cooldown on AdRewardsButton&#10;- fix local write on CG build">
+      <option name="closed" value="true" />
+      <created>1777664656574</created>
+      <option name="number" value="00421" />
+      <option name="presentableId" value="LOCAL-00421" />
+      <option name="project" value="LOCAL" />
+      <updated>1777664656574</updated>
+    </task>
+    <task id="LOCAL-00422" summary="- removed BackupLayer">
+      <option name="closed" value="true" />
+      <created>1777755559150</created>
+      <option name="number" value="00422" />
+      <option name="presentableId" value="LOCAL-00422" />
+      <option name="project" value="LOCAL" />
+      <updated>1777755559150</updated>
+    </task>
+    <task id="LOCAL-00423" summary="- 3-arrow-indicator&#10;- purge spinner_ keys on CG build">
+      <option name="closed" value="true" />
+      <created>1777895339856</created>
+      <option name="number" value="00423" />
+      <option name="presentableId" value="LOCAL-00423" />
+      <option name="project" value="LOCAL" />
+      <updated>1777895339857</updated>
+    </task>
+    <task id="LOCAL-00424" summary="- 3-arrow-indicator&#10;- purge spinner_ keys on CG build">
+      <option name="closed" value="true" />
+      <created>1777899087875</created>
+      <option name="number" value="00424" />
+      <option name="presentableId" value="LOCAL-00424" />
+      <option name="project" value="LOCAL" />
+      <updated>1777899087875</updated>
+    </task>
+    <task id="LOCAL-00425" summary="- fix BattlePass skins, dailyRewardsModal + skins&#10;- fix Firefox CG sdk bug&#10;- fix RouletteWheel layout">
+      <option name="closed" value="true" />
+      <created>1777986205159</created>
+      <option name="number" value="00425" />
+      <option name="presentableId" value="LOCAL-00425" />
+      <option name="project" value="LOCAL" />
+      <updated>1777986205159</updated>
+    </task>
+    <task id="LOCAL-00426" summary="- integrate y8 and gamepix platform">
+      <option name="closed" value="true" />
+      <created>1777998725354</created>
+      <option name="number" value="00426" />
+      <option name="presentableId" value="LOCAL-00426" />
+      <option name="project" value="LOCAL" />
+      <updated>1777998725354</updated>
+    </task>
+    <task id="LOCAL-00427" summary="- disable adblock Modal on CG builds">
+      <option name="closed" value="true" />
+      <created>1778065427485</created>
+      <option name="number" value="00427" />
+      <option name="presentableId" value="LOCAL-00427" />
+      <option name="project" value="LOCAL" />
+      <updated>1778065427485</updated>
+    </task>
+    <task id="LOCAL-00428" summary="- move interstitial ads to start of the battle">
+      <option name="closed" value="true" />
+      <created>1778159082623</created>
+      <option name="number" value="00428" />
+      <option name="presentableId" value="LOCAL-00428" />
+      <option name="project" value="LOCAL" />
+      <updated>1778159082623</updated>
+    </task>
+    <task id="LOCAL-00429" summary="- rubber banding boss levels&#10;- allow sound mute on mobile">
+      <option name="closed" value="true" />
+      <created>1778774463059</created>
+      <option name="number" value="00429" />
+      <option name="presentableId" value="LOCAL-00429" />
+      <option name="project" value="LOCAL" />
+      <updated>1778774463059</updated>
+    </task>
+    <task id="LOCAL-00430" summary="- player tactical tips">
+      <option name="closed" value="true" />
+      <created>1778856880265</created>
+      <option name="number" value="00430" />
+      <option name="presentableId" value="LOCAL-00430" />
+      <option name="project" value="LOCAL" />
+      <updated>1778856880266</updated>
+    </task>
+    <task id="LOCAL-00431" summary="- player tactical tips">
+      <option name="closed" value="true" />
+      <created>1778857507637</created>
+      <option name="number" value="00431" />
+      <option name="presentableId" value="LOCAL-00431" />
+      <option name="project" value="LOCAL" />
+      <updated>1778857507637</updated>
+    </task>
+    <task id="LOCAL-00432" summary="- playgama platform integration">
+      <option name="closed" value="true" />
+      <created>1778862620429</created>
+      <option name="number" value="00432" />
+      <option name="presentableId" value="LOCAL-00432" />
+      <option name="project" value="LOCAL" />
+      <updated>1778862620429</updated>
+    </task>
+    <option name="localTasksCounter" value="433" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="195466a3-1ed6-4d9f-b7c1-a5221300d36c" value="TOOL_WINDOW" />
+        <entry key="d7a87d0c-ffba-405c-bb07-14beb210a7d7" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="195466a3-1ed6-4d9f-b7c1-a5221300d36c">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="d7a87d0c-ffba-405c-bb07-14beb210a7d7">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="- glitch heartbeat integration" />
+    <MESSAGE value="- glitch saves api integration&#10;- saveManager to handle save strategies by plattform&#10;- performance optimization&#10;- fps monitor" />
+    <MESSAGE value="- fix android bundle building" />
+    <MESSAGE value="- ads rewards reorganization with AdProvider and useAds.ts" />
+    <MESSAGE value="- added android ads with UnityAds, Google AdMob and Ironsource" />
+    <MESSAGE value="- wip: levelplay ios plugin + admob ios info.plist injection" />
+    <MESSAGE value="- wip: source ios admob+levelplay ids from github vars" />
+    <MESSAGE value="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController" />
+    <MESSAGE value="- fix: SaveManager doesnt overwrite remote blindly after failed sync at start of game" />
+    <MESSAGE value="- feat: add game-distribution SDK and ads integration" />
+    <MESSAGE value="- refactor: web-platform integration refactor to use easy to add system&#10;- fix SaveSystem with an IDB checksum &#10;- add vConsole debug mode for mobile devices" />
+    <MESSAGE value="- refactor: web-platform integration refactor to use easy to add system&#10;- fix SaveSystem with an IDB checksum &#10;- add vConsole debug mode for mobile devices&#10;- cleanup orphaned code from card-quest" />
+    <MESSAGE value="- refactor: web-platform integration refactor to use easy to add system&#10;- fix SaveSystem with an IDB checksum &#10;- add vConsole debug mode for mobile devices&#10;- cleanup orphaned code from card-quest&#10;- ad throttle in 7 min rolling window" />
+    <MESSAGE value="- adding layout adjustments mobile/tablet for SpinnerConfigModal&#10;- gameplayStart and gameplayStop logic update" />
+    <MESSAGE value="- TreasureChest redo&#10;- gameplayStop on all menus&#10;- feature flag the BackupManager&#10;- cooldown on AdRewardsButton" />
+    <MESSAGE value="- TreasureChest redo&#10;- gameplayStop on all menus&#10;- feature flag the BackupManager&#10;- cooldown on AdRewardsButton&#10;- fix local write on CG build" />
+    <MESSAGE value="- removed BackupLayer" />
+    <MESSAGE value="- 3-arrow-indicator&#10;- purge spinner_ keys on CG build" />
+    <MESSAGE value="- fix BattlePass skins, dailyRewardsModal + skins&#10;- fix Firefox CG sdk bug&#10;- fix RouletteWheel layout" />
+    <MESSAGE value="- integrate y8 and gamepix platform" />
+    <MESSAGE value="- disable adblock Modal on CG builds" />
+    <MESSAGE value="- move interstitial ads to start of the battle" />
+    <MESSAGE value="- rubber banding boss levels&#10;- allow sound mute on mobile" />
+    <MESSAGE value="- player tactical tips" />
+    <MESSAGE value="- playgama platform integration" />
+    <option name="LAST_COMMIT_MESSAGE" value="- playgama platform integration" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+</project>

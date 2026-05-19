@@ -1,0 +1,21 @@
+node_modules/
+dist/
+Exported/
+
+# gdexporter caches the downloaded GDJS runtime here
+.gdevelop-runtime/
+.cache/
+
+# GDevelop IDE artifacts
+*.gdevelop.lock
+*.bak
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+.env.local
+/public/images/art/tileset1.png
+/public/images/art/tileset2.png
+/public/images/art/tileset.png
+/public/images/art/tileset.webp

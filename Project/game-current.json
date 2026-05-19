@@ -1,0 +1,786 @@
+{
+  "firstLayout": "Main",
+  "gdVersion": {
+    "build": 269,
+    "major": 5,
+    "minor": 6,
+    "revision": 0
+  },
+  "properties": {
+    "adaptGameResolutionAtRuntime": true,
+    "antialiasingMode": "MSAA",
+    "antialisingEnabledOnMobile": false,
+    "folderProject": false,
+    "orientation": "portrait",
+    "packageName": "com.example.gamename",
+    "pixelsRounding": false,
+    "projectUuid": "d06d1c69-edb0-4328-9a5a-1973aabd8b9f",
+    "scaleMode": "linear",
+    "sizeOnStartupMode": "adaptWidth",
+    "templateSlug": "",
+    "version": "1.0.0",
+    "name": "Down the Duke",
+    "description": "",
+    "author": "",
+    "windowWidth": 380,
+    "windowHeight": 800,
+    "latestCompilationDirectory": "",
+    "maxFPS": 60,
+    "minFPS": 20,
+    "verticalSync": false,
+    "platformSpecificAssets": {},
+    "loadingScreen": {
+      "backgroundColor": 0,
+      "backgroundFadeInDuration": 0.2,
+      "backgroundImageResourceName": "",
+      "gdevelopLogoStyle": "light",
+      "logoAndProgressFadeInDuration": 0.2,
+      "logoAndProgressLogoFadeInDelay": 0,
+      "minDuration": 1.5,
+      "progressBarColor": 16777215,
+      "progressBarHeight": 20,
+      "progressBarMaxWidth": 200,
+      "progressBarMinWidth": 40,
+      "progressBarWidthPercent": 30,
+      "showGDevelopSplash": true,
+      "showProgressBar": true
+    },
+    "watermark": {
+      "placement": "bottom-left",
+      "showWatermark": true
+    },
+    "authorIds": [],
+    "authorUsernames": [],
+    "categories": [],
+    "playableDevices": [],
+    "extensionProperties": [],
+    "platforms": [
+      {
+        "name": "GDevelop JS platform"
+      }
+    ],
+    "currentPlatform": "GDevelop JS platform"
+  },
+  "resources": {
+    "resources": [
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/player.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "player",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/art/ship1.webp",
+        "kind": "image",
+        "metadata": "",
+        "name": "enemy",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/art/cannonball-black.webp",
+        "kind": "image",
+        "metadata": "",
+        "name": "bullet",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/art/cannon.webp",
+        "kind": "image",
+        "metadata": "",
+        "name": "cannon",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/art/cannonball-black.webp",
+        "kind": "image",
+        "metadata": "",
+        "name": "enemyball",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/castle.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "castle",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/sea.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "sea",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/target.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "target",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/placeholders/deadzone.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "deadzone",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/art/island.webp",
+        "kind": "image",
+        "metadata": "",
+        "name": "island",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/art/railing.webp",
+        "kind": "image",
+        "metadata": "",
+        "name": "railing",
+        "userAdded": true,
+        "smoothed": true
+      },
+      {
+        "alwaysLoaded": false,
+        "file": "assets/art/cannonball-ui.webp",
+        "kind": "image",
+        "metadata": "",
+        "name": "cannonball-ui",
+        "userAdded": true,
+        "smoothed": true
+      }
+    ]
+  },
+  "objects": [],
+  "objectsFolderStructure": {
+    "folderName": "__ROOT"
+  },
+  "objectsGroups": [],
+  "variables": [],
+  "layouts": [
+    {
+      "b": 255,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "Main",
+      "name": "Main",
+      "r": 247,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 249,
+      "uiSettings": {
+        "grid": false,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "gridHeight": 32,
+        "gridDepth": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridOffsetZ": 0,
+        "gridColor": 10401023,
+        "gridAlpha": 0.8,
+        "snap": false,
+        "zoomFactor": 0.6280257880781158,
+        "windowMask": false,
+        "selectedLayer": "",
+        "gameEditorMode": "instances-editor"
+      },
+      "objectsGroups": [],
+      "variables": [],
+      "instances": [],
+      "objects": [
+        {
+          "assetStoreId": "",
+          "name": "Player",
+          "persistentUuid": "1a1d58e0-4f2b-4649-849e-7f02eddbd08f",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "player",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Enemy",
+          "persistentUuid": "51c43520-5f26-49c9-a26e-e428aaeadf7f",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "enemy",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Bullet",
+          "persistentUuid": "76a11ccd-afa1-4bc9-82b2-1288147d0a60",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "bullet",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Cannon",
+          "persistentUuid": "c4a0fe11-1111-4ca1-9a1c-aaa111111111",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "cannon",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "EnemyBall",
+          "persistentUuid": "e4a0fe11-2222-4ca1-9a1c-bbb222222222",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "enemyball",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Castle",
+          "persistentUuid": "ca571e11-3333-4ca1-9a1c-ccc333333333",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "castle",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Sea",
+          "persistentUuid": "5ea0fe11-4444-4ca1-9a1c-ddd444444444",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "sea",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Target",
+          "persistentUuid": "1a497e11-5555-4ca1-9a1c-eee555555555",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "target",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "DeadZone",
+          "persistentUuid": "dead2e11-6666-4ca1-9a1c-fff666666666",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "deadzone",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Island",
+          "persistentUuid": "15140e11-7777-4ca1-9a1c-aaa777777777",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "island",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "assetStoreId": "",
+          "name": "Railing",
+          "persistentUuid": "9a1110e1-8888-4ca1-9a1c-bbb888888888",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "effects": [],
+          "behaviors": [],
+          "adaptCollisionMaskAutomatically": true,
+          "animations": [
+            {
+              "name": "default",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "railing",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "objectsFolderStructure": {
+        "folderName": "__ROOT",
+        "children": [
+          {
+            "objectName": "Player"
+          },
+          {
+            "objectName": "Enemy"
+          },
+          {
+            "objectName": "Bullet"
+          },
+          {
+            "objectName": "Cannon"
+          },
+          {
+            "objectName": "EnemyBall"
+          },
+          {
+            "objectName": "Castle"
+          },
+          {
+            "objectName": "Sea"
+          },
+          {
+            "objectName": "Target"
+          },
+          {
+            "objectName": "DeadZone"
+          },
+          {
+            "objectName": "Island"
+          },
+          {
+            "objectName": "Railing"
+          }
+        ]
+      },
+      "events": [
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": "\"use strict\";\n(() => {\n  // game-src/input.ts\n  var KEY = {\n    LEFT: 37,\n    UP: 38,\n    RIGHT: 39,\n    DOWN: 40,\n    W: 87,\n    A: 65,\n    S: 83,\n    D: 68,\n    SPACE: 32\n  };\n  var PREV_BITS_VAR = \"__inputPrevBits\";\n  function readInput(scene2) {\n    const im = scene2.getGame().getInputManager();\n    let x = 0;\n    let y = 0;\n    if (im.isKeyPressed(KEY.LEFT) || im.isKeyPressed(KEY.A)) x -= 1;\n    if (im.isKeyPressed(KEY.RIGHT) || im.isKeyPressed(KEY.D)) x += 1;\n    if (im.isKeyPressed(KEY.UP) || im.isKeyPressed(KEY.W)) y -= 1;\n    if (im.isKeyPressed(KEY.DOWN) || im.isKeyPressed(KEY.S)) y += 1;\n    const space = im.isKeyPressed(KEY.SPACE);\n    const mouse = im.isMouseButtonPressed(0);\n    const fire3 = space || mouse;\n    const prevVar = scene2.getVariables().get(PREV_BITS_VAR);\n    const prev = prevVar.getAsNumber();\n    const wasFire = (prev & (1 /* Fire */ | 2 /* Mouse */)) !== 0;\n    const firePressed = fire3 && !wasFire;\n    let next = 0;\n    if (space) next |= 1 /* Fire */;\n    if (mouse) next |= 2 /* Mouse */;\n    prevVar.setNumber(next);\n    return {\n      axes: { x, y },\n      fire: fire3,\n      firePressed,\n      cursor: { x: im.getCursorX(), y: im.getCursorY() }\n    };\n  }\n\n  // game-src/entities.ts\n  var ObjectName = {\n    Player: \"Player\",\n    Enemy: \"Enemy\",\n    Bullet: \"Bullet\",\n    Cannon: \"Cannon\",\n    EnemyBall: \"EnemyBall\",\n    Castle: \"Castle\",\n    Sea: \"Sea\",\n    Target: \"Target\",\n    DeadZone: \"DeadZone\",\n    Island: \"Island\",\n    Railing: \"Railing\"\n  };\n  function spawn(scene2, name, x, y) {\n    const obj = scene2.createObject(name, x, y);\n    if (!obj) {\n      console.warn(`[entities] createObject('${name}') returned null \\u2014 is it defined in the scene?`);\n    }\n    return obj;\n  }\n  function all(scene2, name) {\n    return scene2.getObjects(name);\n  }\n  function firstOrNull(scene2, name) {\n    const arr = scene2.getObjects(name);\n    return arr.length > 0 ? arr[0] : null;\n  }\n\n  // game-src/projectiles.ts\n  var OFFSCREEN_PAD = 48;\n  var BALL_DISPLAY_SIZE_PX = 28;\n  function fire(scene2, kind, x, y, dx, dy, speed) {\n    const len = Math.hypot(dx, dy) || 1;\n    const vx = dx / len * speed;\n    const vy = dy / len * speed;\n    const p = spawn(scene2, kind, x, y);\n    if (!p) return null;\n    if (kind === ObjectName.Bullet || kind === ObjectName.EnemyBall) {\n      const native = p.getWidth();\n      if (native > 0) p.setScale(BALL_DISPLAY_SIZE_PX / native);\n    }\n    const v = p.getVariables();\n    v.get(\"vx\").setNumber(vx);\n    v.get(\"vy\").setNumber(vy);\n    return p;\n  }\n  function update(scene2, kind, dt2) {\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    for (const p of all(scene2, kind)) {\n      const v = p.getVariables();\n      const nx = p.getX() + v.get(\"vx\").getAsNumber() * dt2;\n      const ny = p.getY() + v.get(\"vy\").getAsNumber() * dt2;\n      if (nx < -OFFSCREEN_PAD || nx > w + OFFSCREEN_PAD || ny < -OFFSCREEN_PAD || ny > h + OFFSCREEN_PAD) {\n        p.deleteFromScene(scene2);\n        continue;\n      }\n      p.setX(nx);\n      p.setY(ny);\n    }\n  }\n\n  // game-src/cannon.ts\n  var BULLET_SPEED = 720;\n  var AIM_CENTER_DEG = -90;\n  var AIM_SPREAD_DEG = 15;\n  var AIM_SENSITIVITY_PX = 140;\n  var BOTTOM_MARGIN = 14;\n  var RAILING_BOTTOM_MARGIN = 0;\n  var CANNON_Z = 10;\n  var RAILING_Z = 5;\n  function ensureCannon(scene2) {\n    let c = firstOrNull(scene2, ObjectName.Cannon);\n    if (c) return c;\n    const game = scene2.getGame();\n    const w = game.getGameResolutionWidth();\n    const h = game.getGameResolutionHeight();\n    c = spawn(scene2, ObjectName.Cannon, 0, 0);\n    if (c) {\n      const cw = c.getWidth();\n      const ch = c.getHeight();\n      const cx = w / 2 - cw / 2;\n      const cy = h - ch - BOTTOM_MARGIN;\n      c.setX(cx);\n      c.setY(cy);\n      c.setZOrder(CANNON_Z);\n      console.log(`[cannon] spawned ${cw}\\xD7${ch} at ${cx},${cy}`);\n    }\n    const r = spawn(scene2, ObjectName.Railing, 0, 0);\n    if (r) {\n      const rw = r.getWidth();\n      const rh = r.getHeight();\n      const rx = w / 2 - rw / 2;\n      const ry = h - rh - RAILING_BOTTOM_MARGIN;\n      r.setX(rx);\n      r.setY(ry);\n      r.setZOrder(RAILING_Z);\n      console.log(`[railing] spawned ${rw}\\xD7${rh} at ${rx},${ry}`);\n    }\n    return c;\n  }\n  function computeAimDeg(cannonX, cursorX) {\n    const t = Math.max(-1, Math.min(1, (cursorX - cannonX) / AIM_SENSITIVITY_PX));\n    return AIM_CENTER_DEG + t * AIM_SPREAD_DEG;\n  }\n  function aim(cannon2, cursorX) {\n    const aimDeg = computeAimDeg(cannon2.getCenterX(), cursorX);\n    cannon2.setAngle(aimDeg + 90);\n    return aimDeg;\n  }\n  function fire2(scene2, cannon2, aimDeg) {\n    const rad = aimDeg * Math.PI / 180;\n    const dx = Math.cos(rad);\n    const dy = Math.sin(rad);\n    const muzzleOffset = cannon2.getHeight() * 0.45;\n    const muzzleX = cannon2.getCenterX() + dx * muzzleOffset;\n    const muzzleY = cannon2.getCenterY() + dy * muzzleOffset;\n    fire(scene2, ObjectName.Bullet, muzzleX, muzzleY, dx, dy, BULLET_SPEED);\n  }\n\n  // game-src/background.ts\n  var SEA_Z = -20;\n  var ISLAND_Z = -15;\n  var DEADZONE_Z = -5;\n  var SKY_HEIGHT_PX = 130;\n  var ISLAND_Y = 110;\n  var DEADZONE_INSET_PX = 56;\n  var INIT_VAR = \"__bgInit\";\n  function deadZoneInset() {\n    return DEADZONE_INSET_PX;\n  }\n  function ensureBackground(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(INIT_VAR).getAsNumber() !== 0) return;\n    vars.get(INIT_VAR).setNumber(1);\n    const w = scene2.getGame().getGameResolutionWidth();\n    const sea = spawn(scene2, ObjectName.Sea, 0, SKY_HEIGHT_PX);\n    if (sea) sea.setZOrder(SEA_Z);\n    const island = spawn(scene2, ObjectName.Island, 0, 0);\n    if (island) {\n      const iw = island.getWidth();\n      island.setX(w / 2 - iw / 2);\n      island.setY(ISLAND_Y);\n      island.setZOrder(ISLAND_Z);\n    }\n    const dzLeft = spawn(scene2, ObjectName.DeadZone, DEADZONE_INSET_PX, 0);\n    if (dzLeft) dzLeft.setZOrder(DEADZONE_Z);\n    const dzRight = spawn(scene2, ObjectName.DeadZone, w - DEADZONE_INSET_PX, 0);\n    if (dzRight) dzRight.setZOrder(DEADZONE_Z);\n    console.log(`[background] sky/sea/island/deadzones spawned`);\n  }\n\n  // game-src/enemy.ts\n  var FIRE_INTERVAL_SEC = 2.2;\n  var SPAWN_GAP_SEC = 1;\n  var ENTRY_SPEED_PX_PER_SEC = 220;\n  var ENEMY_BALL_SPEED = 300;\n  var INITIAL_HP = 3;\n  var TOTAL_SHIPS_TO_SINK = 3;\n  var STOP_INSIDE_PLAYFIELD_PX = 6;\n  var TARGET_OFFSET_FRAC_X = 0.55;\n  var TARGET_OFFSET_FRAC_Y = 0.3;\n  var SUNK_COUNT_VAR = \"__shipsSunk\";\n  var NEXT_SIDE_VAR = \"__nextSide\";\n  var SPAWN_TIMER_VAR = \"__spawnTimer\";\n  var INIT_FLAG_VAR = \"__enemyInit\";\n  var SHIP_ID_COUNTER = \"__shipIdCounter\";\n  function nextShipId(scene2) {\n    const counter = scene2.getVariables().get(SHIP_ID_COUNTER);\n    const id = counter.getAsNumber() + 1;\n    counter.setNumber(id);\n    return id;\n  }\n  function findTargetForShip(scene2, shipId) {\n    for (const t of all(scene2, ObjectName.Target)) {\n      if (t.getVariables().get(\"shipId\").getAsNumber() === shipId) return t;\n    }\n    return null;\n  }\n  function findShipForTarget(scene2, target) {\n    const id = target.getVariables().get(\"shipId\").getAsNumber();\n    for (const e of all(scene2, ObjectName.Enemy)) {\n      if (e.getVariables().get(\"shipId\").getAsNumber() === id) return e;\n    }\n    return null;\n  }\n  var ENEMY_Y = 140;\n  function spawnShip(scene2, side) {\n    const w = scene2.getGame().getGameResolutionWidth();\n    const dz = deadZoneInset();\n    const y = ENEMY_Y;\n    const e = spawn(scene2, ObjectName.Enemy, side === \"left\" ? -400 : w + 400, y);\n    if (!e) return null;\n    const ew = e.getWidth();\n    const startX = side === \"left\" ? -ew - 8 : w + 8;\n    const playfieldLeft = dz + STOP_INSIDE_PLAYFIELD_PX;\n    const playfieldRight = w - dz - STOP_INSIDE_PLAYFIELD_PX - ew;\n    const centeredX = (playfieldLeft + playfieldRight) / 2;\n    const targetX = side === \"left\" ? centeredX - 8 : centeredX + 8;\n    e.setX(startX);\n    e.setY(y);\n    const id = nextShipId(scene2);\n    const v = e.getVariables();\n    v.get(\"shipId\").setNumber(id);\n    v.get(\"hp\").setNumber(INITIAL_HP);\n    v.get(\"state\").setNumber(0);\n    v.get(\"targetX\").setNumber(targetX);\n    v.get(\"fireTimer\").setNumber(0);\n    const t = spawn(\n      scene2,\n      ObjectName.Target,\n      startX + ew * TARGET_OFFSET_FRAC_X,\n      y + e.getHeight() * TARGET_OFFSET_FRAC_Y\n    );\n    if (t) t.getVariables().get(\"shipId\").setNumber(id);\n    console.log(`[enemy] spawn ${side} id=${id} ${ew}\\xD7${e.getHeight()} \\u2192 target x=${targetX}`);\n    return e;\n  }\n  function damage(scene2, enemy, amount) {\n    const hpVar = enemy.getVariables().get(\"hp\");\n    const next = hpVar.getAsNumber() - amount;\n    hpVar.setNumber(next);\n    if (next <= 0) {\n      const id = enemy.getVariables().get(\"shipId\").getAsNumber();\n      const t = findTargetForShip(scene2, id);\n      if (t) t.deleteFromScene(scene2);\n      enemy.deleteFromScene(scene2);\n      const sunk = scene2.getVariables().get(SUNK_COUNT_VAR);\n      sunk.setNumber(sunk.getAsNumber() + 1);\n      scene2.getVariables().get(SPAWN_TIMER_VAR).setNumber(0);\n      console.log(`[enemy] sunk id=${id} (${sunk.getAsNumber()}/${TOTAL_SHIPS_TO_SINK})`);\n      return true;\n    }\n    console.log(`[enemy] hit hp=${next}`);\n    return false;\n  }\n  function shipsSunk(scene2) {\n    return scene2.getVariables().get(SUNK_COUNT_VAR).getAsNumber();\n  }\n  function isLevelComplete(scene2) {\n    return shipsSunk(scene2) >= TOTAL_SHIPS_TO_SINK;\n  }\n  function tick(scene2, dt2, cannonX, cannonY) {\n    const vars = scene2.getVariables();\n    if (vars.get(INIT_FLAG_VAR).getAsNumber() === 0) {\n      vars.get(INIT_FLAG_VAR).setNumber(1);\n      spawnShip(scene2, \"left\");\n      vars.get(NEXT_SIDE_VAR).setNumber(1);\n      return;\n    }\n    const enemies = all(scene2, ObjectName.Enemy);\n    if (enemies.length === 0) {\n      if (isLevelComplete(scene2)) return;\n      const t = vars.get(SPAWN_TIMER_VAR).getAsNumber() + dt2;\n      if (t >= SPAWN_GAP_SEC) {\n        vars.get(SPAWN_TIMER_VAR).setNumber(0);\n        const sideBit = vars.get(NEXT_SIDE_VAR).getAsNumber();\n        spawnShip(scene2, sideBit === 0 ? \"left\" : \"right\");\n        vars.get(NEXT_SIDE_VAR).setNumber(1 - sideBit);\n      } else {\n        vars.get(SPAWN_TIMER_VAR).setNumber(t);\n      }\n      return;\n    }\n    for (const e of enemies) {\n      const v = e.getVariables();\n      const stateVal = v.get(\"state\").getAsNumber();\n      if (stateVal === 0) {\n        const target = v.get(\"targetX\").getAsNumber();\n        const x = e.getX();\n        const dir = target > x ? 1 : -1;\n        const nx = x + dir * ENTRY_SPEED_PX_PER_SEC * dt2;\n        if (dir === 1 && nx >= target || dir === -1 && nx <= target) {\n          e.setX(target);\n          v.get(\"state\").setNumber(1);\n          v.get(\"fireTimer\").setNumber(0);\n          console.log(`[enemy] arrived at ${target} (now firing)`);\n        } else {\n          e.setX(nx);\n        }\n      } else {\n        const ft = v.get(\"fireTimer\").getAsNumber() + dt2;\n        if (ft >= FIRE_INTERVAL_SEC) {\n          v.get(\"fireTimer\").setNumber(0);\n          const ex = e.getCenterX();\n          const ey = e.getCenterY();\n          fire(scene2, ObjectName.EnemyBall, ex, ey, cannonX - ex, cannonY - ey, ENEMY_BALL_SPEED);\n        } else {\n          v.get(\"fireTimer\").setNumber(ft);\n        }\n      }\n      const id = v.get(\"shipId\").getAsNumber();\n      const t = findTargetForShip(scene2, id);\n      if (t) {\n        t.setX(e.getX() + e.getWidth() * TARGET_OFFSET_FRAC_X);\n        t.setY(e.getY() + e.getHeight() * TARGET_OFFSET_FRAC_Y);\n      }\n    }\n  }\n\n  // game-src/state.ts\n  var INITIAL_PLAYER_HP = 5;\n  var HP_VAR = \"playerHp\";\n  var STATE_VAR = \"gameState\";\n  var HP_INIT_FLAG = \"__hpInit\";\n  function ensureInit(scene2) {\n    const vars = scene2.getVariables();\n    if (vars.get(HP_INIT_FLAG).getAsNumber() === 0) {\n      vars.get(HP_INIT_FLAG).setNumber(1);\n      vars.get(HP_VAR).setNumber(INITIAL_PLAYER_HP);\n      vars.get(STATE_VAR).setNumber(0);\n      console.log(`[state] init hp=${INITIAL_PLAYER_HP}`);\n    }\n  }\n  function getState(scene2) {\n    const s = scene2.getVariables().get(STATE_VAR).getAsNumber();\n    return s === 1 ? \"won\" : s === 2 ? \"lost\" : \"playing\";\n  }\n  function damagePlayer(scene2, amount) {\n    if (getState(scene2) !== \"playing\") return;\n    const hpVar = scene2.getVariables().get(HP_VAR);\n    const next = Math.max(0, hpVar.getAsNumber() - amount);\n    hpVar.setNumber(next);\n    console.log(`[state] player hp=${next}`);\n    if (next <= 0) {\n      scene2.getVariables().get(STATE_VAR).setNumber(2);\n      console.log(`[state] LOST`);\n    }\n  }\n  function markWon(scene2) {\n    if (getState(scene2) !== \"playing\") return;\n    scene2.getVariables().get(STATE_VAR).setNumber(1);\n    console.log(`[state] WON`);\n  }\n\n  // game-src/collisions.ts\n  var BULLET_DAMAGE = 1;\n  var ENEMY_BALL_DAMAGE = 1;\n  function hit(a, b) {\n    return gdjs.RuntimeObject.collisionTest(a, b, false);\n  }\n  function resolveBulletHits(scene2) {\n    const bullets = all(scene2, ObjectName.Bullet);\n    if (bullets.length === 0) return { kills: 0, parries: 0 };\n    const targets = all(scene2, ObjectName.Target);\n    const enemyBalls = all(scene2, ObjectName.EnemyBall);\n    let kills = 0;\n    let parries = 0;\n    for (const b of bullets) {\n      let consumed = false;\n      for (const eb of enemyBalls) {\n        if (hit(b, eb)) {\n          eb.deleteFromScene(scene2);\n          b.deleteFromScene(scene2);\n          parries += 1;\n          consumed = true;\n          break;\n        }\n      }\n      if (consumed) continue;\n      for (const t of targets) {\n        if (hit(b, t)) {\n          b.deleteFromScene(scene2);\n          const ship = findShipForTarget(scene2, t);\n          const state = ship ? ship.getVariables().get(\"state\").getAsNumber() : 0;\n          if (ship && state === 1 && damage(scene2, ship, BULLET_DAMAGE)) {\n            kills += 1;\n          }\n          break;\n        }\n      }\n    }\n    return { kills, parries };\n  }\n  function resolveEnemyBallHits(scene2, cannon2) {\n    if (!cannon2) return 0;\n    const balls = all(scene2, ObjectName.EnemyBall);\n    if (balls.length === 0) return 0;\n    let dmg = 0;\n    for (const b of balls) {\n      if (hit(b, cannon2)) {\n        b.deleteFromScene(scene2);\n        damagePlayer(scene2, ENEMY_BALL_DAMAGE);\n        dmg += ENEMY_BALL_DAMAGE;\n      }\n    }\n    return dmg;\n  }\n\n  // game-src/main.ts\n  var scene = runtimeScene;\n  ensureInit(scene);\n  ensureBackground(scene);\n  var cannon = ensureCannon(scene);\n  var playing = getState(scene) === \"playing\";\n  var dt = scene.getElapsedTime() / 1e3;\n  var input = readInput(scene);\n  if (cannon && playing) {\n    const aimDeg = aim(cannon, input.cursor.x);\n    if (input.firePressed) fire2(scene, cannon, aimDeg);\n    tick(scene, dt, cannon.getCenterX(), cannon.getCenterY());\n  }\n  update(scene, ObjectName.Bullet, dt);\n  update(scene, ObjectName.EnemyBall, dt);\n  if (playing) {\n    resolveBulletHits(scene);\n    resolveEnemyBallHits(scene, cannon);\n    if (isLevelComplete(scene)) markWon(scene);\n  }\n})();\n",
+          "parameterObjects": "",
+          "useStrict": true,
+          "eventsSheetExpanded": true
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 200,
+          "ambientLightColorG": 200,
+          "ambientLightColorR": 200,
+          "camera2DPlaneMaxDrawingDistance": 5000,
+          "camera3DFarPlaneDistance": 10000,
+          "camera3DFieldOfView": 45,
+          "camera3DNearPlaneDistance": 3,
+          "cameraType": "",
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "isLocked": false,
+          "name": "",
+          "renderingType": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": [
+        {
+          "name": "Animation",
+          "type": "AnimatableCapability::AnimatableBehavior"
+        },
+        {
+          "name": "Effect",
+          "type": "EffectCapability::EffectBehavior"
+        },
+        {
+          "name": "Flippable",
+          "type": "FlippableCapability::FlippableBehavior"
+        },
+        {
+          "name": "Opacity",
+          "type": "OpacityCapability::OpacityBehavior"
+        },
+        {
+          "name": "Resizable",
+          "type": "ResizableCapability::ResizableBehavior"
+        },
+        {
+          "name": "Scale",
+          "type": "ScalableCapability::ScalableBehavior"
+        }
+      ]
+    }
+  ],
+  "externalEvents": [],
+  "eventsFunctionsExtensions": [],
+  "externalLayouts": []
+}

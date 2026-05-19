@@ -1,0 +1,115 @@
+name: Deploy Static Content to Pages
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
+
+      - name: Checkout develop
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+          path: develop
+
+      - name: Checkout demo
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+          path: demo
+
+      - uses: pnpm/action-setup@v4
+        name: Install pnpm
+        with:
+          version: 10.6.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.8.0'
+
+      - name: Clean install dependencies (Main)
+        run: |
+          rm -rf main/node_modules
+          pnpm install --no-frozen-lockfile
+        working-directory: main
+
+      - name: Clean install dependencies (Develop)
+        run: |
+          rm -rf develop/node_modules
+          pnpm install --no-frozen-lockfile
+        working-directory: develop
+
+      - name: Clean install dependencies (Demo)
+        run: |
+          rm -rf demo/node_modules
+          pnpm install --no-frozen-lockfile
+        working-directory: demo
+
+      - name: Build Main Production
+        run: npm run build-github-main
+        working-directory: main
+        env:
+          VITE_APP_TURN_USERNAME: ${{ secrets.VITE_APP_TURN_USERNAME }}
+          VITE_APP_TURN_CREDENTIAL: ${{ secrets.VITE_APP_TURN_CREDENTIAL }}
+
+      - name: Build Develop Production
+        run: npm run build-github-develop
+        working-directory: develop
+        env:
+          VITE_APP_TURN_USERNAME: ${{ secrets.VITE_APP_TURN_USERNAME }}
+          VITE_APP_TURN_CREDENTIAL: ${{ secrets.VITE_APP_TURN_CREDENTIAL }}
+
+      - name: Build Demo Production
+        run: npm run build-github-demo
+        working-directory: demo
+        env:
+          VITE_APP_TURN_USERNAME: ${{ secrets.VITE_APP_TURN_USERNAME }}
+          VITE_APP_TURN_CREDENTIAL: ${{ secrets.VITE_APP_TURN_CREDENTIAL }}
+
+      - name: Create Dist Folder
+        run: mkdir dist
+
+      - name: Copy Main Build
+        run: cp -r main/dist/* dist/
+
+      - name: Copy Develop Build
+        run: cp -r develop/dist/* dist/develop/
+
+      - name: Copy Demo Build
+        run: cp -r demo/dist/* dist/demo/
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

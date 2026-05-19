@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:itch.io)",
+      "Bash(curl -sL -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" \"https://itch.io/jam/gdevelop-big-game-jam-9\" -o /tmp/jam.html)",
+      "mcp__chrome-devtools__list_pages",
+      "Bash(pnpm build:web)",
+      "Bash(pnpm mcp:typecheck)",
+      "Bash(pnpm preview *)"
+    ]
+  }
+}
