@@ -4,10 +4,46 @@
 // projectiles; state lives on object variables so it survives the
 // per-frame IIFE re-run.
 
-import {all, spawn, ObjectName} from "./entities.js";
+import {all, firstOrNull, spawn, ObjectName} from "./entities.js";
 
 const BURST_LIFE_SEC = 0.45;
 const BURST_Z = 70;
+
+// Full-screen colour flash. Stretched to cover the playfield, tinted and
+// faded out fast. Sits below the popups/text (z 55) so callouts stay on
+// top. One reused instance; `flashOn`/intensity live on its variables.
+const FLASH_Z = 55;
+const FLASH_FADE_PER_SEC = 900; // opacity units / second (≈0.2 s from 180)
+
+/** Punch a brief full-screen flash of `color` at the given peak opacity. */
+export function flash(scene: GdjsRuntimeScene, color: string, intensity = 150): void {
+  let f = firstOrNull(scene, ObjectName.Flash);
+  if (!f) f = spawn(scene, ObjectName.Flash, 0, 0);
+  if (!f) return;
+  const game = scene.getGame();
+  f.setWidth(game.getGameResolutionWidth());
+  f.setHeight(game.getGameResolutionHeight());
+  f.setX(0);
+  f.setY(0);
+  f.setColor(color);
+  f.setZOrder(FLASH_Z);
+  f.hide(false);
+  f.setOpacity(intensity);
+  f.getVariables().get("flashOn").setNumber(1);
+}
+
+function tickFlash(scene: GdjsRuntimeScene, dt: number): void {
+  const f = firstOrNull(scene, ObjectName.Flash);
+  if (!f || f.getVariables().get("flashOn").getAsNumber() !== 1) return;
+  const op = f.getOpacity() - FLASH_FADE_PER_SEC * dt;
+  if (op <= 0) {
+    f.setOpacity(0);
+    f.hide(true);
+    f.getVariables().get("flashOn").setNumber(0);
+  } else {
+    f.setOpacity(op);
+  }
+}
 
 /** Spawn a burst centred at (x, y) that grows to `peakSize` px wide. */
 export function spawnBurst(scene: GdjsRuntimeScene, x: number, y: number, peakSize: number): void {
@@ -27,6 +63,7 @@ export function spawnBurst(scene: GdjsRuntimeScene, x: number, y: number, peakSi
 }
 
 export function tick(scene: GdjsRuntimeScene, dt: number): void {
+  tickFlash(scene, dt);
   for (const b of all(scene, ObjectName.Burst)) {
     const v = b.getVariables();
     const life = v.get("life").getAsNumber() + dt;

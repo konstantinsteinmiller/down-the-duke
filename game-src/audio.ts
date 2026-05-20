@@ -115,3 +115,13 @@ export function playEnemyFire(): void {
   const now = c.currentTime;
   tone(c, "sine", 220, 70, now, 0.18, 0.3);
 }
+
+/** Sharp metallic "ting" when a shot is parried mid-air. */
+export function playParry(): void {
+  const c = ctx();
+  if (!c) return;
+  resume(c);
+  const now = c.currentTime;
+  tone(c, "square", 900, 1500, now, 0.07, 0.16);
+  tone(c, "triangle", 1800, 1300, now, 0.10, 0.12);
+}

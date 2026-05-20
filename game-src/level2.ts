@@ -26,6 +26,7 @@ import * as cannonMod from "./cannon.js";
 import {TARGET_BAND_Y} from "./cannon.js";
 import * as audio from "./audio.js";
 import * as vfx from "./vfx.js";
+import * as popup from "./popup.js";
 
 const SCROLL_SPEED_PX = 48;     // climb speed when not halted (48 − 30%)
 const WALL_TILE_H = 220;          // matches the wall-tile.png height
@@ -265,6 +266,7 @@ const V_PARRY_T = "__l2ParryTimer";       // PARRY flash countdown
 const V_WALL_TOTAL = "__l2WallTotal";     // wall containers spawned so far
 const V_WALL_KILLED = "__l2WallKilled";   // wall containers destroyed
 const V_WALL_REWARDED = "__l2WallRewarded"; // 1 once the wall run has been judged
+const V_RED_FIRED = "__l2RedFired";         // count of red balls fired (for PARRY prompt text)
 
 function w(scene: GdjsRuntimeScene): number {
   return scene.getGame().getGameResolutionWidth();
@@ -297,6 +299,7 @@ export function ensure(scene: GdjsRuntimeScene): void {
   vars.get(V_WALL_TOTAL).setNumber(0);
   vars.get(V_WALL_KILLED).setNumber(0);
   vars.get(V_WALL_REWARDED).setNumber(0);
+  vars.get(V_RED_FIRED).setNumber(0);
 
   const vw = w(scene);
 
@@ -692,6 +695,10 @@ function fireEnemyShot(
       ball.getVariables().get("red").setNumber(1);
       ball.getVariables().get("firerId").setNumber(ev.get("enemyId").getAsNumber());
     }
+    const redN = scene.getVariables().get(V_RED_FIRED).getAsNumber() + 1;
+    scene.getVariables().get(V_RED_FIRED).setNumber(redN);
+    const pt = firstOrNull(scene, ObjectName.ParryText);
+    if (pt) pt.setString(redN >= 2 ? "PARRY!\nLAST TIME" : "PARRY!");
     scene.getVariables().get(V_PARRY_T).setNumber(PARRY_FLASH_SEC);
     audio.playEnemyFire();
     audio.playWhistle();
@@ -845,6 +852,9 @@ function evaluateWallReward(scene: GdjsRuntimeScene): void {
   if (vars.get(V_WALL_KILLED).getAsNumber() >= WALL_RUN_COUNT) {
     state.healFull(scene);
     showP2Hint(scene, "All containers cleared!\nFull health restored!", 2.6);
+    popup.show(scene, "FULL HEALTH!", w(scene) / 2, h(scene) * 0.5, "120;255;140");
+    vfx.flash(scene, "120;255;150", 120);
+    audio.playCatch();
   }
 }
 
@@ -1238,12 +1248,21 @@ export function handleCollisions(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObj
     for (const eb of enemyBalls) {
       if (eb.getVariables().get("catchable").getAsNumber() === 1) continue;
       if (ballHit(b, eb)) {
+        const ebx = eb.getX() + eb.getWidth() / 2;
+        const eby = eb.getY() + eb.getHeight() / 2;
         const isRed = eb.getVariables().get("red").getAsNumber() === 1;
         eb.deleteFromScene(scene);
         if (isRed) {
           // Returned the red ball into the cannon — that cannon explodes.
           const firer = findEnemyById(scene, eb.getVariables().get("firerId").getAsNumber());
           if (firer) damageEnemy(scene, firer, 999, /*charged*/ true);
+          popup.show(scene, "DEFLECTED!", ebx, eby, "255;120;90");
+          vfx.flash(scene, "255;240;200", 120);
+          audio.playParry();
+        } else {
+          vfx.spawnBurst(scene, ebx, eby, 40);
+          popup.show(scene, "PARRIED!", ebx, eby, "150;220;255");
+          audio.playParry();
         }
         if (charged) {
           bv.get("intercepted").setNumber(1);
@@ -1306,13 +1325,14 @@ export function handleCollisions(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObj
           eb.deleteFromScene(scene);
           armCatchCan(scene);
           vfx.spawnBurst(scene, muzzleX, muzzleY, 90);
+          vfx.flash(scene, "255;245;210", 110);
+          popup.show(scene, "CAUGHT!", muzzleX, muzzleY - 28, "255;230;90");
           audio.playCatch();
           shake.trigger(scene, 9, 0.22);
         } else if (landed) {
           // Reached the muzzle without the bore lined up — it clips you.
           eb.deleteFromScene(scene);
-          state.damagePlayer(scene, 1);
-          shake.trigger(scene, SHAKE_INTENSITY_PX, SHAKE_DURATION_SEC);
+          playerHit(scene, muzzleX, muzzleY, 1);
         }
         // else: still in flight / bore not yet on target — wait.
         continue;
@@ -1320,12 +1340,21 @@ export function handleCollisions(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObj
       if (!landed) continue;
       // Ordinary shot reaching the cannon → player damage.
       if (ballHit(eb, cannon) || nearMuzzle(eb, straightMuzzle)) {
+        const hx = eb.getX() + eb.getWidth() / 2;
+        const hy = eb.getY() + eb.getHeight() / 2;
         eb.deleteFromScene(scene);
-        state.damagePlayer(scene, 1);
-        shake.trigger(scene, SHAKE_INTENSITY_PX, SHAKE_DURATION_SEC);
+        playerHit(scene, hx, hy, 1);
       }
     }
   }
+}
+
+/** Player takes a hit: damage + red screen flash + shake + a "-N" popup. */
+function playerHit(scene: GdjsRuntimeScene, x: number, y: number, amount: number): void {
+  state.damagePlayer(scene, amount);
+  shake.trigger(scene, SHAKE_INTENSITY_PX, SHAKE_DURATION_SEC);
+  vfx.flash(scene, "255;60;60", 115);
+  popup.show(scene, `-${amount}`, x, y, "255;90;90");
 }
 
 function nearMuzzle(ball: GdjsRuntimeObject, muzzle: { x: number; y: number }): boolean {

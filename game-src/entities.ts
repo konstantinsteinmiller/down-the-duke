@@ -48,6 +48,8 @@ export const ObjectName = {
   ParryText: "ParryText",
   LoadedBall: "LoadedBall",
   EnemyRedBall: "EnemyRedBall",
+  Flash: "Flash",
+  Popup: "Popup",
 } as const;
 export type ObjectName = typeof ObjectName[keyof typeof ObjectName];
 

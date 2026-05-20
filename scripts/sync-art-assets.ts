@@ -256,6 +256,7 @@ upsertResource("reactor", "assets/art/reactor.webp");
 upsertResource("tut-container", "assets/placeholders/tut-container.png");
 upsertResource("tut-light", "assets/placeholders/tut-light.png");
 upsertResource("burst", "assets/placeholders/burst.png");
+upsertResource("flash", "assets/placeholders/flash.png");
 
 upsertSprite("WallTile", "wall-tile", "wa1170e2-0000-4ca1-9a1c-aaa000000002");
 upsertSprite("PowerFrame", "power-frame", "90we7f00-1111-4ca1-9a1c-bbb000000002");
@@ -274,6 +275,7 @@ upsertSprite("Burst", "burst", "b0552002-0000-4ca1-9a1c-ccc000000004");
 // red cannonball projectile. Both reuse the red cannonball art.
 upsertSprite("LoadedBall", "cannonball-red", "70adb002-0000-4ca1-9a1c-ddd000000004");
 upsertSprite("EnemyRedBall", "cannonball-red", "e2edba11-0000-4ca1-9a1c-eee000000004");
+upsertSprite("Flash", "flash", "f1a54002-0000-4ca1-9a1c-fff000000004");
 
 upsertTextObject("L2Label", "12e0e000-4444-4444-eeee-000000000002", "ENEMY", {
   characterSize: 16,
@@ -308,11 +310,17 @@ upsertTextObject("ParryText", "70700002-4444-4444-eeee-000000000004",
     color: {r: 255, g: 90, b: 60},
     outlineThickness: 3,
   });
+upsertTextObject("Popup", "70700002-5555-4555-ffff-000000000004",
+  "", {
+    characterSize: 26,
+    color: {r: 255, g: 235, b: 170},
+    outlineThickness: 3,
+  });
 
 // 3. Ensure objectsFolderStructure has children entries for new sprites.
 const folder = scene.objectsFolderStructure as { folderName: string; children?: Array<{ objectName: string }> };
 folder.children = folder.children ?? [];
-for (const name of ["Island", "Railing", "Crosshair", "HealthBar", "HealthBarBg", "CannonballUI", "AmmoDot", "ReloadPip", "AmmoText", "LoseOverlay", "RestartButtonBg", "GameOverText", "RestartButtonText", "PlayerHpFrame", "PlayerHpSection", "ChargedBullet", "VictoryText", "ContinueButtonText", "WallTile", "PowerFrame", "PowerFill", "L2Enemy", "L2Label", "PowerLabel", "CatchCanText", "Factory", "Reactor", "EnemyCannon", "TutContainer", "TutLight", "TutHintText", "Burst", "P2HintText", "ParryText", "LoadedBall", "EnemyRedBall"]) {
+for (const name of ["Island", "Railing", "Crosshair", "HealthBar", "HealthBarBg", "CannonballUI", "AmmoDot", "ReloadPip", "AmmoText", "LoseOverlay", "RestartButtonBg", "GameOverText", "RestartButtonText", "PlayerHpFrame", "PlayerHpSection", "ChargedBullet", "VictoryText", "ContinueButtonText", "WallTile", "PowerFrame", "PowerFill", "L2Enemy", "L2Label", "PowerLabel", "CatchCanText", "Factory", "Reactor", "EnemyCannon", "TutContainer", "TutLight", "TutHintText", "Burst", "P2HintText", "ParryText", "LoadedBall", "EnemyRedBall", "Flash", "Popup"]) {
   if (!folder.children.some((c) => c.objectName === name)) {
     folder.children.push({objectName: name});
     console.log(`  folder child: ADDED ${name}`);

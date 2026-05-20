@@ -308,6 +308,8 @@ const PLACEHOLDERS: Placeholder[] = [
   // Phase-1 tutorial container: yellow hazard triangle + flashing light.
   {name: "tut-container", w: 120, h: 110, pixel: tutContainer},
   {name: "tut-light", w: 20, h: 20, pixel: tutLight},
+  // Full-screen flash quad — solid white, tinted + faded in code.
+  {name: "flash", w: 8, h: 8, pixel: [255, 255, 255, 255]},
   // Explosion / catch-can burst — concentric hot rings, scaled + faded
   // in code. Drawn white-hot core → yellow → orange → smoky edge.
   {

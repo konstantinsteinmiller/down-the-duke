@@ -27,6 +27,7 @@ import * as hud from "./hud.js";
 import * as hudHealth from "./hud-health.js";
 import * as shake from "./shake.js";
 import * as vfx from "./vfx.js";
+import * as popup from "./popup.js";
 import * as lose from "./lose.js";
 import * as win from "./win.js";
 import * as levels from "./levels.js";
@@ -81,6 +82,7 @@ proj.update(scene, ObjectName.EnemyRedBall, dt);
 if (level !== 2) hud.tick(scene, dt, cannon);
 hudHealth.tick(scene, dt);
 vfx.tick(scene, dt);
+popup.tick(scene, dt);
 shake.tick(scene, dt);
 
 if (playing) {
