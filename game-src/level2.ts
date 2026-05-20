@@ -79,7 +79,12 @@ const P2_FLASH_SEC = 1.1;       // how long a cannon flashes before firing
 const P2_SETTLE_SEC = 0.7;      // beat after a lesson cannon appears
 const P2_CANNON_CY = 240;       // lesson cannon centre Y (inside the player target band)
 const P2_SCROLL_IN_MUL = 2.5;   // climb speed-up while scrolling a lesson cannon in
-const CATCH_AIM_TOL_DEG = 12;   // how close to centre the aim must be to catch
+// Catch is now DIRECTION-based: the bore must point at the incoming ball
+// (within this angle) and the ball must be near the muzzle — so the
+// player aims the barrel into the ball's path rather than always centring.
+const CATCH_ANGLE_TOL_DEG = 26; // bore must point within this of the ball
+const CATCH_RADIUS_PX = 100;    // ...and the ball must be this close to the muzzle
+const CATCH_SIDE_OFFSET_DEG = 12; // how far off-centre side catch-shots are aimed
 const PARRY_FLASH_SEC = 1.4;    // PARRY prompt flashes ~twice when a red ball is incoming
 
 // Enemy cannons stop firing once they scroll more than this far below the
@@ -254,6 +259,7 @@ const V_TUT_T = "__l2TutTimer";           // accumulator for the warning-light p
 const V_P2 = "__l2P2State";               // Phase-2 catch-can lesson state (see P2 enum)
 const V_P2_T = "__l2P2Timer";             // per-state timer for the lesson
 const V_P2_CANNON = "__l2P2CannonId";     // enemyId of the current lesson cannon
+const V_P2_CATCH_AIM = "__l2P2CatchAim";  // aim angle the current lesson cannon's shot is catchable at
 const V_P2_HINT_T = "__l2P2HintTimer";    // remaining show time for the P2 hint text
 const V_PARRY_T = "__l2ParryTimer";       // PARRY flash countdown
 const V_WALL_TOTAL = "__l2WallTotal";     // wall containers spawned so far
@@ -285,6 +291,7 @@ export function ensure(scene: GdjsRuntimeScene): void {
   vars.get(V_P2).setNumber(P2.IDLE);
   vars.get(V_P2_T).setNumber(0);
   vars.get(V_P2_CANNON).setNumber(0);
+  vars.get(V_P2_CATCH_AIM).setNumber(cannonMod.AIM_CENTER_DEG);
   vars.get(V_P2_HINT_T).setNumber(0);
   vars.get(V_PARRY_T).setNumber(0);
   vars.get(V_WALL_TOTAL).setNumber(0);
@@ -292,7 +299,6 @@ export function ensure(scene: GdjsRuntimeScene): void {
   vars.get(V_WALL_REWARDED).setNumber(0);
 
   const vw = w(scene);
-  const vh = h(scene);
 
   // Wall tiles, stacked to cover the screen, scrolled + cycled.
   for (let i = 0; i < WALL_TILE_COUNT; i++) {
@@ -504,6 +510,17 @@ function cannonMuzzle(cannon: GdjsRuntimeObject): { x: number; y: number } {
   return {x: c.x, y: c.y - off};
 }
 
+/** Where the muzzle (bore opening) sits for a given aim angle — i.e. the
+ *  end of the barrel as it swings around the breech pivot. Used both to
+ *  aim catchable shots at a reachable spot and to test catches against
+ *  the *current* bore direction. */
+function muzzleArcPoint(cannon: GdjsRuntimeObject, aimDeg: number): { x: number; y: number } {
+  const c = cannonCenter(cannon);
+  const off = cannon.getVariables().get("__cannonMuzzleOffset").getAsNumber() || 160;
+  const rad = (aimDeg * Math.PI) / 180;
+  return {x: c.x + Math.cos(rad) * off, y: c.y + Math.sin(rad) * off};
+}
+
 export function tick(scene: GdjsRuntimeScene, dt: number, cannon: GdjsRuntimeObject | null): void {
   const vars = scene.getVariables();
   const vh = h(scene);
@@ -633,7 +650,7 @@ export function tick(scene: GdjsRuntimeScene, dt: number, cannon: GdjsRuntimeObj
   vars.get(V_HALTED).setNumber(anyHalting ? 1 : 0);
 
   updatePowerMeter(scene);
-  tickCatchText(scene, dt, cannon);
+  tickCatchText(scene, dt);
   if (!tutDone) tickTutorial(scene, dt);
   const p2Now = vars.get(V_P2).getAsNumber();
   if (p2Now > P2.IDLE && p2Now < P2.DONE) tickPhase2Intro(scene, dt, cannon);
@@ -684,13 +701,24 @@ function fireEnemyShot(
   const counter = scene.getVariables().get(V_SHOT_COUNTER).getAsNumber() + 1;
   scene.getVariables().get(V_SHOT_COUNTER).setNumber(counter);
   const catchable = cannon != null && counter % CATCHABLE_EVERY === 0;
-  // Catchable shots are aimed dead-centre at the muzzle so they fly
-  // into the barrel; ordinary shots target the cannon body.
-  const target = catchable && cannon ? cannonMuzzle(cannon) : cannonPos;
-  const ball = proj.fire(scene, ObjectName.EnemyBall, ex, ey, target.x, target.y, {});
-  if (ball && catchable) ball.getVariables().get("catchable").setNumber(1);
+  if (catchable && cannon) {
+    // Catchable shots come in from a RANDOM side: aimed at the spot the
+    // muzzle reaches at that side angle, so the player must point the bore
+    // toward the incoming ball (not just hold centre) to catch it.
+    const side = Math.random() < 0.5 ? -1 : 1;
+    const catchAimDeg = cannonMod.AIM_CENTER_DEG + side * CATCH_SIDE_OFFSET_DEG;
+    const target = muzzleArcPoint(cannon, catchAimDeg);
+    const ball = proj.fire(scene, ObjectName.EnemyBall, ex, ey, target.x, target.y, {xArcAmp: side * 45});
+    if (ball) ball.getVariables().get("catchable").setNumber(1);
+    audio.playEnemyFire();
+    audio.playWhistle();
+    return;
+  }
+  // Ordinary shot: still aimed at the cannon (a real threat) but swung in
+  // on a randomised arc so it doesn't always come straight down the middle.
+  const xArc = (Math.random() * 2 - 1) * 70;
+  proj.fire(scene, ObjectName.EnemyBall, ex, ey, cannonPos.x, cannonPos.y, {xArcAmp: xArc});
   audio.playEnemyFire();
-  if (catchable) audio.playWhistle();
 }
 
 const POWER_PAD = 6; // inset of the fill inside the frame border
@@ -714,7 +742,7 @@ function updatePowerMeter(scene: GdjsRuntimeScene): void {
   fill.setY(interiorTop + interiorH * (1 - frac));
 }
 
-function tickCatchText(scene: GdjsRuntimeScene, dt: number, cannon: GdjsRuntimeObject | null): void {
+function tickCatchText(scene: GdjsRuntimeScene, dt: number): void {
   const vars = scene.getVariables();
   const timer = vars.get(V_CATCH_TEXT_T).getAsNumber();
   const txt = firstOrNull(scene, ObjectName.CatchCanText);
@@ -743,12 +771,14 @@ export function consumeCatchArm(scene: GdjsRuntimeScene): void {
   scene.getVariables().get(V_CATCH_ARMED).setNumber(0);
 }
 
-const LOADED_BALL_SIZE = 46;
+const LOADED_BALL_SIZE = 154;
+const LOADED_BALL_PEEK_PX = -26; // pushed past the firing muzzle so it pokes out the bore
 const Z_LOADED = 9; // behind the cannon (z 10), above the railing (z 5)
 
 /** While a Catch-Can return is armed, show a red cannonball loaded in the
- *  barrel, sitting just inside the muzzle so the cannon partially covers
- *  it (matching the layout reference). Hidden when nothing is loaded. */
+ *  barrel — poking out the muzzle bore with its base tucked behind the
+ *  cannon (drawn behind it), matching the layout reference. Hidden when
+ *  nothing is loaded. */
 function updateLoadedBall(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObject): void {
   let lb = firstOrNull(scene, ObjectName.LoadedBall);
   if (!isCatchArmed(scene)) {
@@ -766,7 +796,7 @@ function updateLoadedBall(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObject): v
   const rad = (aimDeg * Math.PI) / 180;
   const c = cannonCenter(cannon);
   const off = cannon.getVariables().get("__cannonMuzzleOffset").getAsNumber() || 160;
-  const dist = off - 8; // just inside the muzzle so the barrel covers its base
+  const dist = off + LOADED_BALL_PEEK_PX; // sit at the bore lip so it pokes out the top
   const mx = c.x + Math.cos(rad) * dist;
   const my = c.y + Math.sin(rad) * dist;
   lb.setX(mx - lb.getWidth() / 2);
@@ -872,13 +902,20 @@ function settleLessonCannon(lessonCannon: GdjsRuntimeObject | null): boolean {
   return true;
 }
 
-/** Fire a guaranteed centred, catchable black ball from a lesson cannon
- *  straight into the player's muzzle. */
-function fireLessonBall(scene: GdjsRuntimeScene, enemy: GdjsRuntimeObject, cannon: GdjsRuntimeObject | null): void {
+/** Fire a catchable ball from a lesson cannon toward the spot the muzzle
+ *  reaches at `catchAimDeg` — so the player catches it by aiming the bore
+ *  to that side (centre for the demo, a random side for the practice). */
+function fireLessonBall(
+  scene: GdjsRuntimeScene,
+  enemy: GdjsRuntimeObject,
+  cannon: GdjsRuntimeObject | null,
+  catchAimDeg: number,
+): void {
   const ex = enemy.getX() + enemy.getWidth() / 2;
   const ey = enemy.getY() + enemy.getHeight() / 2;
-  const target = cannon ? cannonMuzzle(cannon) : {x: w(scene) / 2, y: h(scene) - 150};
-  const ball = proj.fire(scene, ObjectName.EnemyBall, ex, ey, target.x, target.y, {});
+  const target = cannon ? muzzleArcPoint(cannon, catchAimDeg) : {x: w(scene) / 2, y: h(scene) - 150};
+  const side = Math.sign(catchAimDeg - cannonMod.AIM_CENTER_DEG);
+  const ball = proj.fire(scene, ObjectName.EnemyBall, ex, ey, target.x, target.y, {xArcAmp: side * 45});
   if (ball) ball.getVariables().get("catchable").setNumber(1);
   audio.playEnemyFire();
   audio.playWhistle();
@@ -927,6 +964,8 @@ function startPhase2Intro(scene: GdjsRuntimeScene): void {
   const vars = scene.getVariables();
   vars.get(V_P2).setNumber(P2.DEMO_SCROLL);
   vars.get(V_P2_T).setNumber(0);
+  // Demo shot comes straight down the middle (catchable dead-centre).
+  vars.get(V_P2_CATCH_AIM).setNumber(cannonMod.AIM_CENTER_DEG);
   const id = spawnLessonCannon(scene, w(scene) * 0.5);
   vars.get(V_P2_CANNON).setNumber(id);
   showP2Hint(scene, "An enemy cannon rises into view...");
@@ -971,7 +1010,7 @@ function tickPhase2Intro(scene: GdjsRuntimeScene, dt: number, cannon: GdjsRuntim
       if (t >= P2_FLASH_SEC) {
         if (lessonCannon) {
           lessonCannon.setColor("255;255;255");
-          fireLessonBall(scene, lessonCannon, cannon);
+          fireLessonBall(scene, lessonCannon, cannon, vars.get(V_P2_CATCH_AIM).getAsNumber());
         }
         showP2Hint(scene, "Watch — the cannon lines up to CATCH it!");
         setP2(scene, P2.DEMO_FLIGHT);
@@ -979,33 +1018,40 @@ function tickPhase2Intro(scene: GdjsRuntimeScene, dt: number, cannon: GdjsRuntim
       break;
 
     case P2.DEMO_FLIGHT:
-      // Auto-correct the player's cannon to 0° so the first catch is free.
+      // Auto-correct the player's bore onto the shot so the first catch is free.
       if (cannon) {
+        const aim = vars.get(V_P2_CATCH_AIM).getAsNumber();
         const cur = cannonMod.getAimDeg(scene);
-        const next = cur + (cannonMod.AIM_CENTER_DEG - cur) * Math.min(1, dt * 12);
+        const next = cur + (aim - cur) * Math.min(1, dt * 12);
         cannonMod.setAimDeg(scene, cannon, next);
       }
       if (isCatchArmed(scene)) {
         showP2Hint(scene, "CAUGHT IT! It's red-hot.\nTap to fire it back for DOUBLE damage!");
         setP2(scene, P2.DEMO_CAUGHT);
       } else if (ballsGone) {
-        // Shouldn't happen with auto-centre, but re-fire just in case.
+        // Shouldn't happen with auto-aim, but re-fire just in case.
         setP2(scene, P2.DEMO_FLASH);
       }
       break;
 
     case P2.DEMO_CAUGHT:
-      // Keep centred so the return shot flies up the middle into the cannon.
-      if (cannon) cannonMod.setAimDeg(scene, cannon, cannonMod.AIM_CENTER_DEG);
+      // Hold the bore on target so the return flies up into the cannon.
+      if (cannon) cannonMod.setAimDeg(scene, cannon, vars.get(V_P2_CATCH_AIM).getAsNumber());
       if (!isCatchArmed(scene) || !lessonCannon) setP2(scene, P2.DEMO_EXPLODE);
       break;
 
     case P2.DEMO_EXPLODE:
       if (!lessonCannon) {
         consumeCatchArm(scene);
-        const id = spawnLessonCannon(scene, w(scene) * 0.5);
+        // Practice shot comes in from a RANDOM side so the player learns
+        // to catch angled shots, not just centred ones.
+        const side = Math.random() < 0.5 ? -1 : 1;
+        vars.get(V_P2_CATCH_AIM).setNumber(cannonMod.AIM_CENTER_DEG + side * CATCH_SIDE_OFFSET_DEG);
+        const id = spawnLessonCannon(scene, w(scene) * (0.5 + side * 0.18));
         vars.get(V_P2_CANNON).setNumber(id);
-        showP2Hint(scene, "Now YOU try!\nCentre the cannon to catch the shot.");
+        showP2Hint(scene, side > 0
+          ? "Now YOU try!\nAim RIGHT to catch the shot."
+          : "Now YOU try!\nAim LEFT to catch the shot.");
         setP2(scene, P2.LEARN_SCROLL);
       } else if (returnGone && !isCatchArmed(scene)) {
         // The return missed — re-arm so the player can fire again.
@@ -1027,20 +1073,20 @@ function tickPhase2Intro(scene: GdjsRuntimeScene, dt: number, cannon: GdjsRuntim
       if (t >= P2_FLASH_SEC) {
         if (lessonCannon) {
           lessonCannon.setColor("255;255;255");
-          fireLessonBall(scene, lessonCannon, cannon);
+          fireLessonBall(scene, lessonCannon, cannon, vars.get(V_P2_CATCH_AIM).getAsNumber());
         }
-        showP2Hint(scene, "CENTRE your aim to catch it!");
+        showP2Hint(scene, "Point the bore at the incoming ball to catch it!");
         setP2(scene, P2.LEARN_FLIGHT);
       }
       break;
 
     case P2.LEARN_FLIGHT:
-      // No auto-correct — the player must centre the cannon themselves.
+      // No auto-correct — the player must aim the bore at the ball.
       if (isCatchArmed(scene)) {
         showP2Hint(scene, "Caught! Now fire it back!");
         setP2(scene, P2.LEARN_CAUGHT);
       } else if (ballsGone) {
-        showP2Hint(scene, "Missed! Keep the cannon centred — try again.");
+        showP2Hint(scene, "Missed! Aim the bore at the ball — try again.");
         setP2(scene, P2.LEARN_FLASH);
       }
       break;
@@ -1185,16 +1231,19 @@ export function handleCollisions(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObj
   for (const b of bullets) {
     const bv = b.getVariables();
     const charged = bv.get("charged").getAsNumber() === 1;
-    // Parry incoming fire (any time during flight).
+    // Parry incoming fire (any time during flight). Centred catchable
+    // shots are NOT parried — they must be CAUGHT (by centring the aim),
+    // so a stray shot can't silently consume a catch opportunity.
     let consumed = false;
     for (const eb of enemyBalls) {
+      if (eb.getVariables().get("catchable").getAsNumber() === 1) continue;
       if (ballHit(b, eb)) {
         const isRed = eb.getVariables().get("red").getAsNumber() === 1;
         eb.deleteFromScene(scene);
         if (isRed) {
           // Returned the red ball into the cannon — that cannon explodes.
           const firer = findEnemyById(scene, eb.getVariables().get("firerId").getAsNumber());
-          if (firer) damageEnemy(scene, firer, 999);
+          if (firer) damageEnemy(scene, firer, 999, /*charged*/ true);
         }
         if (charged) {
           bv.get("intercepted").setNumber(1);
@@ -1219,39 +1268,58 @@ export function handleCollisions(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObj
           break;
         }
         const dmg = charged ? CHARGED_DAMAGE : BULLET_DAMAGE;
-        damageEnemy(scene, e, dmg);
+        damageEnemy(scene, e, dmg, charged);
         b.deleteFromScene(scene);
         break;
       }
     }
   }
 
-  // Enemy balls vs the cannon: catch-can (centred) or damage.
+  // Enemy balls vs the cannon: catch-can (bore aimed at the ball) or damage.
   if (cannon) {
-    const muzzle = cannonMuzzle(cannon);
+    const straightMuzzle = cannonMuzzle(cannon);
+    const pivot = cannonCenter(cannon);
     const aimDeg = cannonMod.getAimDeg(scene);
-    const centred = Math.abs(aimDeg - cannonMod.AIM_CENTER_DEG) <= CATCH_AIM_TOL_DEG;
+    const aimRad = (aimDeg * Math.PI) / 180;
+    const aimX = Math.cos(aimRad);
+    const aimY = Math.sin(aimRad);
+    const off = cannon.getVariables().get("__cannonMuzzleOffset").getAsNumber() || 160;
+    const muzzleX = pivot.x + aimX * off;
+    const muzzleY = pivot.y + aimY * off;
+    const cosTol = Math.cos((CATCH_ANGLE_TOL_DEG * Math.PI) / 180);
     for (const eb of enemyBalls) {
       const ev = eb.getVariables();
       const landed = ev.get("landed").getAsNumber() === 1;
-      if (!landed) continue;
       if (ev.get("catchable").getAsNumber() === 1) {
-        eb.deleteFromScene(scene);
-        if (centred) {
-          // Cannon lined up dead-centre — the ball flew into the barrel.
+        // Catch when the BORE points at the incoming ball (bore direction
+        // aligned with the ball's bearing from the pivot) AND the ball has
+        // reached the muzzle — a forgiving window, not the single landing
+        // frame. So the player aims the barrel into the shot's path.
+        const bx = eb.getX() + eb.getWidth() / 2;
+        const by = eb.getY() + eb.getHeight() / 2;
+        const dx = bx - pivot.x;
+        const dy = by - pivot.y;
+        const len = Math.hypot(dx, dy) || 1;
+        const aligned = (dx / len) * aimX + (dy / len) * aimY >= cosTol;
+        const near = Math.hypot(bx - muzzleX, by - muzzleY) <= CATCH_RADIUS_PX;
+        if (aligned && near) {
+          eb.deleteFromScene(scene);
           armCatchCan(scene);
-          vfx.spawnBurst(scene, muzzle.x, muzzle.y, 90);
+          vfx.spawnBurst(scene, muzzleX, muzzleY, 90);
           audio.playCatch();
           shake.trigger(scene, 9, 0.22);
-        } else {
-          // Off-centre — it clips the cannon instead of being caught.
+        } else if (landed) {
+          // Reached the muzzle without the bore lined up — it clips you.
+          eb.deleteFromScene(scene);
           state.damagePlayer(scene, 1);
           shake.trigger(scene, SHAKE_INTENSITY_PX, SHAKE_DURATION_SEC);
         }
+        // else: still in flight / bore not yet on target — wait.
         continue;
       }
+      if (!landed) continue;
       // Ordinary shot reaching the cannon → player damage.
-      if (ballHit(eb, cannon) || nearMuzzle(eb, muzzle)) {
+      if (ballHit(eb, cannon) || nearMuzzle(eb, straightMuzzle)) {
         eb.deleteFromScene(scene);
         state.damagePlayer(scene, 1);
         shake.trigger(scene, SHAKE_INTENSITY_PX, SHAKE_DURATION_SEC);
@@ -1266,13 +1334,18 @@ function nearMuzzle(ball: GdjsRuntimeObject, muzzle: { x: number; y: number }): 
   return Math.hypot(bx - muzzle.x, by - muzzle.y) < 60;
 }
 
-function damageEnemy(scene: GdjsRuntimeScene, e: GdjsRuntimeObject, amount: number): void {
+// Hit-flash tints. A charged (red/caught) shot punches a bright white
+// flash; a plain shot only scorches a dull yellow.
+const FLASH_CHARGED = "255;255;255";
+const FLASH_NORMAL = "210;185;90";
+
+function damageEnemy(scene: GdjsRuntimeScene, e: GdjsRuntimeObject, amount: number, charged = false): void {
   const ev = e.getVariables();
   const hpVar = ev.get("hp");
   const next = hpVar.getAsNumber() - amount;
   hpVar.setNumber(next);
-  // brief white flash (restored to base tint by tick()'s flash timer)
-  e.setColor("255;255;255");
+  // Brief hit-flash (restored to base tint by tick()'s flash timer).
+  e.setColor(charged ? FLASH_CHARGED : FLASH_NORMAL);
   ev.get("flashTimer").setNumber(0.12);
   if (next <= 0) {
     const drain = ev.get("drain").getAsNumber();
