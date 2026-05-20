@@ -20,7 +20,7 @@
 // single-tap handler too. This adds ~300 ms of latency to a plain tap,
 // which is the standard price for unambiguous double-tap detection.
 
-const TAP_DURATION_MAX_SEC = 0.20;
+const TAP_DURATION_MAX_SEC = 0.10;
 const TAP_MOVEMENT_MAX_PX = 12;
 const DOUBLE_TAP_WINDOW_SEC = 0.30;
 

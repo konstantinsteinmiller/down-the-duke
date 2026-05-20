@@ -21,10 +21,37 @@
 import {all, spawn, ObjectName} from "./entities.js";
 
 const FLIGHT_TIME_SEC = 2.25;
-const BALL_DISPLAY_SIZE_PX = 28;
-const CHARGED_BALL_DISPLAY_SIZE_PX = 44;
+// Red cannonballs are slower per the GDD: ~4 s in the air, big
+// wobble, bigger sprite. ChargedBullet is the player's red ball.
+const FLIGHT_TIME_RED_SEC = 4.0;
+
+// ── Cannonball launch sizes (display px at the moment of firing) ──
+// Player balls launch close to the camera (big) and shrink as they
+// fly toward the distant enemy. Enemy balls launch far (small) and
+// grow as they approach the player. Tweak these to taste.
+const INITIAL_PLAYER_CANNONBALL_SIZE = 80;
+const INITIAL_ENEMY_CANNONBALL_SIZE = 13;
+const CHARGED_SIZE_MULTIPLIER = 2; // special red ball is this × the normal player ball
+
+// Perspective amounts: how much the ball scales over its flight.
+//   Player: shrinks to (1 − PLAYER_SHRINK) of its launch size.
+//   Enemy:  grows to (1 + ENEMY_GROW) of its launch size.
+const PLAYER_SHRINK = 0.85; // 80 px → ~13 px
+const ENEMY_GROW = 6.05;    // 13 px → ~80 px
+
+// Sinusoidal side-to-side wobble for red balls. Amplitude in px,
+// frequency in oscillations per second.
+const WOBBLE_AMP_PX = 28;
+const WOBBLE_HZ = 1.6;
 const VIEWPORT_PEAK_MARGIN_PX = 24;
 const MIN_ARC_HEIGHT_PX = 80;
+
+/** Launch (t=0) display size for a given projectile kind. */
+function launchSizeFor(kind: ObjectName): number {
+  if (kind === ObjectName.EnemyBall) return INITIAL_ENEMY_CANNONBALL_SIZE;
+  if (kind === ObjectName.ChargedBullet) return INITIAL_PLAYER_CANNONBALL_SIZE * CHARGED_SIZE_MULTIPLIER;
+  return INITIAL_PLAYER_CANNONBALL_SIZE; // Bullet
+}
 
 export interface FireOptions {
   /** Player's charged shot (double-tap) — bigger ball, 2× damage. */
@@ -85,11 +112,10 @@ export function fire(
   let nativeW = 0;
   if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {
     nativeW = p.getWidth();
-    const displaySize = charged ? CHARGED_BALL_DISPLAY_SIZE_PX : BALL_DISPLAY_SIZE_PX;
+    const displaySize = launchSizeFor(kind);
     if (nativeW > 0) p.setScale(displaySize / nativeW);
   }
   centerOn(p, startX, startY);
-  if (charged) p.getVariables().get("charged").setNumber(1);
   const horizDist = Math.abs(targetX - startX);
   const vertSpan = Math.abs(targetY - startY);
   // Tuned so symmetric player↑ and enemy↓ shots peak around y≈150
@@ -98,6 +124,14 @@ export function fire(
   const maxAllowed = maxAllowedArcH(startY, targetY, VIEWPORT_PEAK_MARGIN_PX);
   const arcH = Math.min(desired, maxAllowed);
   const v = p.getVariables();
+  // IMPORTANT: GDevelop pools and reuses object instances, so a freshly
+  // spawned ball may carry stale variables from a previous life. Reset
+  // every per-shot flag explicitly. The `landed` flag in particular, if
+  // left at 1 from a recycled instance, made the ball register a ship
+  // hit on the way UP at ~1 s instead of waiting out its full flight.
+  v.get("landed").setNumber(0);
+  v.get("intercepted").setNumber(0);
+  v.get("charged").setNumber(charged ? 1 : 0);
   v.get("startX").setNumber(startX);
   v.get("startY").setNumber(startY);
   v.get("targetX").setNumber(targetX);
@@ -105,10 +139,14 @@ export function fire(
   v.get("arcH").setNumber(arcH);
   v.get("xArcAmp").setNumber(opts.xArcAmp ?? 0);
   v.get("elapsed").setNumber(0);
+  // Red cannonballs (ChargedBullet for the player, and any enemy red
+  // shot we add later) wobble side-to-side and take longer to land.
+  const isRed = kind === ObjectName.ChargedBullet;
+  v.get("flightTime").setNumber(isRed ? FLIGHT_TIME_RED_SEC : FLIGHT_TIME_SEC);
+  v.get("wobbleAmp").setNumber(isRed ? WOBBLE_AMP_PX : 0);
   // Persist what the per-frame perspective scaler needs.
   if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {
-    const baseSize = charged ? CHARGED_BALL_DISPLAY_SIZE_PX : BALL_DISPLAY_SIZE_PX;
-    v.get("baseSize").setNumber(baseSize);
+    v.get("baseSize").setNumber(launchSizeFor(kind));
     v.get("nativeW").setNumber(nativeW);
   }
   return p;
@@ -121,38 +159,59 @@ export function fire(
  * player. Linear interpolation between near/far display sizes.
  */
 function depthScale(t: number, kind: ObjectName): number {
-  // Cannonballs read at ~100 m apart between the player and the enemy
-  // ship: approaching balls grow toward the camera, receding balls
-  // shrink away from it. Tuned for visibility at all stages — both
-  // kinds stay in roughly the same 12–28 px range on screen.
-  //   Player balls: 100% at launch (close, ~28 px) → 45% at impact (~13 px).
-  //   Enemy ball:    45% at launch (far,    ~13 px) → 100% at impact (~28 px).
-  // Charged bullet shares the player curve so the red ball reads as
-  // travelling alongside the regular black one — just bigger overall.
-  if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet) return 1.0 - 0.55 * t;
-  if (kind === ObjectName.EnemyBall) return 0.45 + 0.55 * t;
-  return 1.0;
+  // Multiplier applied to the launch size over the ball's flight, so
+  // every kind starts at exactly its INITIAL_*_CANNONBALL_SIZE at t=0.
+  //   Player / charged: shrink away from the camera (1 → 1−PLAYER_SHRINK).
+  //   Enemy:            grow toward the camera     (1 → 1+ENEMY_GROW).
+  if (kind === ObjectName.EnemyBall) return 1.0 + ENEMY_GROW * t;
+  return 1.0 - PLAYER_SHRINK * t; // Bullet + ChargedBullet
 }
 
 export function update(scene: GdjsRuntimeScene, kind: ObjectName, dt: number): void {
   for (const p of all(scene, kind)) {
     const v = p.getVariables();
     const elapsed = v.get("elapsed").getAsNumber() + dt;
-    if (elapsed >= FLIGHT_TIME_SEC) {
-      // Ball completed its arc without hitting anything.
-      p.deleteFromScene(scene);
+    const flightTime = v.get("flightTime").getAsNumber() || FLIGHT_TIME_SEC;
+    if (elapsed >= flightTime) {
+      // Flight finished. Hold the ball at its exact landing point for a
+      // single frame, flagged `landed`, so the collision pass evaluates
+      // the impact only now (flight time over) rather than mid-arc. The
+      // next frame removes it.
+      if (v.get("landed").getAsNumber() === 1) {
+        p.deleteFromScene(scene);
+        continue;
+      }
+      v.get("landed").setNumber(1);
+      v.get("elapsed").setNumber(flightTime);
+      const tx0 = v.get("targetX").getAsNumber();
+      const ty0 = v.get("targetY").getAsNumber();
+      if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {
+        const baseSize = v.get("baseSize").getAsNumber();
+        const nativeW = v.get("nativeW").getAsNumber();
+        if (baseSize > 0 && nativeW > 0) {
+          p.setScale((baseSize * depthScale(1, kind)) / nativeW);
+        }
+      }
+      centerOn(p, tx0, ty0);
       continue;
     }
     v.get("elapsed").setNumber(elapsed);
-    const t = elapsed / FLIGHT_TIME_SEC;
+    const t = elapsed / flightTime;
     const sx = v.get("startX").getAsNumber();
     const sy = v.get("startY").getAsNumber();
     const tx = v.get("targetX").getAsNumber();
     const ty = v.get("targetY").getAsNumber();
     const arcH = v.get("arcH").getAsNumber();
     const xArcAmp = v.get("xArcAmp").getAsNumber();
-    const x = sx + (tx - sx) * t + xArcAmp * 4 * t * (1 - t);
+    const wobbleAmp = v.get("wobbleAmp").getAsNumber();
+    let x = sx + (tx - sx) * t + xArcAmp * 4 * t * (1 - t);
     const y = sy + (ty - sy) * t - arcH * 4 * t * (1 - t);
+    // Red-ball wobble: sinusoidal side-to-side jitter, damped slightly
+    // at the ends so it doesn't snap off the spawn / target points.
+    if (wobbleAmp !== 0) {
+      const damp = Math.sin(Math.PI * t); // 0 at endpoints, 1 in the middle
+      x += Math.sin(2 * Math.PI * WOBBLE_HZ * elapsed) * wobbleAmp * damp;
+    }
     // Perspective scale: shrink as it gets farther from the camera.
     if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {
       const baseSize = v.get("baseSize").getAsNumber();

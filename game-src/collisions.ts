@@ -16,13 +16,40 @@ import * as shake from "./shake.js";
 const SHAKE_INTENSITY_PX = 14;
 const SHAKE_DURATION_SEC = 0.35;
 
+// Enemy balls arm late so the big cannon sprite isn't hit while the
+// ball is still high in its descent. (Player bullets use the stricter
+// `landed` flag instead — see below.)
+const ENEMY_HIT_ARM_FRAC = 0.7;
+
+/** Fraction (0..1) of the way through a projectile's flight. */
+function flightT(b: GdjsRuntimeObject): number {
+  const v = b.getVariables();
+  const flightTime = v.get("flightTime").getAsNumber() || 2.25;
+  return v.get("elapsed").getAsNumber() / flightTime;
+}
+
+/** True if the bullet's centre is over the ship's HULL — a tighter
+ *  region than the full sprite bounding box (which includes the sails
+ *  and transparent margins). Excludes the upper sails and the outer
+ *  edges so grazing the image corner doesn't count as a body hit. */
+function bulletOverHull(b: GdjsRuntimeObject, e: GdjsRuntimeObject): boolean {
+  const bx = b.getX() + b.getWidth() / 2;
+  const by = b.getY() + b.getHeight() / 2;
+  const ex = e.getX();
+  const ey = e.getY();
+  const ew = e.getWidth();
+  const eh = e.getHeight();
+  return bx >= ex + ew * 0.20 && bx <= ex + ew * 0.80
+    && by >= ey + eh * 0.42 && by <= ey + eh * 0.95;
+}
+
 // Per the updated GDD:
 //   Normal shot:  2 dmg on the weak point, 0.5 dmg on a body graze.
 //   Charged shot: 2.5× normal — 5 dmg weak, 1.25 dmg body.
 //   Charged shot intercepted by an enemy cannonball: passes through
 //     with damage cut to 1.25× normal — 2.5 dmg weak, 0.625 dmg body.
-const BULLET_DAMAGE = 2;
-const BULLET_BODY_DAMAGE = 0.5;
+const BULLET_DAMAGE = 1;
+const BULLET_BODY_DAMAGE = 0.25;
 const CHARGED_MULTIPLIER = 2.5;
 const CHARGED_INTERCEPTED_MULTIPLIER = 1.25;
 const ENEMY_BALL_DAMAGE = 1;
@@ -69,6 +96,11 @@ export function resolveBulletHits(scene: GdjsRuntimeScene): { kills: number; par
       }
     }
     if (consumed) continue;
+    // Player bullets only register a ship hit once their flight time is
+    // fully over — the projectiles module flags `landed` on the final
+    // frame and holds the ball at its landing point for this check. So
+    // a shot always completes its whole arc before it can damage a ship.
+    if (b.getVariables().get("landed").getAsNumber() !== 1) continue;
     const intercepted = b.getVariables().get("intercepted").getAsNumber() === 1;
     // Direct hit on a ship's weak point → full damage + white flash.
     // Skip if the ship is still in its dead-zone entry phase (state=0).
@@ -88,9 +120,11 @@ export function resolveBulletHits(scene: GdjsRuntimeScene): { kills: number; par
       }
     }
     if (handled) continue;
-    // Off-target body hit → grazing damage + yellow flash.
+    // Off-target body hit → grazing damage + yellow flash. Uses the
+    // tighter hull region so a shot only counts when it's actually over
+    // the ship's body, not its transparent sprite edge.
     for (const e of all(scene, ObjectName.Enemy)) {
-      if (hit(b, e)) {
+      if (bulletOverHull(b, e)) {
         const state = e.getVariables().get("state").getAsNumber();
         if (state === 1) {
           const dmg = bulletDamage(charged, intercepted, /*body*/ true);
@@ -111,6 +145,9 @@ export function resolveEnemyBallHits(scene: GdjsRuntimeScene, cannon: GdjsRuntim
   if (balls.length === 0) return 0;
   let dmg = 0;
   for (const b of balls) {
+    // Arm late so the ball reaches the cannon at the bottom of its
+    // descent rather than clipping the tall cannon sprite's top edge.
+    if (flightT(b) < ENEMY_HIT_ARM_FRAC) continue;
     if (hit(b, cannon)) {
       b.deleteFromScene(scene);
       damagePlayer(scene, ENEMY_BALL_DAMAGE);

@@ -29,12 +29,27 @@ const AIM_DEG_VAR = "__aimDeg";
 const PREV_CURSOR_X_VAR = "__prevCursorX";
 const AIM_INIT_VAR = "__aimInit";
 
-const BOTTOM_MARGIN = 14;
-const RAILING_BOTTOM_MARGIN = 0;
+// Layout, derived from the user's reference mockup (380×800 portrait):
+//   - Cannon spans ~62% of the screen width, centred, with its base
+//     extending past the bottom edge so only the breech + barrel show.
+//     Its cap (top) lands around 63% of the screen height.
+//   - Railing fills the full width, anchored so its top rail sits just
+//     above the cannon's breech (~70% height) and the posts run off the
+//     bottom. Drawn behind the cannon.
+const CANNON_WIDTH_FRAC = 0.62;
+const CANNON_BOTTOM_OVERHANG = 28; // px the cannon base pokes below the screen
+const RAILING_TOP_FRAC = 0.70;     // top of the railing sprite as a fraction of height
 
 const CANNON_Z = 10;
 const RAILING_Z = 5;
 const CROSSHAIR_Z = 15;
+
+// Muzzle sits this fraction of the cannon's scaled height above its
+// pivot (breech ≈69% down), along the aim direction. The barrel tip is
+// roughly 62% of the full sprite height above the breech pivot. Stored
+// at spawn so fire() doesn't read the rotation-sensitive AABB height.
+const MUZZLE_OFFSET_FRAC = 0.62;
+const CANNON_MUZZLE_OFFSET_VAR = "__cannonMuzzleOffset";
 
 export function ensureCannon(scene: GdjsRuntimeScene): GdjsRuntimeObject | null {
   let c = firstOrNull(scene, ObjectName.Cannon);
@@ -44,23 +59,29 @@ export function ensureCannon(scene: GdjsRuntimeScene): GdjsRuntimeObject | null 
   const w = game.getGameResolutionWidth();
   const h = game.getGameResolutionHeight();
 
-  c = spawn(scene, ObjectName.Cannon, 0, 0);
-  if (c) {
-    const cw = c.getWidth();
-    const ch = c.getHeight();
-    c.setX(w / 2 - cw / 2);
-    c.setY(h - ch - BOTTOM_MARGIN);
-    c.setZOrder(CANNON_Z);
-    console.log(`[cannon] spawned ${cw}×${ch}`);
-  }
-
+  // Railing first so it renders behind the cannon. Scaled to full width.
   const r = spawn(scene, ObjectName.Railing, 0, 0);
   if (r) {
-    const rw = r.getWidth();
-    const rh = r.getHeight();
-    r.setX(w / 2 - rw / 2);
-    r.setY(h - rh - RAILING_BOTTOM_MARGIN);
+    const rnw = r.getWidth();
+    if (rnw > 0) r.setScale(w / rnw);
+    r.setX(0);
+    r.setY(h * RAILING_TOP_FRAC);
     r.setZOrder(RAILING_Z);
+  }
+
+  c = spawn(scene, ObjectName.Cannon, 0, 0);
+  if (c) {
+    const cnw = c.getWidth();
+    const cnh = c.getHeight();
+    const scale = cnw > 0 ? (w * CANNON_WIDTH_FRAC) / cnw : 1;
+    c.setScale(scale);
+    const dispW = cnw * scale;
+    const dispH = cnh * scale;
+    c.setX(w / 2 - dispW / 2);
+    c.setY(h - dispH + CANNON_BOTTOM_OVERHANG);
+    c.setZOrder(CANNON_Z);
+    c.getVariables().get(CANNON_MUZZLE_OFFSET_VAR).setNumber(dispH * MUZZLE_OFFSET_FRAC);
+    console.log(`[cannon] spawned scaled ${dispW.toFixed(0)}×${dispH.toFixed(0)}`);
   }
 
   return c;
@@ -144,7 +165,10 @@ export function updateCrosshair(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObje
 }
 
 /** Fire a cannonball. `charged` (from a double-tap) doubles damage and
- *  spawns a bigger projectile, but costs 2 ammo instead of 1.
+ *  spawns a bigger projectile, but costs 2 ammo instead of 1. If a
+ *  charged shot is requested but only 1 ammo is available, fall back
+ *  to a normal shot rather than no-op'ing — the double-tap still
+ *  registers as a shot.
  *  Returns true if a shot was actually fired (gated by ammo / reload). */
 export function fire(
   scene: GdjsRuntimeScene,
@@ -152,13 +176,25 @@ export function fire(
   aimDeg: number,
   charged: boolean = false,
 ): boolean {
-  const cost = charged ? 2 : 1;
-  if (!hud.canFire(scene, cost)) return false;
+  let actuallyCharged = charged;
+  let cost = actuallyCharged ? 2 : 1;
+  if (!hud.canFire(scene, cost)) {
+    if (actuallyCharged && hud.canFire(scene, 1)) {
+      // Not enough ammo for a charged shot — downgrade to a normal one.
+      actuallyCharged = false;
+      cost = 1;
+      console.log(`[cannon] charged downgraded to normal (low ammo)`);
+    } else {
+      return false;
+    }
+  }
+  charged = actuallyCharged;
   const rad = (aimDeg * Math.PI) / 180;
   const dx = Math.cos(rad);
   const dy = Math.sin(rad);
   const {x: cx, y: cy} = cannonCenter(cannon);
-  const muzzleOffset = 80;
+  // Muzzle offset scaled with the cannon sprite (stored at spawn).
+  const muzzleOffset = cannon.getVariables().get(CANNON_MUZZLE_OFFSET_VAR).getAsNumber() || 80;
   const muzzleX = cx + dx * muzzleOffset;
   const muzzleY = cy + dy * muzzleOffset;
   const target = aimTarget(scene, cannon, aimDeg);

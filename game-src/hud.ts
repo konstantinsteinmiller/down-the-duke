@@ -31,7 +31,7 @@ const UI_TOP_MARGIN = 12;
 // counter box (the "12" placeholder area in the new art at roughly
 // sprite-local (78, 22)).
 const TEXT_OFFSET_X = 86;
-const TEXT_OFFSET_Y = 20;
+const TEXT_OFFSET_Y = 13;
 
 // Reload pip ring around the cannon.
 const RELOAD_PIP_COUNT = 12;

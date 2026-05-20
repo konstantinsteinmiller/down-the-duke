@@ -298,14 +298,20 @@ export function tick(scene: GdjsRuntimeScene, dt: number, cannonX: number, canno
         const ft = v.get("fireTimer").getAsNumber() + dt;
         if (ft >= FIRE_INTERVAL_SEC) {
           v.get("fireTimer").setNumber(0);
-          // Fire from the ship's port-side cannon position. xArcAmp
-          // pushes the ball outward before curving back toward the
-          // player, matching the GDD "Ball Trajectory" sketch.
+          // Alternate which broadside fires each round so balls arc in
+          // from both sides of the screen rather than always the right.
+          // `fireSide`: 0 = starboard (right of the sprite, arcs right
+          // before curving back), 1 = port (left of the sprite, arcs
+          // left). Flip it after every shot.
           const ew = e.getWidth();
           const eh = e.getHeight();
-          const sideX = e.getX() + ew * 0.72;
+          const fireSide = v.get("fireSide").getAsNumber();
+          const sideFracX = fireSide === 0 ? 0.72 : 0.28;
+          const sideX = e.getX() + ew * sideFracX;
           const sideY = e.getY() + eh * 0.38;
-          proj.fire(scene, ObjectName.EnemyBall, sideX, sideY, cannonX, cannonY, {xArcAmp: 100});
+          const xArcAmp = fireSide === 0 ? 100 : -100;
+          proj.fire(scene, ObjectName.EnemyBall, sideX, sideY, cannonX, cannonY, {xArcAmp});
+          v.get("fireSide").setNumber(1 - fireSide);
           const ammoLeft = v.get("ammo").getAsNumber() - 1;
           v.get("ammo").setNumber(ammoLeft);
           if (ammoLeft <= 0) {

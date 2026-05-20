@@ -209,6 +209,22 @@ upsertSprite("PlayerHpFrame", "hb-frame", "b0770e88-2222-4ca1-9a1c-aaa222222222"
 upsertSprite("PlayerHpSection", "hb-section", "b0770e88-3333-4ca1-9a1c-bbb333333333");
 upsertSprite("ChargedBullet", "cannonball-red", "ba110e22-4444-4ca1-9a1c-aab444444444");
 
+// Pivot the cannon around its breech (≈69% down the 533×698 sprite)
+// instead of the geometric centre, so aiming swings the barrel while
+// the mounted base stays roughly planted. Coordinates are in native
+// (un-scaled) sprite pixels.
+function setCenterPoint(name: string, x: number, y: number): void {
+  const obj = sceneObjects.find((o) => o.name === name);
+  if (!obj || !obj.animations?.[0]?.directions?.[0]?.sprites?.[0]) return;
+  const cp = obj.animations[0].directions[0].sprites[0].centerPoint;
+  cp.automatic = false;
+  cp.x = x;
+  cp.y = y;
+  console.log(`  centerPoint ${name}: (${x}, ${y})`);
+}
+
+setCenterPoint("Cannon", 266, 480);
+
 upsertTextObject("AmmoText", "11111111-aaaa-4111-aaaa-111111111111", "4");
 upsertTextObject("GameOverText", "60a0ee70-2222-4222-bbbb-222222222222", "YOU SUNK!", {
   characterSize: 56,

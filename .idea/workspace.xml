@@ -8,12 +8,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c28b41bc-3860-40d9-a7a1-eef5cd43b6ec" name="Changes" comment="- basic fight gameplay">
+      <change afterPath="$PROJECT_DIR$/public/images/art/cannon_533x698.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/art/railing_700x565.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/assets/art/cannon.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Project/assets/art/cannon.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/assets/art/cannonball-black.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Project/assets/art/cannonball-black.webp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project/assets/art/railing.webp" beforeDir="false" afterPath="$PROJECT_DIR$/Project/assets/art/railing.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project/game-current.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project/game-current.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project/game.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project/game.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-src/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/background.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-src/entities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/entities.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-src/cannon.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/cannon.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-src/collisions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/collisions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-src/enemy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/enemy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-src/gestures.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/gestures.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-src/projectiles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/projectiles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/art/cannonball-black.webp" beforeDir="false" afterPath="$PROJECT_DIR$/public/images/art/cannonball-black.webp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scripts/sync-art-assets.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/sync-art-assets.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +91,7 @@
     "Vitest.CrazyGamesStrategy (isCrazyWeb guard).executor": "Run",
     "Vitest.Forest arena wall-bounce heal value.executor": "Run",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/konst/Documents/__p/hex-game",
+    "last_opened_file_path": "C:/Users/konst/Documents/__p/hex-game/public/images/art",
     "list.type.of.created.stylesheet": "SCSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -133,11 +141,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\konst\Documents\__p\hex-game\public\images\art" />
       <recent name="C:\Users\konst\Documents\__p\hex-game" />
       <recent name="C:\Users\konst\chaos-arena\public\images\vfx" />
       <recent name="C:\Users\konst\chaos-arena\public\images\icons" />
       <recent name="C:\Users\konst\chaos-arena\public\images\bg" />
-      <recent name="C:\Users\konst\chaos-arena\public\images\logo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\konst\chaos-arena\.claude\skills" />
@@ -147,7 +155,7 @@
       <recent name="C:\Users\konst\small-rpg\public" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.promote">
+  <component name="RunManager" selected="npm.build">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -200,11 +208,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.promote" />
         <item itemvalue="npm.mcp:run" />
         <item itemvalue="npm.build:playgama" />
         <item itemvalue="npm.build:crazy-web" />
-        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
