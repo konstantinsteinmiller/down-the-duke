@@ -9,8 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c28b41bc-3860-40d9-a7a1-eef5cd43b6ec" name="Changes" comment="- catch can&#10;- level 2 vertical scroller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/game-current.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project/game-current.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/game.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project/game.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game-src/level2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/level2.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -280,14 +278,6 @@
       <workItem from="1778933712096" duration="3214000" />
       <workItem from="1779131709819" duration="5139000" />
       <workItem from="1779195901455" duration="9773000" />
-    </task>
-    <task id="LOCAL-00391" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
-      <option name="closed" value="true" />
-      <created>1777210308626</created>
-      <option name="number" value="00391" />
-      <option name="presentableId" value="LOCAL-00391" />
-      <option name="project" value="LOCAL" />
-      <updated>1777210308626</updated>
     </task>
     <task id="LOCAL-00392" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
       <option name="closed" value="true" />
@@ -673,7 +663,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779309405449</updated>
     </task>
-    <option name="localTasksCounter" value="440" />
+    <task id="LOCAL-00440" summary="- catch can&#10;- level 2 vertical scroller">
+      <option name="closed" value="true" />
+      <created>1779312640359</created>
+      <option name="number" value="00440" />
+      <option name="presentableId" value="LOCAL-00440" />
+      <option name="project" value="LOCAL" />
+      <updated>1779312640359</updated>
+    </task>
+    <option name="localTasksCounter" value="441" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
