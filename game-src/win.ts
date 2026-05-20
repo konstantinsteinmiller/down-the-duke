@@ -1,14 +1,11 @@
 // Win screen: spawned the first frame `state.getState() === "won"`.
-// Mirrors lose.ts but uses gold "VICTORY!" text and a CONTINUE button
-// that advances to Level 2.
-//
-// Level 2 isn't built as a separate GDevelop scene yet, so the
-// CONTINUE button currently restarts the current scene (REPLACE_SCENE
-// with "Main"). When Level 2 lands, change `NEXT_SCENE_NAME` below to
-// "Level2" and add the layout to game-current.json — no other code
-// changes required.
+// Gold "VICTORY!" text + a CONTINUE button. CONTINUE advances the
+// global level (Level 1 → Level 2) and restarts the Main scene, which
+// then runs the next level. Levels share the one Main scene; the active
+// level is chosen by the `currentLevel` global variable (see levels.ts).
 
 import {firstOrNull, spawn, ObjectName} from "./entities.js";
+import * as levels from "./levels.js";
 
 const SPAWNED_VAR = "__winSpawned";
 
@@ -23,8 +20,9 @@ const BUTTON_Y_FRACTION = 0.55;
 const BUTTON_W = 240;
 const BUTTON_H = 64;
 
-const REPLACE_SCENE = 3;        // gdjs.RuntimeScene.REPLACE_SCENE
-const NEXT_SCENE_NAME = "Main"; // TODO: change to "Level2" once that scene exists.
+const REPLACE_SCENE = 3;     // gdjs.RuntimeScene.REPLACE_SCENE
+const SCENE_NAME = "Main";   // both levels live in the Main scene
+const MAX_LEVEL = 2;         // no Level 3 yet — CONTINUE on L2 just replays L2
 
 function ensureSpawned(scene: GdjsRuntimeScene): void {
   const vars = scene.getVariables();
@@ -91,7 +89,9 @@ export function tick(scene: GdjsRuntimeScene, cursorX: number, cursorY: number, 
   if (!bg) return;
   const x = bg.getX(), y = bg.getY(), w = bg.getWidth(), h = bg.getHeight();
   if (cursorX >= x && cursorX < x + w && cursorY >= y && cursorY < y + h) {
-    console.log(`[win] continue → ${NEXT_SCENE_NAME}`);
-    scene.requestChange(REPLACE_SCENE, NEXT_SCENE_NAME);
+    const nextLevel = Math.min(levels.current(scene) + 1, MAX_LEVEL);
+    levels.setLevel(scene, nextLevel);
+    console.log(`[win] continue → level ${nextLevel}`);
+    scene.requestChange(REPLACE_SCENE, SCENE_NAME);
   }
 }

@@ -245,10 +245,74 @@ upsertTextObject("ContinueButtonText", "c071711e-5555-4555-eeee-555555555555", "
   color: {r: 250, g: 230, b: 180},
 });
 
+// ── Level 2 (vertical scroller) ──
+upsertResource("wall-tile", "assets/placeholders/wall-tile.png");
+upsertResource("power-frame", "assets/placeholders/power-frame.png");
+upsertResource("power-fill", "assets/placeholders/power-fill.png");
+upsertResource("l2box", "assets/placeholders/l2box.png");
+
+upsertResource("factory", "assets/art/factory.webp");
+upsertResource("reactor", "assets/art/reactor.webp");
+upsertResource("tut-container", "assets/placeholders/tut-container.png");
+upsertResource("tut-light", "assets/placeholders/tut-light.png");
+upsertResource("burst", "assets/placeholders/burst.png");
+
+upsertSprite("WallTile", "wall-tile", "wa1170e2-0000-4ca1-9a1c-aaa000000002");
+upsertSprite("PowerFrame", "power-frame", "90we7f00-1111-4ca1-9a1c-bbb000000002");
+upsertSprite("PowerFill", "power-fill", "90we7f00-2222-4ca1-9a1c-ccc000000002");
+upsertSprite("L2Enemy", "l2box", "12e0e000-3333-4ca1-9a1c-ddd000000002");
+upsertSprite("Factory", "factory", "facc0002-0000-4ca1-9a1c-aaa000000003");
+upsertSprite("Reactor", "reactor", "4eac0002-1111-4ca1-9a1c-bbb000000003");
+// Enemy cannon reuses the player cannon art; spawned rotated 180° to
+// point its muzzle south at the player.
+upsertSprite("EnemyCannon", "cannon", "ecaa0002-2222-4ca1-9a1c-ccc000000003");
+// Phase-1 tutorial: yellow hazard container + its flashing red light.
+upsertSprite("TutContainer", "tut-container", "70700002-0000-4ca1-9a1c-aaa000000004");
+upsertSprite("TutLight", "tut-light", "70700002-1111-4ca1-9a1c-bbb000000004");
+upsertSprite("Burst", "burst", "b0552002-0000-4ca1-9a1c-ccc000000004");
+// Catch-can: red ball shown loaded in the cannon pipe; and the enemy's
+// red cannonball projectile. Both reuse the red cannonball art.
+upsertSprite("LoadedBall", "cannonball-red", "70adb002-0000-4ca1-9a1c-ddd000000004");
+upsertSprite("EnemyRedBall", "cannonball-red", "e2edba11-0000-4ca1-9a1c-eee000000004");
+
+upsertTextObject("L2Label", "12e0e000-4444-4444-eeee-000000000002", "ENEMY", {
+  characterSize: 16,
+  color: {r: 20, g: 20, b: 20},
+  outlineThickness: 1,
+});
+upsertTextObject("PowerLabel", "90we7f00-5555-4555-aaaa-000000000002", "DUKE", {
+  characterSize: 14,
+  color: {r: 240, g: 240, b: 240},
+});
+upsertTextObject("CatchCanText", "ca7c0a00-6666-4666-bbbb-000000000002",
+  "CATCH-CAN!\nFire back for\nDOUBLE DAMAGE!", {
+    characterSize: 30,
+    color: {r: 255, g: 90, b: 60},
+    outlineThickness: 3,
+  });
+upsertTextObject("TutHintText", "70700002-2222-4222-cccc-000000000004",
+  "Blow up the container!", {
+    characterSize: 22,
+    color: {r: 255, g: 230, b: 120},
+    outlineThickness: 2,
+  });
+upsertTextObject("P2HintText", "70700002-3333-4333-dddd-000000000004",
+  "", {
+    characterSize: 22,
+    color: {r: 255, g: 235, b: 170},
+    outlineThickness: 2,
+  });
+upsertTextObject("ParryText", "70700002-4444-4444-eeee-000000000004",
+  "PARRY", {
+    characterSize: 52,
+    color: {r: 255, g: 90, b: 60},
+    outlineThickness: 3,
+  });
+
 // 3. Ensure objectsFolderStructure has children entries for new sprites.
 const folder = scene.objectsFolderStructure as { folderName: string; children?: Array<{ objectName: string }> };
 folder.children = folder.children ?? [];
-for (const name of ["Island", "Railing", "Crosshair", "HealthBar", "HealthBarBg", "CannonballUI", "AmmoDot", "ReloadPip", "AmmoText", "LoseOverlay", "RestartButtonBg", "GameOverText", "RestartButtonText", "PlayerHpFrame", "PlayerHpSection", "ChargedBullet", "VictoryText", "ContinueButtonText"]) {
+for (const name of ["Island", "Railing", "Crosshair", "HealthBar", "HealthBarBg", "CannonballUI", "AmmoDot", "ReloadPip", "AmmoText", "LoseOverlay", "RestartButtonBg", "GameOverText", "RestartButtonText", "PlayerHpFrame", "PlayerHpSection", "ChargedBullet", "VictoryText", "ContinueButtonText", "WallTile", "PowerFrame", "PowerFill", "L2Enemy", "L2Label", "PowerLabel", "CatchCanText", "Factory", "Reactor", "EnemyCannon", "TutContainer", "TutLight", "TutHintText", "Burst", "P2HintText", "ParryText", "LoadedBall", "EnemyRedBall"]) {
   if (!folder.children.some((c) => c.objectName === name)) {
     folder.children.push({objectName: name});
     console.log(`  folder child: ADDED ${name}`);

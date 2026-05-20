@@ -32,6 +32,9 @@ declare global {
     getGameResolutionWidth(): number;
 
     getGameResolutionHeight(): number;
+
+    /** Game-level (global) variables — persist across scene restarts. */
+    getVariables(): GdjsVariablesContainer;
   }
 
   interface GdjsInputManager {

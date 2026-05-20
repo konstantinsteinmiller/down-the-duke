@@ -40,6 +40,13 @@ export function damagePlayer(scene: GdjsRuntimeScene, amount: number): void {
   }
 }
 
+/** Restore the player to full HP (e.g. the wall-container clear reward). */
+export function healFull(scene: GdjsRuntimeScene): void {
+  if (getState(scene) !== "playing") return;
+  scene.getVariables().get(HP_VAR).setNumber(INITIAL_PLAYER_HP);
+  console.log(`[state] player healed to full (${INITIAL_PLAYER_HP})`);
+}
+
 export function markWon(scene: GdjsRuntimeScene): void {
   if (getState(scene) !== "playing") return;
   scene.getVariables().get(STATE_VAR).setNumber(1);

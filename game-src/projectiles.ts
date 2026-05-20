@@ -46,8 +46,20 @@ const WOBBLE_HZ = 1.6;
 const VIEWPORT_PEAK_MARGIN_PX = 24;
 const MIN_ARC_HEIGHT_PX = 80;
 
+/** Kinds that get the per-frame perspective scaling treatment. */
+function isScaledBall(kind: ObjectName): boolean {
+  return kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet
+    || kind === ObjectName.EnemyBall || kind === ObjectName.EnemyRedBall;
+}
+
+/** Enemy projectiles (grow toward the camera). */
+function isEnemyBall(kind: ObjectName): boolean {
+  return kind === ObjectName.EnemyBall || kind === ObjectName.EnemyRedBall;
+}
+
 /** Launch (t=0) display size for a given projectile kind. */
 function launchSizeFor(kind: ObjectName): number {
+  if (kind === ObjectName.EnemyRedBall) return INITIAL_ENEMY_CANNONBALL_SIZE * 1.5; // bigger hitbox
   if (kind === ObjectName.EnemyBall) return INITIAL_ENEMY_CANNONBALL_SIZE;
   if (kind === ObjectName.ChargedBullet) return INITIAL_PLAYER_CANNONBALL_SIZE * CHARGED_SIZE_MULTIPLIER;
   return INITIAL_PLAYER_CANNONBALL_SIZE; // Bullet
@@ -62,6 +74,13 @@ export interface FireOptions {
    *  cannonballs to fly out from the ship's side and curve over to
    *  the player, matching the GDD "Ball Trajectory" sketch. */
   xArcAmp?: number;
+  /** Override the flight time (seconds). Defaults by kind: 4 s for the
+   *  red ChargedBullet, 2.25 s otherwise. Level 2's fast charged shot
+   *  passes a shorter value (1.25× speed) without changing Level 1. */
+  flightTimeSec?: number;
+  /** Override the side-to-side wobble. Defaults to on for the red
+   *  ChargedBullet, off otherwise. */
+  wobble?: boolean;
 }
 
 /**
@@ -110,7 +129,7 @@ export function fire(
   // setScale apply a too-large factor — the ball was 3-4× its
   // intended size, causing visual + collision oddities.)
   let nativeW = 0;
-  if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {
+  if (isScaledBall(kind)) {
     nativeW = p.getWidth();
     const displaySize = launchSizeFor(kind);
     if (nativeW > 0) p.setScale(displaySize / nativeW);
@@ -131,6 +150,7 @@ export function fire(
   // hit on the way UP at ~1 s instead of waiting out its full flight.
   v.get("landed").setNumber(0);
   v.get("intercepted").setNumber(0);
+  v.get("catchable").setNumber(0);
   v.get("charged").setNumber(charged ? 1 : 0);
   v.get("startX").setNumber(startX);
   v.get("startY").setNumber(startY);
@@ -139,13 +159,16 @@ export function fire(
   v.get("arcH").setNumber(arcH);
   v.get("xArcAmp").setNumber(opts.xArcAmp ?? 0);
   v.get("elapsed").setNumber(0);
-  // Red cannonballs (ChargedBullet for the player, and any enemy red
-  // shot we add later) wobble side-to-side and take longer to land.
-  const isRed = kind === ObjectName.ChargedBullet;
-  v.get("flightTime").setNumber(isRed ? FLIGHT_TIME_RED_SEC : FLIGHT_TIME_SEC);
-  v.get("wobbleAmp").setNumber(isRed ? WOBBLE_AMP_PX : 0);
+  // Red cannonballs (ChargedBullet for the player, EnemyRedBall for the
+  // enemy) wobble side-to-side and take longer to land — unless the
+  // caller overrides (Level 2's charged shot is fast + flat).
+  const isRed = kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyRedBall;
+  const flightTime = opts.flightTimeSec ?? (isRed ? FLIGHT_TIME_RED_SEC : FLIGHT_TIME_SEC);
+  const wobble = opts.wobble ?? isRed;
+  v.get("flightTime").setNumber(flightTime);
+  v.get("wobbleAmp").setNumber(wobble ? WOBBLE_AMP_PX : 0);
   // Persist what the per-frame perspective scaler needs.
-  if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {
+  if (isScaledBall(kind)) {
     v.get("baseSize").setNumber(launchSizeFor(kind));
     v.get("nativeW").setNumber(nativeW);
   }
@@ -163,7 +186,7 @@ function depthScale(t: number, kind: ObjectName): number {
   // every kind starts at exactly its INITIAL_*_CANNONBALL_SIZE at t=0.
   //   Player / charged: shrink away from the camera (1 → 1−PLAYER_SHRINK).
   //   Enemy:            grow toward the camera     (1 → 1+ENEMY_GROW).
-  if (kind === ObjectName.EnemyBall) return 1.0 + ENEMY_GROW * t;
+  if (isEnemyBall(kind)) return 1.0 + ENEMY_GROW * t;
   return 1.0 - PLAYER_SHRINK * t; // Bullet + ChargedBullet
 }
 
@@ -185,7 +208,7 @@ export function update(scene: GdjsRuntimeScene, kind: ObjectName, dt: number): v
       v.get("elapsed").setNumber(flightTime);
       const tx0 = v.get("targetX").getAsNumber();
       const ty0 = v.get("targetY").getAsNumber();
-      if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {
+      if (isScaledBall(kind)) {
         const baseSize = v.get("baseSize").getAsNumber();
         const nativeW = v.get("nativeW").getAsNumber();
         if (baseSize > 0 && nativeW > 0) {
@@ -213,7 +236,7 @@ export function update(scene: GdjsRuntimeScene, kind: ObjectName, dt: number): v
       x += Math.sin(2 * Math.PI * WOBBLE_HZ * elapsed) * wobbleAmp * damp;
     }
     // Perspective scale: shrink as it gets farther from the camera.
-    if (kind === ObjectName.Bullet || kind === ObjectName.ChargedBullet || kind === ObjectName.EnemyBall) {
+    if (isScaledBall(kind)) {
       const baseSize = v.get("baseSize").getAsNumber();
       const nativeW = v.get("nativeW").getAsNumber();
       if (baseSize > 0 && nativeW > 0) {

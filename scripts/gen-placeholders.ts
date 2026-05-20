@@ -169,6 +169,43 @@ const playerShip: PixelFn = (x, y, w, h) => {
   return TRANSPARENT;
 };
 
+/** 120×110 hazard-sign placeholder for the Phase-1 tutorial container:
+ *  an upward-pointing yellow warning triangle with a dark border and a
+ *  black exclamation mark. A separate flashing red light is drawn on top
+ *  at runtime (see tutLight). */
+const tutContainer: PixelFn = (x, y, w, h) => {
+  const margin = 6;
+  const top = margin;
+  const bottom = h - margin;
+  const span = bottom - top;
+  if (y < top || y > bottom) return TRANSPARENT;
+  const progress = (y - top) / span;       // 0 at apex, 1 at base
+  const cx = w / 2;
+  const halfW = progress * (cx - margin);
+  const dx = Math.abs(x - cx);
+  if (dx > halfW) return TRANSPARENT;
+  const HAZARD: RGBA = [245, 205, 40, 255];
+  const BORDER: RGBA = [40, 35, 10, 255];
+  // Dark border along the two slanted edges and the base.
+  if (halfW - dx < 6 || y > bottom - 6) return BORDER;
+  // Black exclamation mark: bar in the mid-body, dot below it.
+  const exTop = top + span * 0.40;
+  const exBot = top + span * 0.72;
+  if (x >= cx - 4 && x <= cx + 4 && y >= exTop && y <= exBot) return BLACK;
+  if (distSq(x, y, cx, top + span * 0.84) < 5 * 5) return BLACK;
+  return HAZARD;
+};
+
+/** 20×20 warning light — a hot-cored red dot. Pulsed via setOpacity in
+ *  code so it reads as a flashing hazard light. */
+const tutLight: PixelFn = (x, y) => {
+  const d2 = distSq(x, y, 10, 10);
+  if (d2 >= 10 * 10) return TRANSPARENT;
+  if (d2 >= 7 * 7) return [120, 0, 0, 255];
+  if (d2 >= 3 * 3) return [235, 30, 30, 255];
+  return [255, 175, 175, 255];
+};
+
 // ---------- Output table ----------
 
 interface Placeholder {
@@ -235,6 +272,53 @@ const PLACEHOLDERS: Placeholder[] = [
       const g = Math.round(40 - 18 * t);
       const b = Math.round(40 - 18 * t);
       return [r, g, b, 240];
+    }
+  },
+
+  // ── Level 2 (vertical scroller) placeholders ──
+  // Fortress wall tile — dark stone with offset brick mortar lines.
+  // Tiled vertically and scrolled downward to fake the climb upward.
+  {
+    name: "wall-tile", w: 380, h: 220, pixel: (x, y) => {
+      const brickH = 44;
+      const rowIdx = Math.floor(y / brickH);
+      const offset = (rowIdx % 2) * 60;
+      const bx = (x + offset) % 120;
+      if (y % brickH < 3 || bx < 3) return [38, 36, 44, 255]; // mortar
+      return [66, 62, 74, 255]; // stone
+    }
+  },
+  // Power meter (Duke's health) frame + fill. Vertical bar on the left.
+  {
+    name: "power-frame", w: 40, h: 380, pixel: (x, y, w, h) => {
+      if (x < 4 || x >= w - 4 || y < 4 || y >= h - 4) return [205, 175, 120, 255];
+      return [22, 20, 16, 235];
+    }
+  },
+  {name: "power-fill", w: 30, h: 360, pixel: [120, 210, 90, 255]}, // sickly power-plant green
+  // Generic enemy placeholder box — white border, light inner that we
+  // tint per enemy type at runtime via setColor. A TextObject label is
+  // overlaid in code to say which enemy it is.
+  {
+    name: "l2box", w: 100, h: 100, pixel: (x, y, w, h) => {
+      if (x < 4 || x >= w - 4 || y < 4 || y >= h - 4) return [245, 245, 245, 255];
+      return [210, 210, 210, 255];
+    }
+  },
+  // Phase-1 tutorial container: yellow hazard triangle + flashing light.
+  {name: "tut-container", w: 120, h: 110, pixel: tutContainer},
+  {name: "tut-light", w: 20, h: 20, pixel: tutLight},
+  // Explosion / catch-can burst — concentric hot rings, scaled + faded
+  // in code. Drawn white-hot core → yellow → orange → smoky edge.
+  {
+    name: "burst", w: 64, h: 64, pixel: (x, y, w, h) => {
+      const d = Math.sqrt(distSq(x, y, w / 2, h / 2));
+      const t = d / (w / 2);
+      if (t >= 1) return TRANSPARENT;
+      if (t < 0.30) return [255, 255, 235, 255];
+      if (t < 0.55) return [255, 215, 95, 255];
+      if (t < 0.80) return [240, 130, 40, 235];
+      return [200, 70, 20, 170];
     }
   },
 ];

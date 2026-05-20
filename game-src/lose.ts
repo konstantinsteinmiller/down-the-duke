@@ -7,6 +7,7 @@
 // without manually un-spawning each one.
 
 import {firstOrNull, spawn, ObjectName} from "./entities.js";
+import * as levels from "./levels.js";
 
 const SPAWNED_VAR = "__loseSpawned";
 
@@ -46,6 +47,9 @@ function ensureSpawned(scene: GdjsRuntimeScene): void {
 
   const title = spawn(scene, ObjectName.GameOverText, 0, 0);
   if (title) {
+    // "YOU SUNK!" reads as a naval loss on Level 1; from Level 2 (the
+    // fortress climb) it's "WASTED".
+    title.setString(levels.current(scene) >= 2 ? "WASTED" : "YOU SUNK!");
     // Roughly centred — TextObject anchors at its top-left, so we
     // estimate the width from the string length × characterSize.
     const tw = title.getWidth() || 280;

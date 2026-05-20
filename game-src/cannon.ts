@@ -16,13 +16,13 @@ import {firstOrNull, spawn, ObjectName} from "./entities.js";
 import * as proj from "./projectiles.js";
 import * as hud from "./hud.js";
 
-const AIM_CENTER_DEG = -90;
+export const AIM_CENTER_DEG = -90;
 const AIM_SPREAD_DEG = 15;
 // Aim lands on the ship's HULL (where the crew / weak point sit), not
 // the sails up top. Ship spawns at y=140 and is 181 tall, so the hull
 // is around y=240–320 — splitting the difference at y=270 puts the
 // crosshair on the deck just above the waterline.
-const TARGET_BAND_Y = 270;
+export const TARGET_BAND_Y = 270;
 
 const AIM_DEG_PER_PX = 1 / 8;
 const AIM_DEG_VAR = "__aimDeg";
@@ -150,6 +150,20 @@ export function aim(
   return aimDeg;
 }
 
+/** Current aim angle in degrees (−90 = straight up / centred). */
+export function getAimDeg(scene: GdjsRuntimeScene): number {
+  return scene.getVariables().get(AIM_DEG_VAR).getAsNumber();
+}
+
+/** Force the aim to a specific angle, updating both the persisted aim
+ *  variable and the cannon sprite. Used by the Level-2 catch-can intro
+ *  to auto-correct the cannon to 0° so the first catch is automatic. */
+export function setAimDeg(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObject, deg: number): void {
+  scene.getVariables().get(AIM_INIT_VAR).setNumber(1);
+  scene.getVariables().get(AIM_DEG_VAR).setNumber(deg);
+  cannon.setAngle(deg + 90);
+}
+
 /** Glue the Crosshair sprite to the current aim's projected landing
  *  point. Spawned lazily on first call. */
 export function updateCrosshair(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObject, aimDeg: number): void {
@@ -164,12 +178,41 @@ export function updateCrosshair(scene: GdjsRuntimeScene, cannon: GdjsRuntimeObje
   cross.setY(t.y - cross.getHeight() / 2);
 }
 
-/** Fire a cannonball. `charged` (from a double-tap) doubles damage and
- *  spawns a bigger projectile, but costs 2 ammo instead of 1. If a
- *  charged shot is requested but only 1 ammo is available, fall back
- *  to a normal shot rather than no-op'ing — the double-tap still
- *  registers as a shot.
- *  Returns true if a shot was actually fired (gated by ammo / reload). */
+/** Spawn a cannonball from the muzzle toward the current aim's landing
+ *  point, with the standard outward horizontal arc. This is the shared
+ *  ball-spawning core used by BOTH levels — it does NO ammo / cooldown
+ *  gating, so each level can wrap it with its own firing rules.
+ *  `extraOpts` is merged into the projectile options (e.g. Level 2's
+ *  fast charged shot passes a shorter flightTimeSec + wobble: false). */
+export function fireBallAt(
+  scene: GdjsRuntimeScene,
+  cannon: GdjsRuntimeObject,
+  aimDeg: number,
+  charged: boolean,
+  extraOpts: proj.FireOptions = {},
+): void {
+  const rad = (aimDeg * Math.PI) / 180;
+  const dx = Math.cos(rad);
+  const dy = Math.sin(rad);
+  const {x: cx, y: cy} = cannonCenter(cannon);
+  // Muzzle offset scaled with the cannon sprite (stored at spawn).
+  const muzzleOffset = cannon.getVariables().get(CANNON_MUZZLE_OFFSET_VAR).getAsNumber() || 80;
+  const muzzleX = cx + dx * muzzleOffset;
+  const muzzleY = cy + dy * muzzleOffset;
+  const target = aimTarget(scene, cannon, aimDeg);
+  // Outward horizontal arc — biased in the direction of aim with a
+  // minimum +/- 40 px so even a straight-up shot visibly curves.
+  const horizDelta = target.x - muzzleX;
+  const dir = horizDelta === 0 ? 1 : Math.sign(horizDelta);
+  const xArcAmp = horizDelta * 0.5 + dir * 40;
+  const kind = charged ? ObjectName.ChargedBullet : ObjectName.Bullet;
+  proj.fire(scene, kind, muzzleX, muzzleY, target.x, target.y, {charged, xArcAmp, ...extraOpts});
+}
+
+/** Level-1 fire: 4-shot magazine + reload + per-shot cooldown via the
+ *  HUD. `charged` (double-tap) costs 2 ammo; if only 1 is available it
+ *  downgrades to a normal shot rather than no-op'ing. Returns true if a
+ *  shot was actually fired. Unchanged Level-1 behaviour. */
 export function fire(
   scene: GdjsRuntimeScene,
   cannon: GdjsRuntimeObject,
@@ -188,27 +231,7 @@ export function fire(
       return false;
     }
   }
-  charged = actuallyCharged;
-  const rad = (aimDeg * Math.PI) / 180;
-  const dx = Math.cos(rad);
-  const dy = Math.sin(rad);
-  const {x: cx, y: cy} = cannonCenter(cannon);
-  // Muzzle offset scaled with the cannon sprite (stored at spawn).
-  const muzzleOffset = cannon.getVariables().get(CANNON_MUZZLE_OFFSET_VAR).getAsNumber() || 80;
-  const muzzleX = cx + dx * muzzleOffset;
-  const muzzleY = cy + dy * muzzleOffset;
-  const target = aimTarget(scene, cannon, aimDeg);
-  // Player cannonball gets an outward horizontal arc — biased in the
-  // direction of aim with a minimum +/- 40 px so even a straight-up
-  // shot visibly curves rather than tracking a vertical line.
-  const horizDelta = target.x - muzzleX;
-  const dir = horizDelta === 0 ? 1 : Math.sign(horizDelta);
-  const xArcAmp = horizDelta * 0.5 + dir * 40;
-  // Charged shot uses the red cannonball sprite so it reads
-  // distinctly from the regular black shot.
-  const kind = charged ? ObjectName.ChargedBullet : ObjectName.Bullet;
-  proj.fire(scene, kind, muzzleX, muzzleY, target.x, target.y, {charged, xArcAmp});
+  fireBallAt(scene, cannon, aimDeg, actuallyCharged);
   hud.consumeAmmo(scene, cost);
-  console.log(`[cannon] fire${charged ? " CHARGED" : ""} aim=${aimDeg.toFixed(1)}° muzzle=(${muzzleX.toFixed(0)},${muzzleY.toFixed(0)}) → (${target.x.toFixed(0)},${target.y.toFixed(0)})`);
   return true;
 }

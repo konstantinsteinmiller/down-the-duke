@@ -8,7 +8,7 @@
 // otherwise.
 
 import {all, spawn, ObjectName} from "./entities.js";
-import {getHp} from "./state.js";
+import {getHp, INITIAL_PLAYER_HP} from "./state.js";
 
 const SECTION_COUNT = 5;
 const SECTION_W = 48;
@@ -25,6 +25,7 @@ const Z_SECTION = 41;
 
 const V_INIT = "__healthHudInit";
 const V_PREV_HP = "__healthHudPrevHp";
+const V_REVEALED = "__healthHudRevealed"; // bar stays hidden until the first hit
 
 const ANIM_NONE = 0;
 const ANIM_LOST = 1;
@@ -82,9 +83,15 @@ function applyDefault(sec: GdjsRuntimeObject): void {
 }
 
 export function tick(scene: GdjsRuntimeScene, dt: number): void {
-  ensureSpawn(scene);
   const vars = scene.getVariables();
   const hp = getHp(scene);
+  // Keep the health bar hidden until the player is hit for the first time;
+  // it then stays visible for the rest of the level.
+  if (vars.get(V_REVEALED).getAsNumber() !== 1) {
+    if (hp >= INITIAL_PLAYER_HP) return;
+    vars.get(V_REVEALED).setNumber(1);
+  }
+  ensureSpawn(scene);
   const prev = vars.get(V_PREV_HP).getAsNumber();
 
   // HP changed — flag the relevant sections for animation.

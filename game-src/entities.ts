@@ -29,6 +29,25 @@ export const ObjectName = {
   ChargedBullet: "ChargedBullet",
   VictoryText: "VictoryText",
   ContinueButtonText: "ContinueButtonText",
+  // Level 2 (vertical scroller)
+  WallTile: "WallTile",
+  PowerFrame: "PowerFrame",
+  PowerFill: "PowerFill",
+  L2Enemy: "L2Enemy",
+  L2Label: "L2Label",
+  PowerLabel: "PowerLabel",
+  CatchCanText: "CatchCanText",
+  Factory: "Factory",
+  Reactor: "Reactor",
+  EnemyCannon: "EnemyCannon",
+  TutContainer: "TutContainer",
+  TutLight: "TutLight",
+  TutHintText: "TutHintText",
+  Burst: "Burst",
+  P2HintText: "P2HintText",
+  ParryText: "ParryText",
+  LoadedBall: "LoadedBall",
+  EnemyRedBall: "EnemyRedBall",
 } as const;
 export type ObjectName = typeof ObjectName[keyof typeof ObjectName];
 
