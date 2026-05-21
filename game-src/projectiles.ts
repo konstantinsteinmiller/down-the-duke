@@ -20,10 +20,10 @@
 
 import {all, spawn, ObjectName} from "./entities.js";
 
-const FLIGHT_TIME_SEC = 2.25;
+const FLIGHT_TIME_SEC = 0.8;
 // Red cannonballs are slower per the GDD: ~4 s in the air, big
 // wobble, bigger sprite. ChargedBullet is the player's red ball.
-const FLIGHT_TIME_RED_SEC = 4.0;
+const FLIGHT_TIME_RED_SEC = 2.0;
 
 // ── Cannonball launch sizes (display px at the moment of firing) ──
 // Player balls launch close to the camera (big) and shrink as they

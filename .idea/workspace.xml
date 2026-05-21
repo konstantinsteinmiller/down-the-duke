@@ -10,14 +10,8 @@
     <list default="true" id="c28b41bc-3860-40d9-a7a1-eef5cd43b6ec" name="Changes" comment="- catch can&#10;- level 2 vertical scroller">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project/game-current.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project/game-current.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Project/game.json" beforeDir="false" afterPath="$PROJECT_DIR$/Project/game.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-src/audio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/audio.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-src/entities.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/entities.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game-src/level2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/level2.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game-src/vfx.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/vfx.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/gen-placeholders.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/gen-placeholders.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/sync-art-assets.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/sync-art-assets.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game-src/projectiles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/game-src/projectiles.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,14 +280,6 @@
       <workItem from="1778933712096" duration="3214000" />
       <workItem from="1779131709819" duration="5139000" />
       <workItem from="1779195901455" duration="9773000" />
-    </task>
-    <task id="LOCAL-00393" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
-      <option name="closed" value="true" />
-      <created>1777216490984</created>
-      <option name="number" value="00393" />
-      <option name="presentableId" value="LOCAL-00393" />
-      <option name="project" value="LOCAL" />
-      <updated>1777216490984</updated>
     </task>
     <task id="LOCAL-00394" summary="- fix(ios): declare IronSourceSDK binary   target directly + use manager.viewController">
       <option name="closed" value="true" />
@@ -679,7 +665,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779312824562</updated>
     </task>
-    <option name="localTasksCounter" value="442" />
+    <task id="LOCAL-00442" summary="- catch can&#10;- level 2 vertical scroller">
+      <option name="closed" value="true" />
+      <created>1779314187775</created>
+      <option name="number" value="00442" />
+      <option name="presentableId" value="LOCAL-00442" />
+      <option name="project" value="LOCAL" />
+      <updated>1779314187775</updated>
+    </task>
+    <option name="localTasksCounter" value="443" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

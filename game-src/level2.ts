@@ -1134,9 +1134,9 @@ function tickPhase2Intro(scene: GdjsRuntimeScene, dt: number, cannon: GdjsRuntim
 // (a queued charged shot then runs its 0.5 s pre-fire delay on top of
 // that). The latest input wins, so a tap can be upgraded to a charged
 // shot — or vice-versa — before the cooldown is up.
-const L2_RELOAD_SEC = 0.75;
-const L2_CHARGE_DELAY_SEC = 0.5;
-const L2_NORMAL_FLIGHT_SEC = 1.5;
+const L2_RELOAD_SEC = 0.2;
+const L2_CHARGE_DELAY_SEC = 0.3;
+const L2_NORMAL_FLIGHT_SEC = 0.8;
 const L2_CHARGED_FLIGHT_SEC = L2_NORMAL_FLIGHT_SEC / 1.25; // 1.25× speed → 1.125 s
 const V_FIRE_CD = "__l2FireCd";
 const V_CHARGE_T = "__l2ChargeT";
